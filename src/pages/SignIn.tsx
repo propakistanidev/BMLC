@@ -1,10 +1,9 @@
 import { useState } from 'react'
 import { Icon } from '@iconify/react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import SignImage from '../assets/SignInPageImage.png'
 import Logo from '../assets/logo.png'
 import toast from 'react-hot-toast'
-
 
 export default function SignIn() {
     const [email, setEmail] = useState('')
@@ -12,14 +11,23 @@ export default function SignIn() {
     const [showPassword, setShowPassword] = useState(false)
     const navigate = useNavigate()
 
-    // Email validation regex
+    const USERS = {
+        admin: {
+            email: 'admin@bmlc.com',
+            password: 'Admin!123',
+        },
+        user: {
+            email: 'user@bmlc.com',
+            password: 'User!123',
+        },
+    }
+
     const isValidEmail = (email: string) =>
         /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
 
-        // Validate fields
         if (!email || !password) {
             toast.error('Email and Password are required')
             return
@@ -30,33 +38,46 @@ export default function SignIn() {
             return
         }
 
-        if (password.length < 6) {
-            toast.error('Password must be at least 6 characters')
-            return
+        // Check for Admin
+        if (email === USERS.admin.email && password === USERS.admin.password) {
+            toast.success('Welcome Admin!')
+            setTimeout(() => {
+                navigate('/AdminPanel')
+            }, 1200)
         }
 
+        // Check for User
+        else if (email === USERS.user.email && password === USERS.user.password) {
+            toast.success('Welcome User!')
+            setTimeout(() => {
+                navigate('/UserPanel')
+            }, 1200)
+        }
 
-        toast.success('Successfully signed in!')
-        setTimeout(() => {
-            navigate('/')
-        }, 1500)
+        // If credentials don’t match
+        else {
+            toast.error('Incorrect email or password')
+        }
     }
 
     return (
         <div className="h-screen flex flex-col md:flex-row overflow-hidden w-full">
-            <div className='flex w-full'>
+            <div className="flex w-full">
                 {/* Left - Form */}
                 <div className="w-1/2 flex items-center justify-center p-10 bg-white relative">
                     {/* Top Nav */}
-                    <div className="absolute top-6 left-6 flex items-center gap-2 cursor-pointer" onClick={() => navigate('/')}>
+                    <div
+                        className="absolute top-6 left-6 flex items-center gap-2 cursor-pointer"
+                        onClick={() => navigate('/')}
+                    >
                         <Icon icon="ic:round-arrow-back" className="w-7 h-7 text-gray-700" />
                         <img src={Logo} alt="Logo" className="h-7 w-auto" />
                     </div>
 
                     <form onSubmit={handleSubmit} className="max-w-md w-full mx-auto mt-16">
                         <h2 className="text-3xl text-center font-semibold text-gray-800 mb-6">Login</h2>
-                        <p className='text-center leading-snug text-2xl text-gray-700'>Get the coaching you need!</p>
-                        <p className='text-center leading-snug text-gray-500 pt-4'>Make the most of your time.</p>
+                        <p className="text-center leading-snug text-2xl text-gray-700">Get the coaching you need!</p>
+                        <p className="text-center leading-snug text-gray-500 pt-4">Make the most of your time.</p>
 
                         {/* Email */}
                         <div className="mb-4">
@@ -118,7 +139,10 @@ export default function SignIn() {
 
                         <p className="text-sm text-gray-500 text-center mt-20">
                             Don't have an account?{' '}
-                            <span className="text-purple-500 font-bold cursor-pointer" onClick={() => navigate('/signuppage')}>
+                            <span
+                                className="text-purple-500 font-bold cursor-pointer"
+                                onClick={() => navigate('/signuppage')}
+                            >
                                 Sign Up
                             </span>
                         </p>
