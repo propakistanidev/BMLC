@@ -1,9 +1,6 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import AuthLayout from './components/AuthLayout'
-
-// import SignIn from './pages/SignIn'
-// import SignUp from './pages/SignUp'
 import ReactDom from 'react-dom'
 import './index.css'
 import App from './App.tsx'

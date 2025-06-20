@@ -23,7 +23,7 @@ export default function Hero() {
                     </div>
                 </div>
                 <div>
-                    <div className='pr-[90px] max-w max-h object-cover transition-transform duration-300 ease-in-out hover:scale-110'><img src={Background} alt="Background"></img>
+                    <div className='pr-[90px] max-w max-h object-cover transition-transform duration-300 ease-in-out hover:scale-110'><img src={Background} alt="Background" className='w-160 h-80'></img>
                     </div>
 
                 </div>
