@@ -1,0 +1,8 @@
+body {
+    @apply bg-white;
+  }
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
