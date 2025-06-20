@@ -54,17 +54,17 @@ export default function AdminPanel() {
     ];
 
     return (
-        <div className="flex h-screen">
+        <div className="flex flex-col md:flex-row h-screen">
             {/* Sidebar */}
-            <div className={`bg-white text-gray-600 p-6 transition-all flex flex-col justify-between ${collapsed ? 'w-20' : 'w-60'}`}>
+            <div className={`bg-white text-gray-600 p-4 md:p-6 transition-all flex flex-col justify-between ${collapsed ? 'w-20' : 'w-full md:w-60'} fixed md:static z-20 h-[60px] md:h-auto top-0 left-0 right-0 md:flex md:flex-col`}>
                 <div>
-                    <div className={`flex ${collapsed ? 'flex-col items-center gap-4' : 'items-center justify-between'}`}>
+                    <div className={`flex ${collapsed ? 'flex-row md:flex-col items-center gap-2 md:gap-4' : 'items-center justify-between'}`}>
                         <img src={logo} alt="Logo" className="h-8" />
                         <button onClick={() => setCollapsed(!collapsed)}>
                             <Icon icon="mdi:menu" className="text-purple-700 text-2xl" />
                         </button>
                     </div>
-                    <nav className="mt-10 space-y-4">
+                    <nav className="mt-6 md:mt-10 space-y-4 hidden md:block">
                         {navTabs.map((tab, idx) => (
                             <div
                                 key={idx}
@@ -76,7 +76,7 @@ export default function AdminPanel() {
                         ))}
                     </nav>
                 </div>
-                <div className="mt-10">
+                <div className="hidden md:block mt-10">
                     <button
                         className={`flex items-center border-4 text-purple-500 border-purple-500 rounded-lg py-2 gap-2 text-lg hover:text-purple-800 hover:font-bold transition-all duration-300 ${collapsed ? 'justify-center px-2' : 'px-12'}`}
                         onClick={() => window.location.href = '/'}
@@ -88,8 +88,8 @@ export default function AdminPanel() {
             </div>
 
             {/* Main Content */}
-            <div className="flex-1 p-6 overflow-y-auto bg-[#F8F6FC]">
-                <div className="flex justify-between items-center mb-6">
+            <div className="flex-1 mt-[60px] md:mt-0 p-4 md:p-6 overflow-y-auto bg-[#F8F6FC]">
+                <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
                     <h1 className="text-xl font-bold">Home</h1>
                     <div className="flex items-center gap-3">
                         <img src={profileImage} alt="User" className="h-9 w-9 rounded-full" />
@@ -106,14 +106,14 @@ export default function AdminPanel() {
                         <h2 className="text-lg font-semibold">Upcoming Sessions</h2>
                         <button className="text-purple-600 text-sm">See All</button>
                     </div>
-                    <div className="flex gap-8 overflow-x-auto pb-5">
+                    <div className="flex gap-4 md:gap-8 overflow-x-auto pb-5">
                         {[1, 2, 3, 4].map((item) => (
                             <div
                                 key={item}
                                 className="min-w-[250px] bg-white p-4 rounded-xl shadow cursor-pointer hover:shadow-md transition-all"
                                 onClick={() => {
                                     setSelectedCoach({
-                                        name: 'Coach John Doe',
+                                        name: 'Mazhar Ali',
                                         expertise: 'Career Coach',
                                         availability: '21 June | 2:00 PM - 3:00 PM',
                                         about: 'John has 10+ years of experience helping individuals make career transitions with confidence.',
@@ -123,7 +123,7 @@ export default function AdminPanel() {
                                 }}
                             >
                                 <img src={coach1} className="h-12 w-12 rounded-full mb-2" alt="Coach" />
-                                <h3 className="font-medium">Coach John Doe</h3>
+                                <h3 className="font-medium">Mazhar Ali</h3>
                                 <p className="text-sm text-gray-500">Career Coach</p>
                                 <p className="text-sm mt-2 text-gray-600">21 June | 2:00 PM - 3:00 PM</p>
                             </div>
@@ -133,7 +133,7 @@ export default function AdminPanel() {
 
                 {/* Earnings Overview */}
                 <div className="mb-10">
-                    <div className="flex justify-between items-center mb-3">
+                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-3 gap-4">
                         <h2 className="text-lg font-semibold">Earnings Overview - Last Month</h2>
                         <div className="flex items-center gap-6 text-sm">
                             <label className="flex items-center gap-1 cursor-pointer">
@@ -173,9 +173,9 @@ export default function AdminPanel() {
                         <h2 className="text-lg font-semibold">My Reviews</h2>
                         <button className="text-purple-600 text-sm">See All</button>
                     </div>
-                    <div className="flex gap-4 overflow-x-auto pb-2">
+                    <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-4">
                         {reviews.map((review, idx) => (
-                            <div key={idx} className="min-w-[300px] bg-white p-4 rounded-xl shadow-lg relative">
+                            <div key={idx} className="bg-white p-4 rounded-xl shadow-lg relative">
                                 <div className="flex items-center gap-3">
                                     <img src={review.image} className="h-10 w-10 rounded-full" alt="Client" />
                                     <div>
@@ -192,6 +192,7 @@ export default function AdminPanel() {
                     </div>
                 </div>
             </div>
+
             {isModalOpen && selectedCoach && (
                 <CoachModal
                     isOpen={isModalOpen}
