@@ -27,6 +27,7 @@ const router = createBrowserRouter([
       { path: 'pricing', element: <Pricing /> },
       { path: 'contact', element: <Contact /> },
       { path: 'lifecoaches', element: <LifeCoaches /> },
+
     ],
   },
   {
@@ -37,6 +38,7 @@ const router = createBrowserRouter([
       { path: 'signuppage', element: <SignUpPage /> },
       { path: "/AdminPanel", element: <AdminPanel /> },
       { path: "/UserPanel", element: <UserPanel /> },
+
     ],
   },
 ])

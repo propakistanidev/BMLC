@@ -15,12 +15,14 @@ import ScrollToTop from './components/ScrollToTop.tsx'
 
 
 
+
 const App = () => {
   return (
 
     <div>
       <ScrollToTop />
       {/* <TopBar /> */}
+
       <Hero />
       <Content />
       <FindCoach />
@@ -31,6 +33,7 @@ const App = () => {
       <AppDownload />
       <GroupCoaching />
       {/* <Footer /> */}
+
     </div>
 
   )

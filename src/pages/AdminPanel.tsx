@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Icon } from '@iconify/react';
+import { Link } from 'react-router-dom';
 import profileImage from '../assets/profile.png';
 import logo from '../assets/logo.png';
 import coach1 from '../assets/coach1.png';
@@ -44,13 +45,13 @@ export default function AdminPanel() {
     ];
 
     const navTabs = [
-        { label: 'Home', icon: 'mynaui:home' },
-        { label: 'My Sessions', icon: 'solar:calendar-linear' },
-        { label: 'Chats', icon: 'fluent:chat-20-regular' },
-        { label: 'Earnings', icon: 'ant-design:dollar-outlined' },
-        { label: 'Availability', icon: 'tdesign:calendar-2' },
-        { label: 'Profile', icon: 'ant-design:setting-outlined' },
-        { label: 'Call History', icon: 'solar:phone-linear' },
+        { label: 'Home', icon: 'mynaui:home', to: '/home' },
+        { label: 'My Sessions', icon: 'solar:calendar-linear', to: '/sessions' },
+        { label: 'Chats', icon: 'fluent:chat-20-regular', to: '/chats' },
+        { label: 'Earnings', icon: 'ant-design:dollar-outlined', to: '/earnings' },
+        { label: 'Availability', icon: 'tdesign:calendar-2', to: '/availability' },
+        { label: 'Profile', icon: 'ant-design:setting-outlined', to: '/profile' },
+        { label: 'Call History', icon: 'solar:phone-linear', to: '/calls' },
     ];
 
     return (
@@ -66,13 +67,14 @@ export default function AdminPanel() {
                     </div>
                     <nav className="mt-6 md:mt-10 space-y-4 hidden md:block">
                         {navTabs.map((tab, idx) => (
-                            <div
+                            <Link
                                 key={idx}
+                                to={tab.to}
                                 className="flex items-center gap-4 cursor-pointer hover:text-gray-700 hover:bg-[#C8B8E8] hover:font-semibold hover:rounded-lg py-2 px-2"
                             >
                                 <Icon icon={tab.icon} className="text-xl" />
                                 {!collapsed && <span>{tab.label}</span>}
-                            </div>
+                            </Link>
                         ))}
                     </nav>
                 </div>
