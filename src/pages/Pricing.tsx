@@ -50,11 +50,12 @@ const Pricing = () => {
                         <p className='pr-8 pl-8 leading-snug text-base font-extralight text-gray-500'>Each credit equals $1, so for example, 10 credits = $10.</p>
                     </div>
                 </div>
-                <p className='self-start text-base text-gray-500 pl-72 m-12'>
+                <p className='self-start text-base text-[#454545] font-extralight pl-20 m-12'>
                     <span className='text-[#9363C4]'>*Note:</span> Messaging for new users: Get 500 words for just <span className='text-[#9363C4] font-bold'>$4.99</span> as part of our new user special.
                 </p>
             </div>
-            <AppDownload />
+            <div className='m-40'>
+                <AppDownload /></div>
             <GroupCoaching />
             {/* <Footer /> */}
         </div>

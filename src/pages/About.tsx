@@ -3,8 +3,9 @@ import React from 'react'
 import ImgAbout from '../assets/AboutUsPageImage.png'
 import { Icon } from '@iconify/react';
 import GroupCoaching from '../components/GroupCoaching';
-import image1 from "../assets/TransformImage1.png";
-import image2 from "../assets/Step12.png";
+// import image1 from "../assets/TransformImage1.png";
+// import image2 from "../assets/Step12.png";
+import TransformImage from "../assets/TransformyourLife.png";
 
 const AboutPage = () => {
     return (
@@ -36,16 +37,16 @@ const AboutPage = () => {
                 <div className="flex flex-col lg:flex-row justify-center items-start gap-16 max-w-6xl mx-auto px-4">
 
 
-                    <div className="flex flex-col gap-6 w-full lg:w-1/2 pl-4 lg:pl-[90px]">
-                        <h1 className="text-4xl md:text-4xl text-[#333333] font-medium capitalize pb-4">
+                    <div className="flex flex-col gap-6 w-full lg:w-1/2 pl-4 mt-20 lg:pl-[90px]">
+                        <h1 className="text-4xl md:text-4xl text-[#333333] font-medium capitalize pb-4 leading-snug">
                             Feeling overwhelmed? <br /> We're just a tap away.
                         </h1>
 
-                        <p className="text-[#454545] font-extralight pb-4">
+                        <p className="text-[#454545] font-extralight leading-snug">
                             Connect with a life coach now—no waiting, no judgment.
                         </p>
 
-                        <h1 className='text-3xl md:text-3xl text-[#9363C4] font-extralight capitalize leading-snug italic whitespace-nowrap pb-6'>Because when life feels heavy,<br /> support should feel light.</h1>
+                        <h1 className='text-3xl md:text-3xl text-[#9363C4] font-extralight capitalize leading-12 italic whitespace-nowrap pb-6'>Because when life feels heavy,<br /> support should feel light.</h1>
                         <button className="group flex items-center gap-2 px-5 h-[50px] w-65 bg-[#C8B8E8] text-[#27272A] font-[13px] rounded-lg shadow-[inset_0_2px_2px_#ffffff] border-2 border-[#C8B8E8] hover:transition-all duration-300"><span>Connect with a Life Coach</span> <span className="transform transition-transform duration-300 group-hover:translate-x-2">
                             →
                         </span></button>
@@ -53,24 +54,12 @@ const AboutPage = () => {
                     </div>
 
 
-                    <div className="flex w-full lg:w-1/2 items-start">
-
-                        <div className="mt-16 w-1/2">
-                            <img
-                                src={image1}
-                                alt="Transform 1"
-                                className="w-[250px] h-auto rounded-l-full object-cover"
-                            />
-                        </div>
-
-
-                        <div className="-mt-4 w-1/2">
-                            <img
-                                src={image2}
-                                alt="Transform 2"
-                                className="w-[400px] h-auto rounded-r-full object-cover"
-                            />
-                        </div>
+                    <div className="w-full lg:w-1/2 flex justify-center items-center">
+                        <img
+                            src={TransformImage}
+                            alt="Transform"
+                            className="w-full max-w-md rounded-full object-cover"
+                        />
                     </div>
                 </div>
             </div>

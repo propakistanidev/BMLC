@@ -13,7 +13,7 @@ const Contact = () => {
                 <h1 className="text-4xl md:text-4xl text-[#333333] text-center font-medium leading-snug whitespace-nowrap p-2 pt-20 z-10 relative capitalize">
                     get in touch
                 </h1>
-                <p className='capitalize text-black text-center font-semibold pt-2 z-10 relative'>We’re here to help and answer any questions you might have. <br />We look forward to hearing from you.</p>
+                <p className='capitalize text-black text-center font-light pt-2 z-10 relative'>We’re here to help and answer any questions you might have. <br />We look forward to hearing from you.</p>
 
                 {/* Concave Arch Shape */}
                 <svg
@@ -28,28 +28,28 @@ const Contact = () => {
                     />
                 </svg>
             </div>
-            <div className="relative z-10 -mt-25 px-6 md:px-20 flex flex-col md:flex-row gap-10 justify-center">
+            <div className="relative z-10 -mt-25  px-6 md:px-20 flex flex-col md:flex-row gap-10 justify-center">
                 <div className={cardProp}>
                     <Icon icon='ph:headset-bold' className='text-purple-400 font-semibold w-12 h-12 m-5' />
                     <p className="font-semibold text-2xl">Contact Support</p>
-                    <p className='text-gray-500 pt-6 text-lg text-center leading-8'>Get help from our support <br />team.</p>
-                    <button className="group flex items-center gap-2 m-8 px-18 py-4 h-[40px] bg-[#C8B8E8] text-[#333333] font-bold rounded-full border-black-100 border-[1px] hover:transition-all duration-300"><span>Get Support</span> <span className="transform transition-transform duration-300 group-hover:translate-x-1">
+                    <p className='text-gray-500 pt-6 text-lg text-center font-extralight leading-8'>Get help from our support <br />team.</p>
+                    <button className="group flex items-center gap-2 m-8 px-18 py-4 h-[40px] bg-[#C8B8E8] text-[#27272A] shadow-[inset_0_2px_2px_#ffffff] border-2 border-[#C8B8E8] font-bold rounded-lg border-black-100 hover:transition-all duration-300"><span>Get Support</span> <span className="transform transition-transform duration-300 group-hover:translate-x-1">
                         →
                     </span></button>
                 </div>
                 <div className={cardProp}>
                     <Icon icon='mdi:handshake-outline' className='text-purple-400 font-semibold w-12 h-12 m-5' />
                     <p className="font-semibold text-2xl">Partnership</p>
-                    <p className='text-gray-500 pt-6 pr-6 pl-6 text-lg text-center leading-8 '>Partner with Be My Life Coach <br />or become a Life Coach.</p>
-                    <button className="group flex items-center gap-2 m-8 px-10 py-4 h-[40px] capitalize bg-[#C8B8E8] text-[#333333] font-bold rounded-full border-black-100 border-[1px] hover:transition-all duration-300"><span>become a partner</span> <span className="transform transition-transform duration-300 group-hover:translate-x-1">
+                    <p className='text-gray-500 pt-6 pr-6 pl-6 text-lg text-center font-extralight leading-8 '>Partner with Be My Life Coach <br />or become a Life Coach.</p>
+                    <button className="group flex items-center gap-2 m-8 px-10 py-4 h-[40px] capitalize bg-[#C8B8E8] text-[#27272A] shadow-[inset_0_2px_2px_#ffffff] border-2 border-[#C8B8E8] font-semibold rounded-lg border-black-100 hover:transition-all duration-300"><span>become a partner</span> <span className="transform transition-transform duration-300 group-hover:translate-x-1">
                         →
                     </span></button>
                 </div>
                 <div className={cardProp}>
                     <Icon icon='material-symbols:feedback-outline' className='text-purple-400 font-semibold w-12 h-12 m-5' />
                     <p className="font-semibold text-2xl">Feedback</p>
-                    <p className='text-gray-500 pt-6 pr-8 pl-6 text-lg text-center leading-8 '>Share suggestions about our products or services.</p>
-                    <button className="group flex items-center gap-2 m-8 px-10 py-4 h-[40px] capitalize bg-[#C8B8E8] text-[#333333] font-bold rounded-full border-black-100 border-[1px] hover:transition-all duration-300"><span>Share Feedback</span> <span className="transform transition-transform duration-300 group-hover:translate-x-1">
+                    <p className='text-gray-500 pt-6 pr-8 pl-6 text-lg font-extralight text-center leading-8 '>Share suggestions about our<br /> products or services.</p>
+                    <button className="group flex items-center gap-2 m-8 px-10 py-4 h-[40px] capitalize bg-[#C8B8E8] text-[#27272A] shadow-[inset_0_2px_2px_#ffffff] border-2 border-[#C8B8E8] font-semibold rounded-lg  border-black-100 hover:transition-all duration-300"><span>Share Feedback</span> <span className="transform transition-transform duration-300 group-hover:translate-x-1">
                         →
                     </span></button>
                 </div>

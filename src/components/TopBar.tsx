@@ -3,7 +3,7 @@ import logo from '../assets/logo.png'
 
 const TopBar = () => {
     return (
-        <div className="header text-[#454545] border-b-[1px] border-borderColor p-[16px] w-full flex flex-wrap md:flex-nowrap bg-white justify-between items-center gap-4 md:gap-[50px] text-base relative">
+        <div className="header text-[#454545] p-[16px] w-full flex flex-wrap md:flex-nowrap bg-white justify-between items-center gap-4 md:gap-[50px] text-base relative">
 
             {/* Logo */}
             <img className='pl-4 md:pl-[90px] w-[120px] object-contain' src={logo} alt="logo" />

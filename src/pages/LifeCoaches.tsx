@@ -11,9 +11,8 @@ const LifeCoaches = () => {
     return (
         <div>
             <FindCoach />
-
+            <div className='m-40'><AppDownload /></div>
             <GroupCoaching />
-            <AppDownload />
         </div>
     )
 }
