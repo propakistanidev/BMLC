@@ -47,23 +47,23 @@ function Card({ coach }: { coach: Coach }) {
                 <span className="text-gray-500 ml-2">({coach.reviews})</span>
             </div>
 
-            <hr className="my-3 w-full text-gray-400" />
+            <hr className="my-3 w-full text-gray-200" />
 
 
             <div className="text-xs text-gray-600 w-full">
-                <p><span className="font-semibold">Call Rate:</span> {coach.callRate}</p>
-                <p className="mt-1"><span className="font-semibold">Message Rate:</span> {coach.messageRate}</p>
+                <p><span className="font-light">Call Rate:</span> {coach.callRate}</p>
+                <p className="mt-1"><span className="font-light">Message Rate:</span> {coach.messageRate}</p>
             </div>
 
 
             <div className="mt-4 flex flex-wrap gap-2 w-full">
-                <button className="flex items-center gap-1 px-9 py-2 bg-purple-300 text-black font-semibold text-xs rounded-full hover:bg-purple-200 transition">
+                <button className="flex items-center gap-1 px-9 py-2 bg-purple-300 text-black font-semibold text-xs rounded-lg hover:bg-purple-200 transition">
                     <FaRegCalendarAlt className="text-gray" /> Book
                 </button>
-                <button className="flex items-center gap-1 px-8 py-2 bg-white border text-purple-600 text-xs font-semibold rounded-full hover:bg-gray-200 transition">
+                <button className="flex items-center gap-1 px-8 py-2 bg-white border text-purple-600 text-xs font-semibold rounded-lg hover:bg-gray-200 transition">
                     <FaPhoneAlt /> Call
                 </button>
-                <button className="flex items-center gap-1 px-6 py-2 bg-gray-100 text-gray-700 text-xs font-semibold rounded-full hover:bg-gray-200 transition">
+                <button className="flex items-center gap-1 px-6 py-2 bg-gray-100 text-gray-700 text-xs font-semibold rounded-lg hover:bg-gray-200 transition">
                     <FaComments /> Chat
                 </button>
             </div>
@@ -73,13 +73,13 @@ function Card({ coach }: { coach: Coach }) {
 }
 
 function FindCoach() {
-    const coaches: Coach[] = new Array(6).fill({
+    const coaches: Coach[] = new Array(8).fill({
         name: "Jane Doe",
         expertise: ["Relationships", "Career", "Anxiety"],
         rating: 4.9,
         reviews: "12K",
-        callRate: "$2/min",
-        messageRate: "$1/message",
+        callRate: "$2 / min",
+        messageRate: "$1 / message",
         image: ProfilePicture,
     });
 
@@ -88,9 +88,9 @@ function FindCoach() {
             {/* Section Heading */}
 
 
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center px-6 md:px-12 pt-8 pb-8">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center px-6 md:px-50 pt-8 pb-8">
                 <h1 className="text-[32px] md:text-[50px] text-[#333333] font-medium capitalize">
-                    Find Your Coach
+                    Life Coaches
                 </h1>
 
                 <div className="flex gap-8 mt-4 md:mt-0">
@@ -112,12 +112,12 @@ function FindCoach() {
 
 
             {/* Card Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-2 gap-y-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-6">
                 {coaches.map((coach, idx) => (
                     <Card key={idx} coach={coach} />
                 ))}
             </div>
-            <div><button className='flex items-center gap-1 my-[40px] mx-auto px-6 py-4 bg-[#C8B8E8] text-[#333333] text-xs font-semibold rounded-full hover:bg-purple-200 transition'>View All Coaches</button></div>
+            <div><button className='flex items-center gap-1 my-[40px] mx-auto px-6 py-4 bg-[#C8B8E8] text-[#333333] text-xs font-semibold rounded-lg hover:bg-purple-200 transition'>View All Coaches</button></div>
         </div>
 
 
