@@ -4,15 +4,15 @@ import { Icon } from '@iconify/react';
 
 export default function EBook() {
     return (
-        <div className='bg-[#F8F6FC] flex flex-col lg:flex-row justify-center items-start gap-[90px] py-[150px] px-4 w-full'>
+        <div className='bg-[#F8F6FC] flex flex-col lg:flex-row justify-center items-start gap-[100px] py-[150px]  w-full'>
             <div>
                 <h1 className='leading-snug md:text-[40px] text-[#454545] font-light capitalize'>
                     Get Our eBook: <br />"Finding Clarity in Chaos"
                 </h1>
-                <p className='pt-[10px] md:text-[16px] text-[14px] text-[#333333] font-light leading-7.5 w-[400px]'>
+                <p className='pt-[10px] md:text-[16px] text-[14px] text-[#333333] font-light leading-8.5 w-[400px]whitespace-nowrap'>
                     Discover practical steps to navigate stress, regain<br /> control, and reconnect with your goals. This short, <br />powerful guide is your first step toward a more <br />focused life.
                 </p>
-                <h3 className='pt-2 text-2xl text-[#9363C4] font-normal leading-10 whitespace-nowrap'>
+                <h3 className='pt-4 pb-4 text-2xl text-[#9363C4] font-normal leading-10 whitespace-nowrap'>
                     Only $4.99
                 </h3>
 
@@ -28,7 +28,7 @@ export default function EBook() {
             </div>
 
             <div>
-                <img src={Ebook} alt="Ebook" className="w-[300px] h-auto" />
+                <img src={Ebook} alt="Ebook" className="w-[400px] h-auto" />
             </div>
         </div>
     );
