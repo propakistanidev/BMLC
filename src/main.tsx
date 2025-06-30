@@ -16,6 +16,7 @@ import SignUpPage from './pages/SignUpPage.tsx'
 import AdminPanel from './pages/AdminPanel.tsx'
 import UserPanel from './pages/UserPanel.tsx'
 import Sessions from './pages/Sesions.tsx'
+import Chats from './pages/Chats.jsx'
 
 
 const router = createBrowserRouter([
@@ -39,7 +40,8 @@ const router = createBrowserRouter([
       { path: 'signuppage', element: <SignUpPage /> },
       { path: "/AdminPanel", element: <AdminPanel /> },
       { path: "/UserPanel", element: <UserPanel /> },
-      { path: "/Sessions", element: <Sessions /> }
+      { path: "/Sessions", element: <Sessions /> },
+      { path: "/Chats", element: <Chats /> }
 
     ],
   },
