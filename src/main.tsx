@@ -15,10 +15,11 @@ import { Toaster } from 'react-hot-toast'
 import SignUpPage from './pages/SignUpPage.tsx'
 import AdminPanel from './pages/AdminPanel.tsx'
 import UserPanel from './pages/UserPanel.tsx'
-import Sessions from './pages/Sesions.tsx'
+import Sessions from './pages/Sessions.tsx'
 import Chats from './pages/Chats.jsx'
 import Earnings from './pages/Earnings.tsx'
 import Availability from './pages/Availability.tsx'
+import Profile from './pages/Profile.tsx'
 
 
 const router = createBrowserRouter([
@@ -45,7 +46,8 @@ const router = createBrowserRouter([
       { path: "/Sessions", element: <Sessions /> },
       { path: "/Chats", element: <Chats /> },
       { path: "/Earnings", element: <Earnings /> },
-      { path: "/Availability", element: <Availability /> }
+      { path: "/Availability", element: <Availability /> },
+      { path: "Profile", element: <Profile /> }
 
     ],
   },
