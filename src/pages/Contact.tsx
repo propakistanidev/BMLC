@@ -1,9 +1,7 @@
-import React from 'react'
 import { cardProp } from './Pricing'
 import { Icon } from '@iconify/react/dist/iconify.js'
-// import TopBar from '../components/TopBar'
 import GroupCoaching from '../components/GroupCoaching'
-// import Footer from '../components/Footer'
+import { TiMessages } from "react-icons/ti";
 
 const Contact = () => {
     return (
@@ -30,55 +28,55 @@ const Contact = () => {
             </div>
             <div className="relative z-10 -mt-25  px-6 md:px-20 flex flex-col md:flex-row gap-10 justify-center">
                 <div className={cardProp}>
-                    <Icon icon='ph:headset-bold' className='text-purple-400 font-semibold w-12 h-12 m-5' />
-                    <p className="font-semibold text-2xl">Contact Support</p>
-                    <p className='text-gray-500 pt-6 text-lg text-center font-extralight leading-8'>Get help from our support <br />team.</p>
-                    <button className="group flex items-center gap-2 m-8 px-18 py-4 h-[40px] bg-[#C8B8E8] text-[#27272A] shadow-[inset_0_2px_2px_#ffffff] border-2 border-[#C8B8E8] font-bold rounded-lg border-black-100 hover:transition-all duration-300"><span>Get Support</span> <span className="transform transition-transform duration-300 group-hover:translate-x-1">
+                    <Icon icon='ph:headset-bold' className='text-purple-400 font-semibold w-20 h-20' />
+                    <p className="font-semibold text-2xl mt-2 ">Contact Support</p>
+                    <p className='text-gray-500 pt-6 text-lg text-center font-extralight -mb-8 leading-8'>Get help from our support <br />team.</p>
+                    <button className="group flex items-center gap-2 m-8 mt-20 px-18 py-6 h-[40px] bg-[#C8B8E8] text-[#27272A] shadow-[inset_0_2px_2px_#ffffff] border-2 border-[#C8B8E8] font-bold rounded-lg border-black-100 hover:transition-all duration-300"><span>Get Support</span> <span className="transform transition-transform duration-300 group-hover:translate-x-1">
                         →
                     </span></button>
                 </div>
                 <div className={cardProp}>
-                    <Icon icon='mdi:handshake-outline' className='text-purple-400 font-semibold w-12 h-12 m-5' />
-                    <p className="font-semibold text-2xl">Partnership</p>
-                    <p className='text-gray-500 pt-6 pr-6 pl-6 text-lg text-center font-extralight leading-8 '>Partner with Be My Life Coach <br />or become a Life Coach.</p>
-                    <button className="group flex items-center gap-2 m-8 px-10 py-4 h-[40px] capitalize bg-[#C8B8E8] text-[#27272A] shadow-[inset_0_2px_2px_#ffffff] border-2 border-[#C8B8E8] font-semibold rounded-lg border-black-100 hover:transition-all duration-300"><span>become a partner</span> <span className="transform transition-transform duration-300 group-hover:translate-x-1">
+                    <Icon icon='mdi:handshake-outline' className='text-purple-400 font-semibold w-20 h-20' />
+                    <p className="font-semibold text-2xl mt-2">Partnership</p>
+                    <p className='text-gray-500 pt-6 pr-6 pl-6 text-lg text-center font-extralight -mb-8 leading-8 '>Partner with Be My Life Coach <br />or become a Life Coach.</p>
+                    <button className="group flex items-center gap-2 m-8 mt-20 px-10 py-6 h-[40px] capitalize bg-[#C8B8E8] text-[#27272A] shadow-[inset_0_2px_2px_#ffffff] border-2 border-[#C8B8E8] font-semibold rounded-lg border-black-100 hover:transition-all duration-300"><span>become a partner</span> <span className="transform transition-transform duration-300 group-hover:translate-x-1">
                         →
                     </span></button>
                 </div>
                 <div className={cardProp}>
-                    <Icon icon='material-symbols:feedback-outline' className='text-purple-400 font-semibold w-12 h-12 m-5' />
-                    <p className="font-semibold text-2xl">Feedback</p>
-                    <p className='text-gray-500 pt-6 pr-8 pl-6 text-lg font-extralight text-center leading-8 '>Share suggestions about our<br /> products or services.</p>
-                    <button className="group flex items-center gap-2 m-8 px-10 py-4 h-[40px] capitalize bg-[#C8B8E8] text-[#27272A] shadow-[inset_0_2px_2px_#ffffff] border-2 border-[#C8B8E8] font-semibold rounded-lg  border-black-100 hover:transition-all duration-300"><span>Share Feedback</span> <span className="transform transition-transform duration-300 group-hover:translate-x-1">
+                    <TiMessages className='text-purple-400 font-semibold w-20 h-20' />
+                    <p className="font-semibold text-2xl mt-2">Feedback</p>
+                    <p className='text-gray-500 pt-6 pr-8 pl-6 text-lg font-extralight text-center -mb-8 leading-8 '>Share suggestions about our<br /> products or services.</p>
+                    <button className="group flex items-center gap-2 m-8 mt-20 px-10 py-6 h-[40px] capitalize bg-[#C8B8E8] text-[#27272A] shadow-[inset_0_2px_2px_#ffffff] border-2 border-[#C8B8E8] font-semibold rounded-lg  border-black-100 hover:transition-all duration-300"><span>Share Feedback</span> <span className="transform transition-transform duration-300 group-hover:translate-x-1">
                         →
                     </span></button>
                 </div>
             </div>
             <div className='m-8'>
-                <h1 className='text-4xl md:text-4xl text-[#333333] text-center font-medium leading-snug whitespace-nowrap p-2 pt-20 pb-10 capitalize'>For any other inquiry, please use the form below.
+                <h1 className='text-4xl md:text-4xl text-[#27272A] text-center font-medium leading-snug whitespace-nowrap p-2 pt-35 pb-10 capitalize'>For any other inquiry, please use the form below.
                 </h1>
 
                 <form className="max-w-3xl mx-auto bg-white p-10 rounded-2xl space-y-6 mb-30">
                     {/* First & Last Name */}
-                    <div className="flex flex-col md:flex-row gap-4">
+                    <div className="flex flex-col md:flex-row gap-8">
                         <div className="w-full">
-                            <label className="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                            <label className="block text-sm font-medium text-[#454545] mb-1">First Name</label>
                             <input type="text" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-400" />
                         </div>
                         <div className="w-full">
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                            <label className="block text-sm font-medium text-[#454545] mb-1">Last Name</label>
                             <input type="text" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-400" />
                         </div>
                     </div>
 
                     {/* Email */}
-                    <div className="flex flex-col md:flex-row gap-4">
+                    <div className="flex flex-col md:flex-row gap-8">
                         <div className="w-full">
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <label className="block text-sm font-medium text-[#454545] mb-1">Email Address</label>
                             <input type="text" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-400" />
                         </div>
                         <div className="w-full">
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                            <label className="block text-sm font-medium text-[#454545] mb-1">Subject</label>
                             <input type="text" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-400" />
                         </div>
                     </div>
@@ -93,23 +91,21 @@ const Contact = () => {
                     <div className="flex flex-row items-center justify-center">
                         <button
                             type="submit"
-                            className="bg-[#C8B8E8] px-6 h-12 text-black font-bold border border-black/10 hover:bg-purple-500 hover:text-white py-2 rounded-full transition-all"
+                            className="bg-[#C8B8E8] px-3 h-13 text-[#27272A] font-bold py-2 rounded-lg shadow-[inset_0_2px_2px_#ffffff] border-2 border-[#C8B8E8] transition-all"
                         >
-                            <span className="flex items-center gap-4">
-                                <Icon icon="ion:paper-plane-outline" className="text-2xl" />
-                                Submit Request
+                            <span className="flex items-center gap-2">
+                                <Icon icon="ion:paper-plane-outline" className="text-2xl mt-1" />
+                                <span className='mt-1'>Submit Request</span>
                             </span>
                         </button>
                     </div>
                 </form>
             </div>
             <GroupCoaching />
-            {/* <Footer /> */}
+
         </div>
     )
 }
 
 export default Contact
 
-// "bg-white rounded-xl shadow-lg p-6 w-full md:w-1/3 text-center"
-// "bg-white rounded-xl shadow-lg p-6 w-full md:w-1/3 text-center
