@@ -17,6 +17,8 @@ import AdminPanel from './pages/AdminPanel.tsx'
 import UserPanel from './pages/UserPanel.tsx'
 import Sessions from './pages/Sesions.tsx'
 import Chats from './pages/Chats.jsx'
+import Earnings from './pages/Earnings.tsx'
+import Availability from './pages/Availability.tsx'
 
 
 const router = createBrowserRouter([
@@ -41,7 +43,9 @@ const router = createBrowserRouter([
       { path: "/AdminPanel", element: <AdminPanel /> },
       { path: "/UserPanel", element: <UserPanel /> },
       { path: "/Sessions", element: <Sessions /> },
-      { path: "/Chats", element: <Chats /> }
+      { path: "/Chats", element: <Chats /> },
+      { path: "/Earnings", element: <Earnings /> },
+      { path: "/Availability", element: <Availability /> }
 
     ],
   },

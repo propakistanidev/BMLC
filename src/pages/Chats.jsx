@@ -3,6 +3,7 @@ import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import profileImage from "../assets/profile.png";
+import ChatBackground from "../assets/ChatBackground.png";
 
 const Chats = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -10,9 +11,9 @@ const Chats = () => {
   const navTabs = [
     { label: "Home", icon: "mynaui:home", to: "/AdminPanel" },
     { label: "My Sessions", icon: "solar:calendar-linear", to: "/Sessions" },
-    { label: "Chats", icon: "fluent:chat-20-regular", to: "/chats" },
-    { label: "Earnings", icon: "ant-design:dollar-outlined", to: "/earnings" },
-    { label: "Availability", icon: "tdesign:calendar-2", to: "/availability" },
+    { label: "Chats", icon: "fluent:chat-20-regular", to: "/Chats" },
+    { label: "Earnings", icon: "ant-design:dollar-outlined", to: "/Earnings" },
+    { label: "Availability", icon: "tdesign:calendar-2", to: "/Availability" },
     { label: "Profile", icon: "ant-design:setting-outlined", to: "/profile" },
     { label: "Call History", icon: "solar:phone-linear", to: "/calls" },
   ];
@@ -91,9 +92,119 @@ const Chats = () => {
         </div>
 
         {/* Placeholder for chat content */}
-        <div className="bg-white rounded-xl shadow p-6 text-gray-600">
-          <p className="text-center text-gray-400">Chat section coming soon...</p>
+        <div className="flex bg-white rounded-xl shadow h-[80vh] overflow-hidden">
+  {/* Contacts Sidebar */}
+  <div className="w-1/3 border-r border-gray-200 overflow-y-auto">
+    {/* Inbox + Search */}
+    <div className="p-4 border-b">
+      <h2 className="font-semibold text-gray-800 text-lg mb-2">Inbox</h2>
+      <input
+        type="text"
+        placeholder="Search chats"
+        className="w-full px-3 py-2 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-300"
+      />
+    </div>
+
+    {/* Contact List */}
+    {[1, 2, 3, 4, 5, 6].map((chat, idx) => (
+      <div
+        key={chat}
+        className={`flex items-center gap-3 px-4 py-3 cursor-pointer border-b ${
+          idx === 0 ? "bg-[#F1EEF9]" : "hover:bg-purple-50"
+        }`}
+      >
+        <img
+          src={profileImage}
+          alt="Contact"
+          className="h-10 w-10 rounded-full object-cover"
+        />
+        <div className="flex-1">
+          <h4 className="text-gray-800 font-medium text-sm">Sarah Thompson</h4>
+          <p className="text-gray-500 text-xs truncate">
+            Looking forward to our next session.
+          </p>
         </div>
+        <div className="text-xs text-gray-400">2:45 PM</div>
+      </div>
+    ))}
+  </div>
+
+  {/* Chat Area */}
+  <div className="flex-1 flex flex-col">
+    {/* Chat header */}
+    <div className="flex items-center gap-3 px-4 py-3 border-b relative">
+      <div className="relative">
+        <img
+          src={profileImage}
+          alt="ChatUser"
+          className="h-10 w-10 rounded-full object-cover"
+        />
+        {/* Online Indicator */}
+        <span className="absolute bottom-0 right-0 h-3 w-3 bg-green-500 border-2 border-white rounded-full"></span>
+      </div>
+      <div>
+        <h4 className="text-gray-800 font-semibold text-sm">Sarah Thompson</h4>
+        <p className="text-xs text-gray-500">Online</p>
+      </div>
+    </div>
+
+    {/* Chat messages area with background */}
+    <div
+      className="flex-1 p-4 space-y-6 overflow-y-auto relative"
+      style={{
+        backgroundImage: `url(${ChatBackground})`, // 🟣 ADD your chat background color or image here
+        backgroundColor: "#F7F6FC"
+      }}
+    >
+      {/* Message Left */}
+      <div className="flex flex-col items-start">
+        <div className="relative max-w-xs">
+          <div className="bg-gray-200 text-gray-800 px-4 py-2 rounded-lg text-sm rounded-bl-none">
+            Hi there! I’m excited for our session.
+          </div>
+          <div className="absolute left-0 bottom-0 w-0 h-0 border-t-[10px] border-t-gray-200 border-l-[10px] border-l-transparent"></div>
+        </div>
+        <span className="text-[10px] text-gray-500 mt-1">June 30, 2:41 PM</span>
+      </div>
+
+      {/* Message Right */}
+      <div className="flex flex-col items-end">
+        <div className="relative max-w-xs">
+          <div className="bg-purple-500 text-white px-4 py-2 rounded-lg text-sm rounded-br-none">
+            Same here! Let’s get started soon.
+          </div>
+          <div className="absolute right-0 bottom-0 w-0 h-0 border-t-[10px] border-t-purple-500 border-r-[10px] border-r-transparent"></div>
+        </div>
+        <span className="text-[10px] text-gray-500 mt-1">June 30, 2:42 PM</span>
+      </div>
+
+      {/* Message Left */}
+      <div className="flex flex-col items-start">
+        <div className="relative max-w-xs">
+          <div className="bg-gray-200 text-gray-800 px-4 py-2 rounded-lg text-sm rounded-bl-none">
+            Don’t forget to bring your notes. 😊
+          </div>
+          <div className="absolute left-0 bottom-0 w-0 h-0 border-t-[10px] border-t-gray-200 border-l-[10px] border-l-transparent"></div>
+        </div>
+        <span className="text-[10px] text-gray-500 mt-1">June 30, 2:43 PM</span>
+      </div>
+    </div>
+
+    {/* Message input */}
+    <div className="p-4 border-t bg-white">
+      <div className="flex items-center gap-2">
+        <input
+          type="text"
+          placeholder="Type a message"
+          className="flex-1 px-4 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-300"
+        />
+        <button className="bg-transparent px-4 py-2 rounded-full text-sm">
+          <Icon icon="ic:sharp-send" className="text-lg w-10 h-10 text-[#9363C4]" />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
       </div>
     </div>
   );
