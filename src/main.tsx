@@ -20,6 +20,7 @@ import Chats from './pages/Chats.jsx'
 import Earnings from './pages/Earnings.tsx'
 import Availability from './pages/Availability.tsx'
 import Profile from './pages/Profile.tsx'
+import Calls from './pages/CallHistory.tsx'
 
 
 const router = createBrowserRouter([
@@ -47,7 +48,8 @@ const router = createBrowserRouter([
       { path: "/Chats", element: <Chats /> },
       { path: "/Earnings", element: <Earnings /> },
       { path: "/Availability", element: <Availability /> },
-      { path: "Profile", element: <Profile /> }
+      { path: "Profile", element: <Profile /> },
+      { path: "Calls", element: <Calls /> },
 
     ],
   },

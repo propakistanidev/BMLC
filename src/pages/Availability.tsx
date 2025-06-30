@@ -14,7 +14,7 @@ const Availability = () => {
         { label: "Earnings", icon: "ant-design:dollar-outlined", to: "/Earnings" },
         { label: "Availability", icon: "tdesign:calendar-2", to: "/Availability" },
         { label: "Profile", icon: "ant-design:setting-outlined", to: "/profile" },
-        { label: "Call History", icon: "solar:phone-linear", to: "/calls" },
+        { label: "Call History", icon: "solar:phone-linear", to: "/Calls" },
     ];
     const unavailableDays = ["Sun", "Sat"];
     return (
