@@ -15,6 +15,7 @@ import { Toaster } from 'react-hot-toast'
 import SignUpPage from './pages/SignUpPage.tsx'
 import AdminPanel from './pages/AdminPanel.tsx'
 import UserPanel from './pages/UserPanel.tsx'
+import Sessions from './pages/Sesions.tsx'
 
 
 const router = createBrowserRouter([
@@ -38,6 +39,7 @@ const router = createBrowserRouter([
       { path: 'signuppage', element: <SignUpPage /> },
       { path: "/AdminPanel", element: <AdminPanel /> },
       { path: "/UserPanel", element: <UserPanel /> },
+      { path: "/Sessions", element: <Sessions /> }
 
     ],
   },
