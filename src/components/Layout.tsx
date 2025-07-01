@@ -14,7 +14,7 @@ export default function Layout() {
                 <TopBar />
             </div>
             <main>
-                <Outlet /> {/* Page content goes here */}
+                <Outlet />
             </main>
             <Footer />
         </>
