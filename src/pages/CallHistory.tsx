@@ -92,13 +92,13 @@ const CallHistory = () => {
                     <table className="w-full text-sm text-left text-gray-700">
                         <thead className="border-b-2 border-gray-200">
                             <tr>
-                                <th className="py-2 px-4 font-medium">Sr#</th>
-                                <th className="py-2 px-4 font-medium">Title</th>
-                                <th className="py-2 px-4 font-medium">User</th>
-                                <th className="py-2 px-4 font-medium">Status</th>
-                                <th className="py-2 px-4 font-medium">Cost</th>
-                                <th className="py-2 px-4 font-medium">Duration</th>
-                                <th className="py-2 px-4 font-medium">Rate & Reviews</th>
+                                <th className="py-2 px-4 font-bold">Sr#</th>
+                                <th className="py-2 px-4 font-bold">Title</th>
+                                <th className="py-2 px-4 font-bold">User</th>
+                                <th className="py-2 px-4 font-bold">Status</th>
+                                <th className="py-2 px-4 font-bold">Cost</th>
+                                <th className="py-2 px-4 font-bold">Duration</th>
+                                <th className="py-2 px-4 font-bold">Rate & Reviews</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -147,12 +147,12 @@ const CallHistory = () => {
                                     </td>
                                     <td className="py-2 px-4">
                                         <span
-                                            className={`px-4  rounded-lg py-2  text-xs font-semibold
+                                            className={`px-2 rounded-lg py-2  text-xs font-semibold
                 ${call.status === "Completed"
-                                                    ? "bg-green-100 text-green-600"
+                                                    ? "bg-green-100 text-green-600 px-8"
                                                     : call.status === "User Declined"
-                                                        ? "bg-red-100 text-red-500"
-                                                        : "bg-yellow-100 text-yellow-600"
+                                                        ? "bg-red-100 text-red-500 px-6"
+                                                        : "bg-yellow-100 text-yellow-600 px-5"
                                                 }`}
                                         >
                                             {call.status}

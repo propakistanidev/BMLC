@@ -139,7 +139,7 @@ const Earnings = () => {
                                     {/* Bottom */}
                                     <div className="flex gap-4">
                                         <div className="flex-1 bg-white border-1 border-gray-200 h-30 p-1.5 pt-4 rounded-xl flex flex-col items-center">
-                                            <div className="bg-[#E8EFF6] w-9 h-9 rounded-lg flex flex-col justify-center items-center"><Icon icon="solar:calendar-linear" className="text-2xl  text-[#9363C4]" /> </div>
+                                            <div className="bg-[#E8EFF6] w-9 h-9 rounded-lg flex flex-col justify-center items-center"><Icon icon="solar:calendar-linear" className="text-2xl  text-[#2B4F67]" /> </div>
                                             <p className="text-md pt-2 text-[#7F7F7F]">Date</p>
                                             <p className="text-lg font-medium text-gray-600">{user.date}</p>
                                         </div>
@@ -158,24 +158,24 @@ const Earnings = () => {
                     <div className="w-full lg:w-1/4 space-y-6 bg-white  rounded-2xl">
                         {/* Total Revenue Card */}
                         <h1 className="text-2xl font-semibold text-[#27272A]">Total Earnings</h1>
-                        <div className="border-1 border-gray-300 rounded-2xl space-y-10 -my-2">
-                            <div className="bg-white bg-blur-md rounded-2xl bg-[linear-gradient(to_bottom_left,_#C8B8E866_45%,_white_60%,_white_50%,_#C8B8E866_100%)] ">
+                        <div className=" rounded-2xl space-y-10 -my-2">
+                            <div className="bg-white bg-blur-md  rounded-2xl bg-[linear-gradient(to_bottom_left,_#C8B8E866_45%,_white_60%,_white_50%,_#C8B8E866_100%)] ">
                                 <div className="p-6">
                                     <p className="text-md text-gray-500 mb-1">Total Earnings</p>
                                     <h2 className="text-4xl font-bold text-[#9363C4]">$4,800.00</h2>
                                 </div>
 
 
-                                <div className="border-t border-white px-6 text-sm text-gray-600 space-y-6">
+                                <div className="border-t border-white px-6 text-sm shadow-xl text-gray-600 space-y-6">
                                     <div className="flex justify-between pt-4">
                                         <span className="text-lg">Revenue Split</span>
-                                        <span className="text-xl font-bold">70%</span>
+                                        <span className="text-xl font-semibold">70%</span>
                                     </div>
 
 
                                     <div className="border-t border-white flex justify-between pt-4 pb-4">
                                         <span className="text-lg">Your Earnings</span>
-                                        <span className="text-xl font-bold">$3,360.00</span>
+                                        <span className="text-xl font-semibold">$3,360.00</span>
                                     </div>
                                 </div>
                             </div>
@@ -209,7 +209,7 @@ const Earnings = () => {
 
                                 <div className="flex items-center gap-0.5 mt-6 ml-2">
                                     <button className="px-4 py-2.5 bg-[#C8B8E8] text-white text-sm rounded-tl-md rounded-bl-md">
-                                        <Icon icon="simple-icons:stripe" className="text-lg text-[#27272A]" />
+                                        <Icon icon="simple-icons:stripe" className="text-xl text-[#27272A]" />
                                     </button>
                                     <button className="w-full p-2.5 bg-[#C8B8E8] text-sm rounded-tr-lg rounded-br-lg text-[#27272A]">
                                         Disconnect Stripe account
