@@ -1,4 +1,4 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
 import profileImage from '../assets/profile.png';
@@ -6,6 +6,7 @@ import logo from '../assets/logo.png';
 import coach1 from '../assets/coach1.png';
 import client1 from '../assets/client1.png';
 import CoachModal from '../Modal/CoachModal';
+import { useState } from 'react';
 
 export default function AdminPanel() {
     const [collapsed, setCollapsed] = useState(false);
@@ -45,13 +46,48 @@ export default function AdminPanel() {
     ];
 
     const navTabs = [
-        { label: 'Home', icon: 'mynaui:home', to: '/home' },
+        { label: 'Home', icon: 'mynaui:home', to: '/AdminPanel' },
         { label: 'My Sessions', icon: 'solar:calendar-linear', to: '/sessions' },
         { label: 'Chats', icon: 'fluent:chat-20-regular', to: '/chats' },
         { label: 'Earnings', icon: 'ant-design:dollar-outlined', to: '/earnings' },
         { label: 'Availability', icon: 'tdesign:calendar-2', to: '/availability' },
         { label: 'Profile', icon: 'ant-design:setting-outlined', to: '/profile' },
         { label: 'Call History', icon: 'solar:phone-linear', to: '/calls' },
+    ];
+
+    const sessions = [
+        {
+            id: 1,
+            name: 'Mazhar Ali',
+            expertise: 'Career Coach',
+            time: '21 June | 2:00 PM - 3:00 PM',
+            about: 'Mazhar has 10+ years of experience helping individuals make career transitions with confidence.',
+            image: coach1,
+        },
+        {
+            id: 2,
+            name: 'Ayesha Khan',
+            expertise: 'Life Coach',
+            time: '22 June | 11:00 AM - 12:00 PM',
+            about: 'Ayesha focuses on helping people unlock their personal potential.',
+            image: coach1,
+        },
+        {
+            id: 3,
+            name: 'Samiullah Niazi',
+            expertise: 'Health Coach',
+            time: '23 June | 4:00 PM - 5:00 PM',
+            about: 'Samiullah specializes in mental and physical well-being coaching.',
+            image: coach1,
+        },
+        {
+            id: 4,
+            name: 'Rabia Noor',
+            expertise: 'Confidence Coach',
+            time: '24 June | 10:00 AM - 11:00 AM',
+            about: 'Rabia helps people regain confidence in personal and professional life.',
+            image: coach1,
+        },
     ];
 
     return (
@@ -80,7 +116,7 @@ export default function AdminPanel() {
                 </div>
                 <div className="hidden md:block mt-10">
                     <button
-                        className={`flex items-center border-4 text-purple-500 border-purple-500 rounded-lg py-2 gap-2 text-lg hover:text-purple-800 hover:font-bold transition-all duration-300 ${collapsed ? 'justify-center px-2' : 'px-12'}`}
+                        className={`flex items-center border-2 text-red-500 border-red-500 rounded-lg py-2 gap-2 text-lg hover:text-purple-800 hover:font-bold transition-all duration-300 ${collapsed ? 'justify-center px-2' : 'px-12'}`}
                         onClick={() => window.location.href = '/'}
                     >
                         <Icon icon="mdi:logout" className="text-xl font-bold" />
@@ -102,6 +138,7 @@ export default function AdminPanel() {
                     </div>
                 </div>
 
+
                 {/* Upcoming Sessions */}
                 <div className="mb-10">
                     <div className="flex justify-between items-center mb-3">
@@ -109,25 +146,49 @@ export default function AdminPanel() {
                         <button className="text-purple-600 text-sm">See All</button>
                     </div>
                     <div className="flex gap-4 md:gap-8 overflow-x-auto pb-5">
-                        {[1, 2, 3, 4].map((item) => (
+                        {sessions.map((session) => (
                             <div
-                                key={item}
-                                className="min-w-[250px] bg-white p-4 rounded-xl shadow-lg cursor-pointer hover:shadow-md transition-all"
+                                key={session.id}
+                                className="min-w-[320px] bg-[#C8B8E8] p-4 rounded-xl shadow-xl cursor-pointer hover:shadow-md transition-all relative"
                                 onClick={() => {
                                     setSelectedCoach({
-                                        name: 'Mazhar Ali',
-                                        expertise: 'Career Coach',
-                                        availability: '21 June | 2:00 PM - 3:00 PM',
-                                        about: 'John has 10+ years of experience helping individuals make career transitions with confidence.',
-                                        image: coach1
+                                        name: session.name,
+                                        expertise: session.expertise,
+                                        availability: session.time,
+                                        about: session.about,
+                                        image: session.image
                                     });
                                     setModalOpen(true);
                                 }}
                             >
-                                <img src={coach1} className="h-12 w-12 rounded-full mb-2" alt="Coach" />
-                                <h3 className="font-medium">Mazhar Ali</h3>
-                                <p className="text-sm text-gray-500">Career Coach</p>
-                                <p className="text-sm mt-2 text-gray-600">21 June | 2:00 PM - 3:00 PM</p>
+                                {/* Top Right Dots */}
+                                <div className="absolute top-3 right-3 text-xl text-gray-600">
+                                    <Icon icon="mi:options-vertical" />
+                                </div>
+
+                                {/* Coach Info Row */}
+                                <div className="flex items-center gap-3 mb-4">
+                                    <img src={session.image} className="h-12 w-12 rounded-full" alt="Coach" />
+                                    <div>
+                                        <h3 className="font-medium text-base">{session.name}</h3>
+                                        <p className="text-sm text-gray-700">{session.expertise}</p>
+                                    </div>
+                                </div>
+
+                                {/* Divider */}
+                                <hr className="border-t border-gray-400 my-2" />
+
+                                {/* Time Info */}
+                                <div className="flex items-center gap-6 text-sm text-gray-700 mt-4 pl-4">
+                                    <div className="flex items-center gap-2">
+                                        <Icon icon="mdi:calendar-blank-outline" className="text-lg" />
+                                        <span>{session.time.split('|')[0].trim()}</span>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <Icon icon="mdi:clock-outline" className="text-lg" />
+                                        <span>{session.time.split('|')[1]?.trim()}</span>
+                                    </div>
+                                </div>
                             </div>
                         ))}
                     </div>

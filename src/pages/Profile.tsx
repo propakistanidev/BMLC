@@ -21,25 +21,14 @@ const Profile = () => {
     return (
         <div className="flex min-h-screen bg-[#F8F6FC]">
             {/* Sidebar */}
-            <div
-                className={`bg-white text-gray-600 p-4 md:p-6 transition-all flex flex-col justify-between ${collapsed ? "w-20" : "w-full md:w-60"
-                    } fixed md:static z-20 h-[60px] md:h-auto top-0 left-0 right-0`}
-            >
+            <div className={`bg-white text-gray-600 p-4 md:p-6 transition-all flex flex-col justify-between ${collapsed ? 'w-20' : 'w-full md:w-60'} fixed md:static z-20 h-[60px] md:h-auto top-0 left-0 right-0 md:flex md:flex-col`}>
                 <div>
-                    <div
-                        className={`flex ${collapsed ? "flex-col items-center gap-2" : "items-center justify-between"
-                            }`}
-                    >
-                        <img
-                            src={logo}
-                            alt="Logo"
-                            className={`${collapsed ? "h-10 w-10 object-contain" : "h-[56px]"}`}
-                        />
+                    <div className={`flex ${collapsed ? 'flex-row md:flex-col items-center gap-2 md:gap-4' : 'items-center justify-between'}`}>
+                        <img src={logo} alt="Logo" className="h-8" />
                         <button onClick={() => setCollapsed(!collapsed)}>
-                            <Icon icon="mdi:menu" className="text-purple-400 text-2xl" />
+                            <Icon icon="mdi:menu" className="text-purple-700 text-2xl" />
                         </button>
                     </div>
-
                     <nav className="mt-6 md:mt-10 space-y-4 hidden md:block">
                         {navTabs.map((tab, idx) => (
                             <Link
@@ -53,14 +42,13 @@ const Profile = () => {
                         ))}
                     </nav>
                 </div>
-
-                <div className="mt-10">
+                <div className="hidden md:block mt-10">
                     <button
-                        className="flex items-center gap-2 text-md hover:text-[#FF0000] hover:font-bold border border-[#FF0000] text-[#FF0000] p-2 rounded-lg"
-                        onClick={() => (window.location.href = "/")}
+                        className={`flex items-center border-2 text-red-500 border-red-500 rounded-lg py-2 gap-2 text-lg hover:text-purple-800 hover:font-bold transition-all duration-300 ${collapsed ? 'justify-center px-2' : 'px-12'}`}
+                        onClick={() => window.location.href = '/'}
                     >
-                        <Icon icon="mdi:logout" className="text-lg" />
-                        {!collapsed && "Logout"}
+                        <Icon icon="mdi:logout" className="text-xl font-bold" />
+                        {!collapsed && 'Logout'}
                     </button>
                 </div>
             </div>

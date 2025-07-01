@@ -66,28 +66,14 @@ const Earnings = () => {
     return (
         <div className="flex h-screen bg-[#F8F6FC]">
             {/* Sidebar */}
-            <div
-                className={`bg-white text-gray-600 p-4 md:p-6 transition-all flex flex-col justify-between ${collapsed ? "w-20" : "w-full md:w-60"
-                    } fixed md:static z-20 h-[60px] md:h-auto top-0 left-0 right-0`}
-            >
+            <div className={`bg-white text-gray-600 p-4 md:p-6 transition-all flex flex-col justify-between ${collapsed ? 'w-20' : 'w-full md:w-60'} fixed md:static z-20 h-[60px] md:h-auto top-0 left-0 right-0 md:flex md:flex-col`}>
                 <div>
-                    <div
-                        className={`flex ${collapsed ? "flex-col items-center gap-2" : "items-center justify-between"
-                            }`}
-                    >
-                        <img
-                            src={logo}
-                            alt="Logo"
-                            className={`${collapsed ? "h-10 w-10 object-contain" : "h-[56px]"}`}
-                        />
-                        <button
-                            className="cursor-pointer"
-                            onClick={() => setCollapsed(!collapsed)}
-                        >
-                            <Icon icon="mdi:menu" className="text-purple-400 text-2xl" />
+                    <div className={`flex ${collapsed ? 'flex-row md:flex-col items-center gap-2 md:gap-4' : 'items-center justify-between'}`}>
+                        <img src={logo} alt="Logo" className="h-8" />
+                        <button onClick={() => setCollapsed(!collapsed)}>
+                            <Icon icon="mdi:menu" className="text-purple-700 text-2xl" />
                         </button>
                     </div>
-
                     <nav className="mt-6 md:mt-10 space-y-4 hidden md:block">
                         {navTabs.map((tab, idx) => (
                             <Link
@@ -101,14 +87,13 @@ const Earnings = () => {
                         ))}
                     </nav>
                 </div>
-
-                <div className="mt-10">
+                <div className="hidden md:block mt-10">
                     <button
-                        className="flex items-center gap-2 text-md hover:text-[#FF0000] hover:font-bold border border-[#FF0000] text-[#FF0000] p-2 rounded-lg"
-                        onClick={() => (window.location.href = "/")}
+                        className={`flex items-center border-2 text-red-500 border-red-500 rounded-lg py-2 gap-2 text-lg hover:text-purple-800 hover:font-bold transition-all duration-300 ${collapsed ? 'justify-center px-2' : 'px-12'}`}
+                        onClick={() => window.location.href = '/'}
                     >
-                        <Icon icon="mdi:logout" className="text-lg" />
-                        {!collapsed && "Logout"}
+                        <Icon icon="mdi:logout" className="text-xl font-bold" />
+                        {!collapsed && 'Logout'}
                     </button>
                 </div>
             </div>
@@ -170,30 +155,40 @@ const Earnings = () => {
                     </div>
 
                     {/* Summary Section */}
-                    <div className="w-full lg:w-1/4 space-y-6">
+                    <div className="w-full lg:w-1/4 space-y-6 bg-white  rounded-2xl">
                         {/* Total Revenue Card */}
-                        <div className="bg-white rounded-xl shadow p-6">
-                            <p className="text-sm text-gray-500 mb-1">Total Revenue</p>
-                            <h2 className="text-3xl font-bold text-[#27272A] mb-4">$4,800.00</h2>
-                            <div className="border-t pt-3 text-sm text-gray-600 space-y-2">
-                                <div className="flex justify-between">
-                                    <span>Revenue Split</span>
-                                    <span>70%</span>
+                        <h1 className="text-lg font-semibold text-[#27272A]">Total Earnings</h1>
+                        <div className="border-1 border-gray-300 rounded-2xl p-4 space-y-6">
+                            <div className="bg-white bg-blur-md rounded-2xl bg-[linear-gradient(to_bottom_left,_#C8B8E866_45%,_white_60%,_white_50%,_#C8B8E866_100%)] ">
+                                <div className="p-6">
+                                    <p className="text-md text-gray-500 mb-1">Total Earnings</p>
+                                    <h2 className="text-4xl font-bold text-[#9363C4]">$4,800.00</h2>
                                 </div>
-                                <div className="flex justify-between">
-                                    <span>Your Earnings</span>
-                                    <span>$3,360.00</span>
+
+
+                                <div className="border-t border-white px-6 text-sm text-gray-600 space-y-6">
+                                    <div className="flex justify-between pt-4">
+                                        <span className="text-lg">Revenue Split</span>
+                                        <span className="text-xl font-bold">70%</span>
+                                    </div>
+
+
+                                    <div className="border-t border-white flex justify-between pt-4 pb-4">
+                                        <span className="text-lg">Your Earnings</span>
+                                        <span className="text-xl font-bold">$3,360.00</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        {/* Stripe Card */}
-                        <div className="bg-white rounded-xl shadow p-6">
-                            <h3 className="text-sm font-medium text-gray-700 mb-2">Stripe Account</h3>
-                            <div className="text-sm text-gray-600 mb-4">Stripe Account Connected</div>
-                            <button className="w-full px-4 py-2 bg-red-500 text-white text-sm rounded hover:bg-red-600">
-                                Disconnect Stripe
-                            </button>
+
+                            {/* Stripe Card */}
+                            <div className="bg-white rounded-xl shadow p-6">
+                                <h3 className="text-sm font-medium text-gray-700 mb-2">Stripe Account</h3>
+                                <div className="text-sm text-gray-600 mb-4">Stripe Account Connected</div>
+                                <button className="w-full px-4 py-2 bg-red-500 text-white text-sm rounded hover:bg-red-600">
+                                    Disconnect Stripe
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

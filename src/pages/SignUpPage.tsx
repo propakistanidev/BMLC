@@ -41,7 +41,7 @@ export default function SignUp() {
     return (
         <div className="h-screen w-full flex">
             {/* Left Side */}
-            <div className="w-1/2 flex flex-col justify-between px-10 py-8 bg-white">
+            <div className="w-1/2 flex flex-col justify-between px-10 py-2 bg-white">
                 {/* Logo & Back */}
                 <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate('/')}>
                     <Icon icon="ic:round-arrow-back" className="w-6 h-6 text-gray-700" />
@@ -54,7 +54,7 @@ export default function SignUp() {
                     <p className='text-center text-[#27272A] text-sm mb-6'>Learn more about their background and their coaching experience</p>
 
                     {/* Social Sign Up */}
-                    <div className="flex flex-col gap-4 mb-6">
+                    <div className="flex flex-col gap-4 mb-4">
                         <button className="flex items-center justify-center gap-3 border border-gray-300 py-2 rounded-lg hover:bg-gray-100">
                             <Icon icon="flat-color-icons:google" className="w-5 h-5" />
                             Sign up with Google
@@ -75,40 +75,70 @@ export default function SignUp() {
                     {/* Name */}
                     <div className="mb-3">
                         <label className="block text-sm mb-1 text-gray-600">Name</label>
-                        <input
-                            type="text"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${errors.name ? 'border-red-500 ring-red-300' : 'focus:ring-purple-500'}`}
-                            placeholder="Your name"
-                        />
+
+                        <div className="relative">
+                            {/* Icon on the left inside the input */}
+                            <div className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                                <Icon icon='iconoir:user' className="w-5 h-5" />
+                            </div>
+
+                            <input
+                                type="text"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                className={`w-full pl-10 pr-4 py-2 border rounded-lg bg-[#F8F6FC] focus:outline-none focus:ring-2 ${errors.name ? 'border-red-500 ring-red-300' : 'focus:ring-purple-500'
+                                    }`}
+                                placeholder="John Doe"
+                            />
+                        </div>
+
                         {errors.name && <p className="text-sm text-red-500 mt-1">{errors.name}</p>}
                     </div>
 
                     {/* Email */}
-                    <div className="mb-3">
+                    <div className="mb-3 relative">
                         <label className="block text-sm mb-1 text-gray-600">Email</label>
+
+                        {/* Icon on the left */}
+                        <div className="absolute left-3 top-9 text-gray-400">
+                            <Icon icon="lets-icons:message-light" className="w-5 h-5" />
+                        </div>
+
                         <input
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${errors.email ? 'border-red-500 ring-red-300' : 'focus:ring-purple-500'}`}
+                            className={`w-full pl-10 py-2 border rounded-lg bg-[#F8F6FC] focus:outline-none focus:ring-2 ${errors.email ? 'border-red-500 ring-red-300' : 'focus:ring-purple-500'
+                                }`}
                             placeholder="you@example.com"
                         />
+
                         {errors.email && <p className="text-sm text-red-500 mt-1">{errors.email}</p>}
                     </div>
 
                     {/* Password */}
                     <div className="mb-3 relative">
                         <label className="block text-sm mb-1 text-gray-600">Password</label>
+
+                        {/* Icon on the left */}
+                        <div className="absolute left-3 top-9 text-gray-400">
+                            <Icon icon="lsicon:lock-outline" className="w-5 h-5" />
+                        </div>
+
                         <input
                             type={showPassword ? 'text' : 'password'}
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${errors.password ? 'border-red-500 ring-red-300' : 'focus:ring-purple-500'}`}
+                            className={`w-full pl-10 px-4 py-2 border rounded-lg bg-[#F8F6FC] focus:outline-none focus:ring-2 ${errors.password ? 'border-red-500 ring-red-300' : 'focus:ring-purple-500'
+                                }`}
                             placeholder="***************"
                         />
-                        <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-9 text-gray-500">
+
+                        <button
+                            type="button"
+                            onClick={() => setShowPassword(!showPassword)}
+                            className="absolute right-3 top-9 text-gray-500"
+                        >
                             <Icon icon={showPassword ? 'mdi:eye-off' : 'mdi:eye'} className="w-5 h-5" />
                         </button>
 
@@ -117,14 +147,17 @@ export default function SignUp() {
                             <ul className="text-xs mt-2 space-y-1">
                                 {Object.entries(requirements).map(([key, valid]) => (
                                     <li key={key} className="flex items-center gap-2">
-                                        <Icon icon={valid ? 'qlementine-icons:check-tick-16' : 'oui:cross-in-circle-empty'} className={`w-4 h-4 ${valid ? 'text-green-500' : 'text-red-500'}`} />
+                                        <Icon
+                                            icon={valid ? 'qlementine-icons:check-tick-16' : 'oui:cross-in-circle-empty'}
+                                            className={`w-4 h-4 ${valid ? 'text-green-500' : 'text-red-500'}`}
+                                        />
                                         <span className={`${valid ? 'text-green-500' : 'text-red-500'}`}>
                                             {{
                                                 length: 'At least 8 characters',
                                                 upper: 'One uppercase letter',
                                                 lower: 'One lowercase letter',
                                                 number: 'One number',
-                                                special: 'One special character'
+                                                special: 'One special character',
                                             }[key]}
                                         </span>
                                     </li>
@@ -136,14 +169,26 @@ export default function SignUp() {
                     {/* Confirm Password */}
                     <div className="mb-4 relative">
                         <label className="block text-sm mb-1 text-gray-600">Re-enter Password</label>
+
+                        {/* Icon inside input field (left side) */}
+                        <div className="absolute left-3 top-9 text-gray-400">
+                            <Icon icon="lsicon:lock-outline" className="w-5 h-5" />
+                        </div>
+
                         <input
                             type={showConfirmPassword ? 'text' : 'password'}
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
-                            className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${errors.confirmPassword ? 'border-red-500 ring-red-300' : 'focus:ring-purple-500'}`}
+                            className={`w-full pl-10 py-2 border rounded-lg bg-[#F8F6FC] focus:outline-none focus:ring-2 ${errors.confirmPassword ? 'border-red-500 ring-red-300' : 'focus:ring-purple-500'
+                                }`}
                             placeholder="***************"
                         />
-                        <button type="button" onClick={() => setShowConfirmPassword(!showConfirmPassword)} className="absolute right-3 top-9 text-gray-500">
+
+                        <button
+                            type="button"
+                            onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                            className="absolute right-3 top-9 text-gray-500"
+                        >
                             <Icon icon={showConfirmPassword ? 'mdi:eye-off' : 'mdi:eye'} className="w-5 h-5" />
                         </button>
 
@@ -153,13 +198,17 @@ export default function SignUp() {
                                 Passwords do not match
                             </div>
                         )}
+
                         {confirmPassword && password === confirmPassword && (
                             <div className="flex items-center gap-2 text-sm text-green-600 mt-2">
                                 <Icon icon="qlementine-icons:check-tick-16" className="w-4 h-4" />
                                 Passwords match
                             </div>
                         )}
-                        {errors.confirmPassword && <p className="text-sm text-red-500 mt-1">{errors.confirmPassword}</p>}
+
+                        {errors.confirmPassword && (
+                            <p className="text-sm text-red-500 mt-1">{errors.confirmPassword}</p>
+                        )}
                     </div>
 
                     {/* Submit */}
@@ -184,6 +233,6 @@ export default function SignUp() {
             <div className="w-1/2 hidden md:block">
                 <img src={SignImage} alt="Sign Up" className="w-full h-full object-cover" />
             </div>
-        </div>
+        </div >
     )
 }

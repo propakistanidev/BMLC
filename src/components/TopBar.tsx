@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import logo from '../assets/logo.png'
 
+
 const TopBar = () => {
     return (
         <div className="header text-[#454545] p-[16px] w-full flex flex-wrap md:flex-nowrap bg-white justify-between items-center gap-4 md:gap-[50px] text-base relative">
