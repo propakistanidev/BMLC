@@ -149,7 +149,7 @@ export default function AdminPanel() {
                         {sessions.map((session) => (
                             <div
                                 key={session.id}
-                                className="min-w-[320px] bg-[#C8B8E8] p-4 rounded-xl shadow-xl cursor-pointer hover:shadow-md transition-all relative"
+                                className="min-w-[320px] bg-[#c8b8e88f] p-4 rounded-xl shadow-xl cursor-pointer hover:shadow-md transition-all relative"
                                 onClick={() => {
                                     setSelectedCoach({
                                         name: session.name,

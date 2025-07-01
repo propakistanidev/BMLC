@@ -29,14 +29,14 @@ export default function CoachModal({ isOpen, onClose, coach }) {
                 <p className="text-center text-sm text-gray-600 mb-4">{coach.availability}</p>
 
                 {/* Action Icons */}
-                <div className="flex justify-center gap-6 mb-4">
-                    <a href="tel:+123456789" className="text-purple-600 hover:text-purple-800">
+                <div className="flex justify-center gap-6 mb-4 rounded-lg p-4">
+                    <a href="tel:+123456789" className="text-purple-600 hover:text-purple-800 border-2 border-gray-200 p-2 rounded-lg">
                         <Icon icon="mdi:phone-outline" className="text-2xl" />
                     </a>
-                    <a href="mailto:coach@example.com" className="text-purple-600 hover:text-purple-800">
-                        <Icon icon="mdi:email-outline" className="text-2xl" />
+                    <a href="mailto:coach@example.com" className="text-purple-600 hover:text-purple-800 border-2 border-gray-200 p-2 rounded-lg">
+                        <Icon icon="mdi:email-outline" className="text-2xl   " />
                     </a>
-                    <a href="#" className="text-purple-600 hover:text-purple-800">
+                    <a href="#" className="text-purple-600 hover:text-purple-800 border-2 border-gray-200 p-2 rounded-lg">
                         <Icon icon="mdi:calendar-outline" className="text-2xl" />
                     </a>
                 </div>
@@ -48,7 +48,7 @@ export default function CoachModal({ isOpen, onClose, coach }) {
                 </div>
 
                 {/* Save Button */}
-                <button className="bg-[#C8B8E8] text-black shadow-lg py-2 px-6 rounded-lg font-medium hover:bg-purple-700 mb-6 mx-auto block">
+                <button className="bg-[#C8B8E8] text-black py-2 px-6 shadow-[inset_0_2px_2px_#ffffff] border-2 border-[#C8B8E8] rounded-lg font-medium  mb-6 mx-auto block">
                     Save Info
                 </button>
 
@@ -60,6 +60,7 @@ export default function CoachModal({ isOpen, onClose, coach }) {
                         <li>• Resume Review – 8 June</li>
                         <li>• LinkedIn Optimization – 1 June</li>
                     </ul>
+                    <button className='flex flex-row items-center gap-2 bg-[#C8B8E8] text-black py-2 px-6 shadow-[inset_0_2px_2px_#ffffff] border-2 border-[#C8B8E8] mt-6 rounded-lg font-medium  mb-6 mx-auto block'>Done</button>
                 </div>
             </div>
         </div>

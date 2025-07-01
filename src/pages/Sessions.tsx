@@ -229,13 +229,13 @@ const Session = () => {
               <div className="flex justify-center gap-2">
                 <button
                   onClick={() => setSelectedCoach(null)}
-                  className="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
+                  className="px-4 py-2 bg-gray-200 text-gray-700 cursor-pointer rounded-lg hover:bg-gray-300"
                 >
                   Cancel
                 </button>
                 <button
                   onClick={() => setSelectedCoach(null)}
-                  className="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600 flex items-center gap-2"
+                  className="px-4 py-2 bg-[#C8B8E8] text-black rounded-lg cursor-pointer shadow-[inset_0_2px_2px_#ffffff] border-1 border-[#C8B8E8] flex items-center gap-2"
                 >
                   <Icon icon="mdi:content-save-outline" className=" w-5 h-" />
                   Save
