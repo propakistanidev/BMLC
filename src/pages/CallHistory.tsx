@@ -43,7 +43,7 @@ const CallHistory = () => {
                 </div>
                 <div className="hidden md:block mt-10">
                     <button
-                        className={`flex items-center border-2 text-red-500 border-red-500 rounded-lg py-2 gap-2 text-lg hover:text-purple-800 hover:font-bold transition-all duration-300 ${collapsed ? 'justify-center px-2' : 'px-12'}`}
+                        className={`flex items-center border-1 text-red-500 border-red-500 cursor-pointer rounded-lg py-2 gap-2 text-lg  transition-all duration-300 ${collapsed ? 'justify-center px-2' : 'px-12'}`}
                         onClick={() => window.location.href = '/'}
                     >
                         <Icon icon="mdi:logout" className="text-xl font-bold" />
@@ -76,7 +76,7 @@ const CallHistory = () => {
                             <input
                                 type="text"
                                 placeholder="Search User"
-                                className="w-full pl-4 pr-12 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                className="w-full pl-4 pr-12 py-2 border border-gray-300 rounded-lg text-sm "
                             />
                             <button
                                 className="absolute right-1 top-1/2 transform -translate-y-1/2 -mr-[3px] rounded-tr-lg rounded-br-lg bg-[#C8B8E8] text-white  p-[8.5px]"
@@ -174,7 +174,30 @@ const CallHistory = () => {
                                 </tr>
                             ))}
                         </tbody>
+
                     </table>
+                    <div className="flex flex-row justify-between items-center mt-4 px-4">
+                        {/* Left side: Rows per page */}
+                        <div className="flex items-center gap-2 text-sm text-gray-600">
+                            <span>Rows per page:</span>
+                            <select className=" rounded px-2 py-1 text-sm">
+                                <option value="5" selected>5</option>
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                            </select>
+                            <p>1 - 5 of 20</p>
+                        </div>
+
+                        {/* Right side: Pagination arrows */}
+                        <div className="flex items-center  gap-2 text-gray-600">
+                            <button className="hover:text-gray-800">
+                                <Icon icon="mdi:chevron-left" className="w-5 h-5" />
+                            </button>
+                            <button className="hover:text-gray-800">
+                                <Icon icon="mdi:chevron-right" className="w-5 h-5" />
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

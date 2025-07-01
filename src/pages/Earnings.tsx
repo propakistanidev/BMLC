@@ -89,7 +89,7 @@ const Earnings = () => {
                 </div>
                 <div className="hidden md:block mt-10">
                     <button
-                        className={`flex items-center border-2 text-red-500 border-red-500 rounded-lg py-2 gap-2 text-lg hover:text-purple-800 hover:font-bold transition-all duration-300 ${collapsed ? 'justify-center px-2' : 'px-12'}`}
+                        className={`flex items-center border-1 text-red-500 border-red-500 cursor-pointer rounded-lg py-2 gap-2 text-lg  ${collapsed ? 'justify-center px-2' : 'px-12'}`}
                         onClick={() => window.location.href = '/'}
                     >
                         <Icon icon="mdi:logout" className="text-xl font-bold" />
