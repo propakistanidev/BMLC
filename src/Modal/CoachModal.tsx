@@ -60,7 +60,7 @@ export default function CoachModal({ isOpen, onClose, coach }) {
                         <li>• Resume Review – 8 June</li>
                         <li>• LinkedIn Optimization – 1 June</li>
                     </ul>
-                    <button className='flex flex-row items-center gap-2 bg-[#C8B8E8] text-black py-2 px-6 shadow-[inset_0_2px_2px_#ffffff] border-2 border-[#C8B8E8] mt-6 rounded-lg font-medium  mb-6 mx-auto block'>Done</button>
+                    <button className='flex flex-row items-center gap-2 bg-[#C8B8E8] text-black py-2 px-6 shadow-[inset_0_2px_2px_#ffffff] border-2 border-[#C8B8E8] mt-6 rounded-lg font-medium  mb-6 mx-auto'>Done</button>
                 </div>
             </div>
         </div>
