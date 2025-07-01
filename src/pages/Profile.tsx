@@ -3,7 +3,7 @@ import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import profileImage from "../assets/profile.png";
-import backgroundImage from "../assets/GroupCoachingBG.png";
+import backgroundImage from "../assets/withoutStroke.png";
 
 const Profile = () => {
     const [collapsed, setCollapsed] = useState(false);
@@ -71,7 +71,7 @@ const Profile = () => {
                 </div>
 
                 {/* Centered Background Image */}
-                <div className="relative w-full max-w-6xl mx-auto h-40 rounded-xl overflow-hidden mb-[-80px] z-0">
+                <div className="relative w-full max-w-5xl mx-auto h-50 rounded-xl overflow-hidden z-0">
                     <img
                         src={backgroundImage}
                         alt="Profile Background"
@@ -79,13 +79,13 @@ const Profile = () => {
                     />
                 </div>
 
-                {/* Floating Profile Image */}
-                <div className="relative z-10 flex justify-center -mt-28 mb-10">
+                {/* Profile Image */}
+                <div className="relative z-10 flex justify-center -mt-38">
                     <div className="relative w-32 h-32">
                         <img
                             src={profileImage}
                             alt="User"
-                            className="w-full h-full object-cover rounded-full border-4 border-white shadow"
+                            className="w-full h-full object-cover rounded-full shadow-lg"
                         />
                         <button className="absolute bottom-0 right-0 bg-[#BBA5E0] p-1 rounded-full shadow">
                             <Icon icon="fluent:camera-28-regular" className="text-gray-700 text-lg" />

@@ -69,20 +69,20 @@ const CallHistory = () => {
                 <div className="bg-white shadow rounded-xl p-6 w-full overflow-x-auto">
                     {/* Header with Search */}
                     <div className="flex justify-between items-center mb-4">
-                        <h2 className="text-lg font-semibold text-[#27272A]">Call History with User</h2>
+                        <h2 className="text-2xl font-bold text-[#27272A] mt-4 mb-4">Call History with User</h2>
 
                         {/* Search Bar with Icon Button on Right */}
                         <div className="relative w-64">
                             <input
                                 type="text"
-                                placeholder="Search..."
-                                className="w-full pl-4 pr-12 py-2 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                placeholder="Search User"
+                                className="w-full pl-4 pr-12 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
                             />
                             <button
-                                className="absolute right-1 top-1/2 transform -translate-y-1/2 bg-purple-600 hover:bg-purple-700 text-white rounded-full p-2"
+                                className="absolute right-1 top-1/2 transform -translate-y-1/2 -mr-[3px] rounded-tr-lg rounded-br-lg bg-[#C8B8E8] text-white  p-[8.5px]"
                                 title="Search"
                             >
-                                <Icon icon="mdi:magnify" className="text-lg" />
+                                <Icon icon="mdi:magnify" className="text-lg text-[#27272A]" />
                             </button>
                         </div>
 
@@ -92,7 +92,7 @@ const CallHistory = () => {
                     <table className="w-full text-sm text-left text-gray-700">
                         <thead className="border-b-2 border-gray-200">
                             <tr>
-                                <th className="py-2 px-4 font-medium">#</th>
+                                <th className="py-2 px-4 font-medium">Sr#</th>
                                 <th className="py-2 px-4 font-medium">Title</th>
                                 <th className="py-2 px-4 font-medium">User</th>
                                 <th className="py-2 px-4 font-medium">Status</th>
@@ -104,7 +104,7 @@ const CallHistory = () => {
                         <tbody>
                             {[
                                 {
-                                    id: "#001",
+                                    id: "01",
                                     title: "Mental Health Sickness",
                                     name: "Sarah Thompson",
                                     cost: "$100",
@@ -114,7 +114,7 @@ const CallHistory = () => {
                                     review: "Very helpful session!",
                                 },
                                 {
-                                    id: "#002",
+                                    id: "02",
                                     title: "Career Guidance",
                                     name: "James Miller",
                                     cost: "$80",
@@ -124,7 +124,7 @@ const CallHistory = () => {
                                     review: "",
                                 },
                                 {
-                                    id: "#003",
+                                    id: "03",
                                     title: "Stress Management",
                                     name: "Amanda Lee",
                                     cost: "$120",
@@ -134,7 +134,7 @@ const CallHistory = () => {
                                     review: "",
                                 },
                             ].map((call, index) => (
-                                <tr key={index} className="border-b hover:bg-gray-50 transition">
+                                <tr key={index} className="border-b border-gray-200 hover:bg-gray-50 transition">
                                     <td className="py-2 px-4">{call.id}</td>
                                     <td className="py-2 px-4">{call.title}</td>
                                     <td className="py-2 px-4 flex items-center gap-2">
@@ -147,7 +147,7 @@ const CallHistory = () => {
                                     </td>
                                     <td className="py-2 px-4">
                                         <span
-                                            className={`px-3 py-1 rounded-full text-xs font-semibold
+                                            className={`px-4  rounded-lg py-2  text-xs font-semibold
                 ${call.status === "Completed"
                                                     ? "bg-green-100 text-green-600"
                                                     : call.status === "User Declined"
