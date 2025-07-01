@@ -128,7 +128,7 @@ export default function AdminPanel() {
             {/* Main Content */}
             <div className="flex-1 mt-[60px] md:mt-0 p-4 md:p-6 overflow-y-auto bg-[#F8F6FC]">
                 <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
-                    <h1 className="text-xl font-bold">Home</h1>
+                    <h1 className="text-3xl mt-4 text-[#27272A] font-bold">Home</h1>
                     <div className="flex items-center gap-3">
                         <img src={profileImage} alt="User" className="h-9 w-9 rounded-full" />
                         <div className="text-left text-sm text-gray-700">

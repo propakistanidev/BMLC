@@ -56,7 +56,7 @@ const CallHistory = () => {
             <div className="flex-1 p-6 overflow-y-auto">
                 {/* Header with Admin Info */}
                 <div className="flex justify-between items-center mb-6">
-                    <h1 className="text-xl text-[#27272A] font-bold">Call History</h1>
+                    <h1 className="text-3xl mt-4 text-[#27272A] font-bold">Call History</h1>
                     <div className="flex items-center gap-3">
                         <img src={profileImage} alt="User" className="h-9 w-9 rounded-full" />
                         <div className="text-left text-sm text-gray-700">

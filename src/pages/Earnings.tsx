@@ -102,7 +102,7 @@ const Earnings = () => {
             <div className="flex-1 p-6 overflow-y-auto">
                 {/* Header */}
                 <div className="flex justify-between items-center mb-6">
-                    <h1 className="text-xl text-[#27272A] font-bold">Earnings</h1>
+                    <h1 className="text-3xl mt-4 text-[#27272A] font-bold">Earnings</h1>
                     <div className="flex items-center gap-3">
                         <img src={profileImage} alt="User" className="h-9 w-9 rounded-full" />
                         <div className="text-left text-sm text-gray-700">
@@ -113,15 +113,15 @@ const Earnings = () => {
                 </div>
 
                 {/* Users and Summary Section */}
-                <div className="flex flex-col lg:flex-row gap-6 bg-white rounded-xl shadow p-6">
+                <div className="flex flex-col lg:flex-row gap-10 bg-white rounded-xl shadow p-8 m-4">
                     {/* Users Section */}
                     <div className="w-full lg:w-3/4">
-                        <h2 className="text-lg font-semibold text-gray-800 mb-4">Users</h2>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+                        <h2 className="text-2xl font-semibold ml-2 text-gray-800 mb-4">Users</h2>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
                             {users.map((user, idx) => (
                                 <div
                                     key={idx}
-                                    className="bg-white rounded-xl shadow p-4 flex flex-col gap-4"
+                                    className="bg-white rounded-xl shadow-lg border-1 border-gray-200 p-4 flex flex-col gap-8"
                                 >
                                     {/* Top */}
                                     <div className="flex items-center gap-4">
@@ -137,16 +137,16 @@ const Earnings = () => {
                                     </div>
 
                                     {/* Bottom */}
-                                    <div className="flex gap-8">
-                                        <div className="flex-1 bg-white border-1 border-amber-500 h-30 pt-4 rounded-xl flex flex-col items-center">
-                                            <Icon icon="solar:calendar-linear" className="text-xl text-[#9363C4] mb-2" />
-                                            <p>Date</p>
-                                            <p className="text-sm text-gray-600">{user.date}</p>
+                                    <div className="flex gap-4">
+                                        <div className="flex-1 bg-white border-1 border-gray-200 h-30 p-1.5 pt-4 rounded-xl flex flex-col items-center">
+                                            <div className="bg-[#E8EFF6] w-9 h-9 rounded-lg flex flex-col justify-center items-center"><Icon icon="solar:calendar-linear" className="text-2xl  text-[#9363C4]" /> </div>
+                                            <p className="text-md pt-2 text-[#7F7F7F]">Date</p>
+                                            <p className="text-lg font-medium text-gray-600">{user.date}</p>
                                         </div>
-                                        <div className="flex-1 bg-white border h-30 pt-4 rounded-xl flex flex-col items-center">
-                                            <Icon icon="ant-design:dollar-outlined" className="text-xl text-[#9363C4] mb-2 bg-[#F0FDF4] rounded-sm" />
-                                            <p>Payment</p>
-                                            <p className="text-sm text-gray-600">{user.amount}</p>
+                                        <div className="flex-1 bg-white border-1 border-gray-200 h-30 pt-4 rounded-xl flex flex-col items-center">
+                                            <div className="bg-[#F0FDF4] w-9 h-9 rounded-lg flex flex-col justify-center items-center"><Icon icon="stash:hand-holding-dollar-light" className="text-3xl text-green-600  rounded-md" /></div>
+                                            <p className="text-md pt-2 text-[#7F7F7F]">Payment</p>
+                                            <p className="text-lg font-medium text-gray-600">{user.amount}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -157,8 +157,8 @@ const Earnings = () => {
                     {/* Summary Section */}
                     <div className="w-full lg:w-1/4 space-y-6 bg-white  rounded-2xl">
                         {/* Total Revenue Card */}
-                        <h1 className="text-lg font-semibold text-[#27272A]">Total Earnings</h1>
-                        <div className="border-1 border-gray-300 rounded-2xl p-4 space-y-6">
+                        <h1 className="text-2xl font-semibold text-[#27272A]">Total Earnings</h1>
+                        <div className="border-1 border-gray-300 rounded-2xl space-y-10 -my-2">
                             <div className="bg-white bg-blur-md rounded-2xl bg-[linear-gradient(to_bottom_left,_#C8B8E866_45%,_white_60%,_white_50%,_#C8B8E866_100%)] ">
                                 <div className="p-6">
                                     <p className="text-md text-gray-500 mb-1">Total Earnings</p>
@@ -183,11 +183,40 @@ const Earnings = () => {
 
                             {/* Stripe Card */}
                             <div className="bg-white rounded-xl shadow p-6">
-                                <h3 className="text-sm font-medium text-gray-700 mb-2">Stripe Account</h3>
-                                <div className="text-sm text-gray-600 mb-4">Stripe Account Connected</div>
-                                <button className="w-full px-4 py-2 bg-red-500 text-white text-sm rounded hover:bg-red-600">
-                                    Disconnect Stripe
-                                </button>
+                                <h3 className="text-lg font-medium text-[#33384B] mb-2">
+                                    Stripe Account
+                                </h3>
+                                <div className="border bg-[#F8F6FC] border-gray-200 rounded-lg ml-2 mb-2 px-4 py-2">
+                                    <div className="flex items-center justify-between text-sm text-gray-600">
+                                        {/* Left: "S" icon */}
+                                        <Icon
+                                            icon="simple-icons:stripe"
+                                            className="text-xl"
+                                        />
+
+                                        {/* Center: Text */}
+                                        <span className="font-semibold">
+                                            Stripe Account .... 2345
+                                        </span>
+
+                                        {/* Right: Arrow icon */}
+                                        <Icon
+                                            icon="ic:round-play-arrow"
+                                            className="text-2xl "
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="flex items-center gap-0.5 mt-6 ml-2">
+                                    <button className="px-4 py-2.5 bg-[#C8B8E8] text-white text-sm rounded-tl-md rounded-bl-md">
+                                        <Icon icon="simple-icons:stripe" className="text-lg text-[#27272A]" />
+                                    </button>
+                                    <button className="w-full p-2.5 bg-[#C8B8E8] text-sm rounded-tr-lg rounded-br-lg text-[#27272A]">
+                                        Disconnect Stripe account
+                                    </button>
+
+                                </div>
+
                             </div>
                         </div>
                     </div>

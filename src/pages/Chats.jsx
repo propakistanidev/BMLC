@@ -57,7 +57,7 @@ const Chats = () => {
       <div className="flex-1 p-6 overflow-y-auto">
         {/* Top section with title and admin info */}
         <div className="flex justify-between items-center mb-6">
-          <h1 className="text-xl text-[#27272A] font-bold">Chats</h1>
+          <h1 className="text-3xl mt-4 text-[#27272A] font-bold">Chats</h1>
           <div className="flex items-center gap-3">
             <img
               src={profileImage}

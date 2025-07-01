@@ -7,6 +7,9 @@ import backgroundImage from "../assets/GroupCoachingBG.png";
 
 const Profile = () => {
     const [collapsed, setCollapsed] = useState(false);
+    const [showCurrent, setShowCurrent] = useState(false);
+    const [showNew, setShowNew] = useState(false);
+    const [showConfirm, setShowConfirm] = useState(false);
 
     const navTabs = [
         { label: "Home", icon: "mynaui:home", to: "/AdminPanel" },
@@ -67,8 +70,8 @@ const Profile = () => {
                     </div>
                 </div>
 
-                {/* Background Section */}
-                <div className="relative w-full h-60 rounded-xl overflow-hidden">
+                {/* Centered Background Image */}
+                <div className="relative w-full max-w-6xl mx-auto h-40 rounded-xl overflow-hidden mb-[-80px] z-0">
                     <img
                         src={backgroundImage}
                         alt="Profile Background"
@@ -91,110 +94,183 @@ const Profile = () => {
                 </div>
 
                 {/* Form Section */}
-                <div className="bg-white shadow rounded-xl p-6 w-full max-w-5xl mx-auto mb-20">
+                <div className="bg-white shadow rounded-2xl p-6 w-full max-w-5xl mx-auto mb-5">
+                    <h1 className="text-xl font-semibold mb-6">Personal Information</h1>
+
                     {/* Top Row: Name, Email, Phone */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                        <div>
+                        {/* Name */}
+                        <div className="relative">
                             <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                            <div className="absolute left-3 top-[33px] text-gray-400">
+                                <Icon icon="iconoir:user" className="w-5 h-5" />
+                            </div>
                             <input
                                 type="text"
                                 placeholder="John Doe"
-                                className="w-full border border-gray-300 rounded px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                className="w-full pl-10 py-2 text-sm border border-gray-300 rounded-xl"
                             />
                         </div>
 
-                        <div>
+                        {/* Email */}
+                        <div className="relative">
                             <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <div className="absolute left-3 top-[34px] text-gray-400">
+                                <Icon icon="fluent:mail-20-regular" className="w-5 h-5" />
+                            </div>
                             <input
                                 type="email"
                                 placeholder="john@example.com"
-                                className="w-full border border-gray-300 rounded px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                className="w-full pl-10 py-2 text-sm border border-gray-300 rounded-xl focus:outline-none"
                             />
                         </div>
 
-                        <div>
+                        {/* Phone */}
+                        <div className="relative">
                             <label className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                            <div className="absolute left-3 top-[34px] text-gray-400">
+                                <Icon icon="lucide:phone-call" className="w-5 h-5" />
+                            </div>
                             <input
                                 type="tel"
                                 placeholder="+92 300 1234567"
-                                className="w-full border border-gray-300 rounded px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                className="w-full pl-10 py-2 text-sm border border-gray-300 rounded-xl focus:outline-none"
                             />
                         </div>
                     </div>
 
-                    {/* Bio Row */}
-                    <div>
+                    {/* Bio */}
+                    <div className="relative">
                         <label className="block text-sm font-medium text-gray-700 mb-1">Bio</label>
+                        <div className="absolute left-3 top-[34px] text-gray-400">
+                            <Icon icon="mage:id-card" className="w-5 h-5" />
+                        </div>
                         <textarea
                             placeholder="Tell us about yourself..."
                             rows={5}
-                            className="w-full border border-gray-300 rounded px-4 py-2 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-purple-500"
+                            className="w-full pl-10 border border-gray-300 py-2 text-sm resize-none rounded-xl"
                         ></textarea>
                     </div>
                 </div>
+
                 {/* Experience Section */}
-                <div className="bg-white shadow rounded-xl p-6 w-full max-w-5xl mx-auto mb-20">
+                <div className="bg-white shadow rounded-xl p-6 w-full max-w-5xl mx-auto mb-5">
+                    <h1 className="text-xl font-semibold mb-6">Experience</h1>
+
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                        {/* Experience */}
+                        <div className="relative">
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Experience</label>
+                            <div className="absolute left-3 top-[34px] text-gray-400">
+                                <Icon icon="carbon:id-management" className="w-5 h-5" />
+                            </div>
                             <input
                                 type="text"
-                                placeholder="John Doe"
-                                className="w-full border border-gray-300 rounded px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                placeholder="e.g. 5 Years"
+                                className="w-full pl-10 border border-gray-300 rounded-xl px-4 py-2 text-sm"
                             />
                         </div>
 
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        {/* Certifications */}
+                        <div className="relative">
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Certifications</label>
+                            <div className="absolute left-3 top-[34px] text-gray-400">
+                                <Icon icon="mdi:certificate-outline" className="w-5 h-5" />
+                            </div>
                             <input
-                                type="email"
-                                placeholder="john@example.com"
-                                className="w-full border border-gray-300 rounded px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                type="text"
+                                placeholder="e.g. Google UX"
+                                className="w-full pl-10 border border-gray-300 rounded-xl px-4 py-2 text-sm"
                             />
                         </div>
 
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                        {/* Specialties */}
+                        <div className="relative">
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Specialties</label>
+                            <div className="absolute left-3 top-[34px] text-gray-400">
+                                <Icon icon="mdi:head-heart-outline" className="w-5 h-5" />
+                            </div>
                             <input
-                                type="tel"
-                                placeholder="+92 300 1234567"
-                                className="w-full border border-gray-300 rounded px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                type="text"
+                                placeholder="e.g. Mindfulness"
+                                className="w-full pl-10 border border-gray-300 rounded-xl px-4 py-2 text-sm "
                             />
                         </div>
                     </div>
                 </div>
+
                 {/* Password Section */}
-                <div className="bg-white shadow rounded-xl p-6 w-full max-w-5xl mx-auto mb-20">
+                <div className="bg-white shadow rounded-xl p-6 w-full max-w-5xl mx-auto mb-5">
+                    <h1 className="text-xl font-semibold mb-6">Change Password</h1>
+
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                        {/* Current Password */}
+                        <div className="relative">
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Current Password</label>
+                            <div className="absolute left-3 top-[34px] text-gray-400">
+                                <Icon icon="lsicon:lock-outline" className="w-5 h-5" />
+                            </div>
                             <input
-                                type="text"
-                                placeholder="John Doe"
-                                className="w-full border border-gray-300 rounded px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                type={showCurrent ? "text" : "password"}
+                                placeholder="********"
+                                className="w-full pl-10 pr-10 border border-gray-300 rounded-xl px-4 py-2 text-sm"
                             />
+                            <button
+                                type="button"
+                                onClick={() => setShowCurrent(!showCurrent)}
+                                className="absolute right-3 top-[34px] text-gray-500"
+                            >
+                                <Icon icon={showCurrent ? "mdi:eye-off" : "solar:eye-outline"} className="w-5 h-5" />
+                            </button>
                         </div>
 
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        {/* New Password */}
+                        <div className="relative">
+                            <label className="block text-sm font-medium text-gray-700 mb-1">New Password</label>
+                            <div className="absolute left-3 top-[34px] text-gray-400">
+                                <Icon icon="lsicon:lock-outline" className="w-5 h-5" />
+                            </div>
                             <input
-                                type="email"
-                                placeholder="john@example.com"
-                                className="w-full border border-gray-300 rounded px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                type={showNew ? "text" : "password"}
+                                placeholder="********"
+                                className="w-full pl-10 pr-10 border border-gray-300 rounded-xl px-4 py-2 text-sm"
                             />
+                            <button
+                                type="button"
+                                onClick={() => setShowNew(!showNew)}
+                                className="absolute right-3 top-[34px] text-gray-500"
+                            >
+                                <Icon icon={showNew ? "mdi:eye-off" : "solar:eye-outline"} className="w-5 h-5" />
+                            </button>
                         </div>
 
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                        {/* Confirm New Password */}
+                        <div className="relative">
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
+                            <div className="absolute left-3 top-[34px] text-gray-400">
+                                <Icon icon="lsicon:lock-outline" className="w-5 h-5" />
+                            </div>
                             <input
-                                type="tel"
-                                placeholder="+92 300 1234567"
-                                className="w-full border border-gray-300 rounded px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                type={showConfirm ? "text" : "password"}
+                                placeholder="********"
+                                className="w-full pl-10 pr-10 border border-gray-300 rounded-xl px-4 py-2 text-sm"
                             />
+                            <button
+                                type="button"
+                                onClick={() => setShowConfirm(!showConfirm)}
+                                className="absolute right-3 top-[34px] text-gray-500"
+                            >
+                                <Icon icon={showConfirm ? "mdi:eye-off" : "solar:eye-outline"} className="w-5 h-5" />
+                            </button>
                         </div>
                     </div>
                 </div>
-                <div className=" flex flex-row justify-between rounded-xl p-6 w-full max-w-5xl mx-auto mb-20"><button>Delete Account</button><button>Save Changes</button></div>
+
+                {/* Action Buttons */}
+                <div className="flex flex-row justify-between rounded-xl p-6 w-full max-w-5xl mx-auto mb-5">
+                    <button className="text-red-600 border border-red-600 px-4 py-2 rounded-lg font-medium">Delete Account</button>
+                    <button className="bg-[#C8B8E8] flex flex-row gap-2 px-4 py-2 rounded-lg font-medium text-[#27272A] transition"><Icon icon='mynaui:save' className="w-5 h-5 justify-center items-center mt-1" />Save Changes</button>
+                </div>
             </div>
         </div>
     );
