@@ -5,18 +5,18 @@ import profileImage from "../assets/profile.png";
 
 const dummyData = {
     chat: [
-        { id: 1, coach: "Sarah Johnson", title: "Mindfulness Tips", count: 34, cost: "$12.00", image: "https://randomuser.me/api/portraits/women/44.jpg" },
-        { id: 2, coach: "David Lee", title: "Productivity Hacks", count: 22, cost: "$8.50", image: "https://randomuser.me/api/portraits/women/44.jpg" },
-        { id: 3, coach: "Maria Smith", title: "Self-esteem Session", count: 18, cost: "$7.20", image: "https://randomuser.me/api/portraits/women/44.jpg" },
-        { id: 4, coach: "James Patel", title: "Career Talk", count: 15, cost: "$6.80", image: "https://randomuser.me/api/portraits/women/44.jpg" },
-        { id: 5, coach: "Liam Brown", title: "Speaking Tips", count: 11, cost: "$5.50", image: "https://randomuser.me/api/portraits/women/44.jpg" },
+        { id: 1, coach: "Sarah Johnson", title: "Mindfulness Tips", count: '$20.00 - Up to 34', cost: "$12.00", image: "https://randomuser.me/api/portraits/women/44.jpg" },
+        { id: 2, coach: "David Lee", title: "Productivity Hacks", count: '$20.00 - Up to 34', cost: "$8.50", image: "https://randomuser.me/api/portraits/men/46.jpg" },
+        { id: 3, coach: "Maria Smith", title: "Self-esteem Session", count: '$20.00 - Up to 34', cost: "$7.20", image: "https://randomuser.me/api/portraits/women/50.jpg" },
+        { id: 4, coach: "James Patel", title: "Career Talk", count: '$20.00 - Up to 34', cost: "$6.80", image: "https://randomuser.me/api/portraits/men/30.jpg" },
+        { id: 5, coach: "Liam Brown", title: "Speaking Tips", count: '$20.00 - Up to 34', cost: "$5.50", image: "https://randomuser.me/api/portraits/men/20.jpg" },
     ],
     call: [
-        { id: 1, coach: "Sarah Johnson", title: "Mindfulness Call", duration: "45 mins", cost: "$25.00", image: "https://randomuser.me/api/portraits/women/44.jpg" },
-        { id: 2, coach: "David Lee", title: "Productivity Call", duration: "30 mins", cost: "$18.00", image: "https://randomuser.me/api/portraits/women/44.jpg" },
-        { id: 3, coach: "Maria Smith", title: "Self-esteem Call", duration: "40 mins", cost: "$20.00", image: "https://randomuser.me/api/portraits/women/44.jpg" },
-        { id: 4, coach: "James Patel", title: "Career Coaching", duration: "35 mins", cost: "$17.00", image: "https://randomuser.me/api/portraits/women/44.jpg" },
-        { id: 5, coach: "Liam Brown", title: "Public Speaking", duration: "25 mins", cost: "$13.50", image: "https://randomuser.me/api/portraits/women/44.jpg" },
+        { id: 1, coach: "Sarah Johnson", title: "Mindfulness Call", duration: "$20.00 - Up to 34", cost: "$25.00", image: "https://randomuser.me/api/portraits/women/44.jpg" },
+        { id: 2, coach: "David Lee", title: "Productivity Call", duration: "$20.00 - Up to 34", cost: "$18.00", image: "https://randomuser.me/api/portraits/men/46.jpg" },
+        { id: 3, coach: "Maria Smith", title: "Self-esteem Call", duration: "$20.00 - Up to 34", cost: "$20.00", image: "https://randomuser.me/api/portraits/women/50.jpg" },
+        { id: 4, coach: "James Patel", title: "Career Coaching", duration: "$20.00 - Up to 34", cost: "$17.00", image: "https://randomuser.me/api/portraits/men/30.jpg" },
+        { id: 5, coach: "Liam Brown", title: "Public Speaking", duration: "$20.00 - Up to 34", cost: "$13.50", image: "https://randomuser.me/api/portraits/men/20.jpg" },
     ],
 };
 
@@ -37,10 +37,7 @@ const Expenses = () => {
                     <h1 className="text-2xl font-bold">Expenses</h1>
 
                     <div className="flex items-center gap-3">
-                        <button className="text-[#3C3C3C] font-light px-4 py-2 rounded flex items-center gap-2 border border-gray-200">
-                            <Icon icon="prime:wallet" className="text-2xl" />
-                            Wallet Balance: <span className="text-[#9363C4] font-medium">$20</span>
-                        </button>
+
                         <img src={profileImage} alt="User profile" className="h-9 w-9 rounded-full" />
                         <div className="text-left text-sm text-gray-700">
                             <div className="font-medium">Admin</div>
@@ -76,13 +73,15 @@ const Expenses = () => {
                         </label>
                     </div>
 
-                    <div className="flex items-center gap-2 bg-white p-3 rounded-lg shadow border border-gray-200">
-                        <Icon icon="mdi:currency-usd" className="text-green-500 text-xl" />
-                        <div className="text-sm">
-                            <div className="text-gray-600">{selectedFilter === "chat" ? "Chat Expense" : "Call Expense"}</div>
-                            <div className="font-semibold text-black">$99.00</div>
+                    <div className="flex flex-row w-[500px] p-3 justify-between items-center gap-2 bg-white  rounded-lg shadow border border-gray-200">
+                        <div className="flex items-center gap-2">
+                            <div className="bg-[#E0F6ED] p-2 rounded-lg"><Icon icon="mdi:currency-usd" className="text-green-500 text-3xl" /></div><div className="text-sm">
+                                <div className="text-gray-600">{selectedFilter === "chat" ? "Chat Expense" : "Call Expense"}</div>
+                                <div className="font-semibold text-black">$99.00</div>
+                            </div>
                         </div>
-                        <span className="text-green-600 animate-pulse text-sm">▲</span>
+
+                        <span className="text-sm flex gap-1 text-[#7F7F7F]">+5.00 (+12.5%) <span><Icon icon='mdi:arrow-top-thick' className="text-green-500 text-xl" /></span> Last Month</span>
                     </div>
                 </div>
 
@@ -102,16 +101,16 @@ const Expenses = () => {
                                 <th className="px-6 py-3 text-left">Cost</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-gray-100">
+                        <tbody className="bg-white divide-y divide-gray-100 text-[#27272A]">
                             {dataToShow.map((item, idx) => (
                                 <tr key={item.id}>
                                     <td className="px-6 py-4">{idx + 1}</td>
                                     <td className="px-6 py-4 flex items-center gap-2"><img src={item.image} alt="User profile" className="h-9 w-9 rounded-full" />{item.coach}</td>
                                     <td className="px-6 py-4">{item.title}</td>
                                     <td className="px-6 py-4">
-                                        {selectedFilter === "chat" ? `${item.count} msgs` : item.duration}
+                                        {selectedFilter === "chat" ? `${item.count} messages` : `${item.duration} messages`}
                                     </td>
-                                    <td className="px-6 py-4 font-semibold">{item.cost}</td>
+                                    <td className="px-6 py-4 font-medium">{item.cost}</td>
                                 </tr>
                             ))}
                         </tbody>

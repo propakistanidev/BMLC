@@ -14,15 +14,12 @@ export default function UserProfile() {
             <SideBar />
 
             {/* Main Area */}
-            <div className="flex-1 p-6 flex flex-col">
+            <div className="flex-1 p-6 flex flex-col ">
                 {/* Header */}
-                <div className="flex justify-between items-center w-full">
-                    <h1 className="text-2xl font-bold">Home</h1>
+                <div className="flex justify-between items-center w-full mb-10">
+                    <h1 className="text-2xl font-bold">Profile</h1>
                     <div className="flex items-center gap-3">
-                        <button className="text-[#3C3C3C] font-light px-4 py-2 rounded flex items-center gap-2 border border-gray-200">
-                            <Icon icon="prime:wallet" className="text-2xl" />
-                            Wallet Balance: <span className="text-[#9363C4] font-medium">$20</span>
-                        </button>
+
                         <img src={profileImage} alt="User profile" className="h-9 w-9 rounded-full" />
                         <div className="text-left text-sm text-gray-700">
                             <div className="font-medium">User</div>
@@ -36,7 +33,7 @@ export default function UserProfile() {
                     <img
                         src={backgroundImage}
                         alt="Profile Background"
-                        className="w-full h-full object-cover"
+                        className="w-full h-[350px] object-cover"
                     />
                 </div>
 
@@ -51,11 +48,12 @@ export default function UserProfile() {
                         <button className="absolute bottom-0 right-0 bg-[#BBA5E0] p-1 rounded-full shadow">
                             <Icon icon="fluent:camera-28-regular" className="text-gray-700 text-lg" />
                         </button>
+                        <p className="text-2xl font-semibold mt-2 text-center">John Doe</p>
                     </div>
                 </div>
 
                 {/* Form Section */}
-                <div className="bg-white shadow rounded-2xl p-6 w-full max-w-5xl mx-auto mb-5">
+                <div className="bg-white shadow rounded-2xl p-6 w-full max-w-5xl mx-auto mt-2 mb-5">
                     <h1 className="text-xl font-semibold mb-6">Personal Information</h1>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
