@@ -5,7 +5,7 @@ import { Icon } from "@iconify/react";
 
 export default function CreditHistory() {
     return (
-        <div className="flex bg-[#F8F6FC] min-h-screen">
+        <div className="flex  bg-[#F8F6FC] min-h-screen">
             <SideBar />
 
             <div className="flex-1 p-6">
@@ -13,10 +13,6 @@ export default function CreditHistory() {
                 <div className="flex justify-between items-center w-full mb-6">
                     <h1 className="text-2xl font-bold">Credit History</h1>
                     <div className="flex items-center gap-3">
-                        <button className="text-[#3C3C3C] font-light px-4 py-2 rounded flex items-center gap-2 border border-gray-200">
-                            <Icon icon="prime:wallet" className="text-2xl" />
-                            Wallet Balance: <span className="text-[#9363C4] font-medium">$20</span>
-                        </button>
                         <img src={profileImage} alt="User profile" className="h-9 w-9 rounded-full" />
                         <div className="text-left text-sm text-gray-700">
                             <div className="font-medium">User</div>
@@ -26,29 +22,33 @@ export default function CreditHistory() {
                 </div>
 
                 {/* Wallet Summary Card */}
-                <div className="bg-white rounded-xl shadow-md p-6 w-full max-w-md mb-6">
-                    <h2 className="text-lg font-semibold text-[#27272A] mb-4">Wallet Summary</h2>
+                <h2 className="text-lg font-semibold text-[#27272A] mb-4">Wallet Summary</h2>
+                <div className="bg-white rounded-xl shadow-md p-6 w-fit" >
+                    <div className="bg-gradient-to-bl from-[#9363C340] via-white to-[#9363C430] w-[355px] h-[200px] rounded-xl shadow-md p-6  max-w-md mb-2">
 
-                    <div className="space-y-3">
-                        <div>
-                            <p className="text-sm text-gray-500">Wallet Balance</p>
-                            <h3 className="text-2xl font-bold text-[#9363C4]">$45.00</h3>
+
+                        <div className="space-y-1">
+                            <div>
+                                <p className="text-md mb-2 tracking-wide text-[#454545]">Wallet Balance</p>
+                                <h3 className="text-2xl font-bold text-[#9363C4]">$45.00</h3>
+                            </div>
+                            <hr className="border-t mb-2 border-white" />
+                            <div className="flex justify-between">
+                                <p className="text-md mb-4 tracking-wide text-gray-500">Total Spending</p>
+                                <h3 className="text-lg font-semibold text-gray-700">$230.00</h3>
+                            </div>
+                            <hr className="border-t mb-2 border-white" />
+                            <div className="flex justify-between">
+                                <p className="text-md tracking-wide text-gray-500">Last Wallet Top-Up</p>
+                                <h3 className="text-lg font-medium text-gray-700">July 5, 2025</h3>
+                            </div>
                         </div>
 
-                        <div>
-                            <p className="text-sm text-gray-500">Total Spending</p>
-                            <h3 className="text-lg font-semibold text-gray-700">$230.00</h3>
-                        </div>
+                        {/* Buttons */}
 
-                        <div>
-                            <p className="text-sm text-gray-500">Last Wallet Top-Up</p>
-                            <h3 className="text-sm font-medium text-gray-700">July 5, 2025</h3>
-                        </div>
                     </div>
-
-                    {/* Buttons */}
-                    <div className="flex gap-4 mt-6">
-                        <button className="flex items-center gap-2 border border-gray-300 px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-100">
+                    <div className="flex justify-center gap-4 mt-6">
+                        <button className="flex items-center gap-2 border border-[#9363C488] px-4 py-2 rounded-lg text-sm font-medium text-[#9363C4] hover:bg-gray-100">
                             <Icon icon="solar:card-outline" className="text-lg" />
                             Manage Card
                         </button>
@@ -60,7 +60,7 @@ export default function CreditHistory() {
                 </div>
 
                 {/* Placeholder for Future Content */}
-                <div className="w-full">
+                <div className="w-full bg-white rounded-xl shadow-md mt-8 p-6">
                     {/* Table */}
                     <div className="flex justify-between items-center mb-4">
                         <h2 className="text-2xl font-bold text-[#27272A] mt-4 mb-4">Call History with User</h2>
@@ -84,62 +84,69 @@ export default function CreditHistory() {
                     <table className="w-full text-sm text-left text-gray-700">
                         <thead className="border-b-2 border-gray-200">
                             <tr>
-                                <th className="py-2 px-4 font-bold">Sr#</th>
-                                <th className="py-2 px-4 font-bold">Title</th>
-                                <th className="py-2 px-4 font-bold">User</th>
-                                <th className="py-2 px-4 font-bold">Status</th>
-                                <th className="py-2 px-4 font-bold">Cost</th>
-                                <th className="py-2 px-4 font-bold">Duration</th>
-                                <th className="py-2 px-4 font-bold">Rate & Reviews</th>
+                                <th className="py-2 px-4 font-bold text-center">Sr#</th>
+                                <th className="py-2 px-8 font-bold ">Life Coach</th>
+                                <th className="py-2 px-4 font-bold ">Date</th>
+                                <th className="py-2 px-4 font-bold text-center">Balance Used</th>
+                                <th className="py-2 px-4 font-bold text-center">Duration</th>
+                                <th className="py-2 px-4 font-bold text-center">Status</th>
+
                             </tr>
                         </thead>
                         <tbody>
                             {[
                                 {
                                     id: "01",
-                                    title: "Mental Health Sickness",
-                                    name: "Sarah Thompson",
+                                    lifecoach: "Sarah Thompson",
+                                    date: "2023-07-10",
+                                    image: "https://randomuser.me/api/portraits/women/44.jpg",
                                     cost: "$100",
                                     duration: "30 mins",
+
                                     status: "Completed",
                                     rating: 4.5,
                                     review: "Very helpful session!",
                                 },
                                 {
                                     id: "02",
-                                    title: "Career Guidance",
-                                    name: "James Miller",
+                                    lifecoach: "James Miller",
+                                    date: "2023-07-15",
+                                    image: "https://randomuser.me/api/portraits/men/46.jpg",
                                     cost: "$80",
                                     duration: "45 mins",
                                     status: "User Declined",
-                                    rating: 0,
+
                                     review: "",
                                 },
                                 {
                                     id: "03",
-                                    title: "Stress Management",
-                                    name: "Amanda Lee",
+                                    lifecoach: "Amanda Lee",
+                                    date: "2023-07-20",
+                                    image: "https://randomuser.me/api/portraits/women/46.jpg",
                                     cost: "$120",
                                     duration: "60 mins",
                                     status: "Coach Declined",
+
                                     rating: 0,
                                     review: "",
                                 },
                             ].map((call, index) => (
-                                <tr key={index} className="border-b border-gray-200 hover:bg-gray-50 transition">
-                                    <td className="py-2 px-4">{call.id}</td>
-                                    <td className="py-2 px-4">{call.title}</td>
-                                    <td className="py-2 px-4 flex items-center gap-2">
-                                        <img
-                                            src={profileImage}
-                                            alt={call.name}
-                                            className="h-8 w-8 rounded-full object-cover"
-                                        />
-                                        <span>{call.name}</span>
+                                <tr key={index} className="border-b border-gray-200 hover:bg-gray-50">
+                                    <td className="py-2 px-2 text-center">{call.id}</td>
+                                    <td className="py-2 px-2 gap-2 flex justify-start items-center"> <img
+                                        src={call.image}
+                                        alt={call.lifecoach}
+                                        className="h-8 w-8 rounded-full object-cover"
+                                    />{call.lifecoach}</td>
+
+                                    <td className="py-2 ">
+                                        {call.date}
                                     </td>
-                                    <td className="py-2 px-4">
+                                    <td className="py-2  text-center">{call.cost}</td>
+                                    <td className="py-2 text-center">{call.duration}</td>
+                                    <td className="py-2  text-center">
                                         <span
-                                            className={`px-2 rounded-lg py-2  text-xs font-semibold
+                                            className={` rounded-lg py-2  text-xs font-semibold
                              ${call.status === "Completed"
                                                     ? "bg-green-100 text-green-600 px-8"
                                                     : call.status === "User Declined"
@@ -149,19 +156,6 @@ export default function CreditHistory() {
                                         >
                                             {call.status}
                                         </span>
-                                    </td>
-                                    <td className="py-2 px-4">{call.cost}</td>
-                                    <td className="py-2 px-4">{call.duration}</td>
-                                    <td className="py-2 px-4">
-                                        {call.rating > 0 ? (
-                                            <div className="flex items-center gap-1">
-                                                <Icon icon="material-symbols:star" className="text-yellow-400 text-lg" />
-                                                <span className="font-medium">{call.rating}</span>
-                                                <span className="text-gray-500 text-sm">({call.review})</span>
-                                            </div>
-                                        ) : (
-                                            <span className="text-gray-400 italic">No review</span>
-                                        )}
                                     </td>
                                 </tr>
                             ))}
