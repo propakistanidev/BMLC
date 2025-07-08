@@ -14,13 +14,19 @@ import SignIn from './pages/SignIn.tsx'
 import { Toaster } from 'react-hot-toast'
 import SignUpPage from './pages/SignUpPage.tsx'
 import AdminPanel from './pages/AdminPanel.tsx'
-import UserPanel from './components/SideBar.tsx'
+import UserPanel from './pages/UserPanel.tsx'
 import Sessions from './pages/Sessions.tsx'
 import Chats from './pages/Chats.jsx'
 import Earnings from './pages/Earnings.tsx'
 import Availability from './pages/Availability.tsx'
 import Profile from './pages/Profile.tsx'
 import Calls from './pages/CallHistory.tsx'
+import Appoint from './pages/UserAppointment.jsx'
+import UserChats from './pages/UserChats.jsx'
+import UserProfile from './pages/UserProfile.jsx'
+import UserExpenses from './pages/UserExpenses.jsx'
+import CreditHistory from './pages/CreditHistory.jsx'
+import UserCallHistory from './pages/UserCallHistory.jsx'
 
 
 const router = createBrowserRouter([
@@ -50,6 +56,12 @@ const router = createBrowserRouter([
       { path: "/Availability", element: <Availability /> },
       { path: "Profile", element: <Profile /> },
       { path: "Calls", element: <Calls /> },
+      { path: "Appoint", element: <Appoint /> },
+      { path: "UserChats", element: <UserChats /> },
+      { path: "UserProfile", element: <UserProfile /> },
+      { path: "UserExpenses", element: <UserExpenses /> },
+      { path: "CreditHistory", element: <CreditHistory /> },
+      { path: "UserCallHistory", element: <UserCallHistory /> },
 
     ],
   },

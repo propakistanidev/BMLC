@@ -1,10 +1,15 @@
+
+
 import { Icon } from "@iconify/react";
 
 const CoachCard = ({ coach }) => {
+
     return (
-        <div className="bg-white rounded-xl shadow-2xl p-6 w-[360px] h-[350px] ml-8">
+
+
+        <div className="bg-white rounded-xl shadow-2xl p-6 w-full h-[350px]">
             {/* Image + Name + Expertise + Rating */}
-            <div className="flex flex-col items-start relative ">
+            <div className="flex flex-col items-start relative">
                 <div className="relative">
                     <img
                         src={coach.image}
@@ -12,7 +17,9 @@ const CoachCard = ({ coach }) => {
                         className="w-20 h-20 rounded-full object-cover"
                     />
                     {coach.online && (
-                        <span className="flex items-center justify-center absolute top-1 right-1 w-4 h-4 bg-green-500 border-2 border-white rounded-full"><p className=" absolute -top-1 left-1 flex items-center text-green-500 text-xs ml-4">Available</p></span>
+                        <span className="flex items-center justify-center absolute top-1 right-1 w-4 h-4 bg-green-500 border-2 border-white rounded-full">
+                            <p className="absolute -top-1 left-1 flex items-center text-green-500 text-xs ml-4">Available</p>
+                        </span>
                     )}
                 </div>
 
@@ -20,14 +27,13 @@ const CoachCard = ({ coach }) => {
                 <p className="text-sm text-gray-500">{coach.expertise}</p>
 
                 {/* Star Rating */}
-                <div className="flex gap-4 items-center ">
+                <div className="flex gap-4 items-center">
                     <p className="text-sm">{coach.rating.toFixed(1)}</p>
                     {Array.from({ length: 5 }).map((_, i) => (
                         <Icon
                             key={i}
                             icon={i < Math.floor(coach.rating) ? "mdi:star" : "mdi:star-outline"}
-                            className={`text-xl ${i < Math.floor(coach.rating) ? "text-yellow-400" : "text-gray-300"
-                                }`}
+                            className={`text-xl ${i < Math.floor(coach.rating) ? "text-yellow-400" : "text-gray-300"}`}
                         />
                     ))}
                     <p className="text-sm text-gray-500">({coach.reviews})</p>
@@ -55,11 +61,11 @@ const CoachCard = ({ coach }) => {
 
             {/* Buttons */}
             <div className="flex flex-row gap-2">
-                <button className="bg-[#C8B8E8] flex items-center gap-2 text-black text-xs py-2 px-2 font-medium rounded-md">
+                <button className="bg-[#C8B8E8] flex items-center gap-2 text-black text-xs py-2 px-4 font-medium rounded-md">
                     <Icon icon='solar:calendar-linear' className="w-4 h-4" />
                     Book a Call
                 </button>
-                <button className="bg-white flex items-center gap-2 text-[#9363C4] border border-[#9363C4] py-2 px-2 text-xs font-medium rounded-md">
+                <button className="bg-white flex items-center gap-2 text-[#9363C4] border border-[#9363C4] py-2 px-3 text-xs font-medium rounded-md">
                     <Icon icon='proicons:call' className="w-4 h-4" />
                     Call Now
                 </button>
