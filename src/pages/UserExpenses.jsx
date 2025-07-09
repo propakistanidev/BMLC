@@ -36,7 +36,7 @@ const Expenses = () => {
                 <div className="flex justify-between items-center w-full mb-6">
                     <h1 className="text-2xl font-bold">Expenses</h1>
 
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 hover:scale-105 transition duration-200 ease-in-out">
 
                         <img src="https://randomuser.me/api/portraits/men/20.jpg" alt="User profile" className="h-9 w-9 rounded-full" />
                         <div className="text-left text-sm text-gray-700">
@@ -73,7 +73,7 @@ const Expenses = () => {
                         </label>
                     </div>
 
-                    <div className="flex flex-row w-[500px] p-3 justify-between items-center gap-2 bg-white  rounded-lg shadow border border-gray-200">
+                    <div className="flex flex-row w-[500px] p-3 justify-between items-center gap-2 bg-white  rounded-lg shadow border border-gray-200 hover:scale-105 transition duration-200 ease-in-out">
                         <div className="flex items-center gap-2">
                             <div className="bg-[#E0F6ED] p-2 rounded-lg"><Icon icon="mdi:currency-usd" className="text-green-500 text-3xl" /></div><div className="text-sm">
                                 <div className="text-gray-600">{selectedFilter === "chat" ? "Chat Expense" : "Call Expense"}</div>
@@ -101,10 +101,10 @@ const Expenses = () => {
                                 <th className="px-6 py-3 text-left">Cost</th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-gray-100 text-[#27272A]">
+                        <tbody className="bg-white divide-y divide-gray-100 text-[#27272A] ">
                             {dataToShow.map((item, idx) => (
-                                <tr key={item.id}>
-                                    <td className="px-6 py-4">{idx + 1}</td>
+                                <tr key={item.id} className="hover:bg-gray-100">
+                                    <td className="px-6 py-4 ">{idx + 1}</td>
                                     <td className="px-6 py-4 flex items-center gap-2"><img src={item.image} alt="User profile" className="h-9 w-9 rounded-full" />{item.coach}</td>
                                     <td className="px-6 py-4">{item.title}</td>
                                     <td className="px-6 py-4">

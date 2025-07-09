@@ -31,12 +31,12 @@ export default function UserPanelSideBar() {
                 </div>
 
                 {/* Navigation */}
-                <nav className="flex flex-col space-y-4 p-6 text-[#27272A]">
+                <nav className="flex flex-col space-y-4 pl-4 pr-4 text-[#27272A]">
                     {navItems.map((item) => (
                         <Link
                             key={item.title}
                             to={item.to}
-                            className={`p-2 rounded-xl hover:bg-[#C8B8E8] flex flex-row gap-2 items-center justify-start transition ${location.pathname === item.to ? 'bg-[#C8B8E8] font-semibold' : ''
+                            className={`p-2 rounded-xl hover:bg-[#c8b8e8cc] hover:text-black hover:scale-105 transition duration-200 ease-in-out flex flex-row gap-2 items-center justify-start ${location.pathname === item.to ? 'bg-[#C8B8E8] font-semibold' : ''
                                 }`}
                         >
                             <Icon icon={item.icon} className='w-5 h-5 text-2xl' />{item.title}
@@ -49,7 +49,7 @@ export default function UserPanelSideBar() {
             <div className=' ml-18 mb-8'>
                 <button
                     onClick={handleLogout}
-                    className='w-1/2 p-2 rounded-lg border border-red-600 text-red-600 flex justify-center  items-center gap-2 hover:bg-red-200 transition'
+                    className='w-1/2 p-2 rounded-lg border border-red-600 text-red-600 flex justify-center  items-center gap-2 hover:bg-red-200 hover:scale-110 transition duration-200 ease-in-out'
                 >
                     <Icon icon='mdi:logout' className='w-5 h-5' />
                     Logout

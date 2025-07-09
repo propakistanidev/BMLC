@@ -31,6 +31,42 @@ const chatList = [
             { from: "me", text: "Sure, no problem.", time: "1:27 PM" }
         ]
     },
+    {
+        id: 3,
+        name: "Bruce Lee",
+        message: "Can we reschedule?",
+        time: "1:30 PM",
+        status: "Online",
+        image: "https://randomuser.me/api/portraits/men/9.jpg",
+        messages: [
+            { from: "them", text: "Hey, can we reschedule today’s call?", time: "1:25 PM" },
+            { from: "me", text: "Sure, no problem.", time: "1:27 PM" }
+        ]
+    },
+    {
+        id: 4,
+        name: "David Gunderson",
+        message: "Can we reschedule?",
+        time: "1:30 PM",
+        status: "Offline",
+        image: "https://randomuser.me/api/portraits/men/1.jpg",
+        messages: [
+            { from: "them", text: "Hey, can we reschedule today’s call?", time: "1:25 PM" },
+            { from: "me", text: "Sure, no problem.", time: "1:27 PM" }
+        ]
+    },
+    {
+        id: 5,
+        name: "Wu Ting Lee",
+        message: "Can we reschedule?",
+        time: "1:30 PM",
+        status: "Offline",
+        image: "https://randomuser.me/api/portraits/men/34.jpg",
+        messages: [
+            { from: "them", text: "Hey, can we reschedule today’s call?", time: "1:25 PM" },
+            { from: "me", text: "Sure, no problem.", time: "1:27 PM" }
+        ]
+    },
 ];
 
 export default function UserChats() {
@@ -46,7 +82,7 @@ export default function UserChats() {
                 {/* Header */}
                 <div className="flex justify-between items-center w-full">
                     <h1 className="text-2xl font-bold">Chats</h1>
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 hover:scale-105 transition duration-200 ease-in-out">
                         <img src="https://randomuser.me/api/portraits/men/20.jpg" alt="User profile" className="h-9 w-9 rounded-full" />
                         <div className="text-left text-sm text-gray-700">
                             <div className="font-medium">User</div>
@@ -81,7 +117,7 @@ export default function UserChats() {
                                 <div
                                     key={chat.id}
                                     onClick={() => setSelectedChat(chat)}
-                                    className={`flex items-center gap-3 px-2 py-2 rounded-lg cursor-pointer ${selectedChat.id === chat.id ? "bg-[#F1EEF9]" : "hover:bg-purple-50"
+                                    className={`flex items-center gap-3 px-2 py-2 rounded-lg cursor-pointer ${selectedChat.id === chat.id ? "bg-[#F1EEF9]" : "hover:bg-purple-50 hover:scale-105 transition duration-200 ease-in-out"
                                         }`}
                                 >
                                     <img
@@ -118,7 +154,7 @@ export default function UserChats() {
 
                         {/* Messages */}
                         <div
-                            className="flex-1 p-4 space-y-6 overflow-y-auto"
+                            className="flex-1 p-4 space-y-6 overflow-y-auto "
                             style={{
                                 backgroundImage: `url(${ChatBackground})`,
                                 backgroundColor: "#F7F6FC",
@@ -129,7 +165,7 @@ export default function UserChats() {
                                     key={idx}
                                     className={`flex flex-col ${msg.from === "me" ? "items-end" : "items-start"}`}
                                 >
-                                    <div className="relative max-w-xs">
+                                    <div className="relative max-w-xs hover:scale-105 transition duration-200 ease-in-out">
                                         <div
                                             className={`px-4 py-2 text-sm rounded-lg ${msg.from === "me"
                                                 ? "bg-white text-[#374151] border border-gray-300 rounded-br-none"

@@ -39,7 +39,7 @@ const coaches = [
         reviews: '3K'
     },
     {
-        name: "James Patel",
+        name: "John Oliver",
         image: "https://randomuser.me/api/portraits/men/15.jpg",
         expertise: "Career Guidance",
         rating: 4.4,
@@ -122,7 +122,7 @@ const UserPanel = () => {
                 <div className="flex justify-between items-center w-full">
                     <h1 className="text-2xl font-bold">Home</h1>
 
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 hover:scale-105 transition duration-200 ease-in-out">
                         <button
                             className="text-[#3C3C3C] font-light px-4 py-2 rounded flex items-center gap-2 border border-gray-200"
                             onClick={() => setIsModalOpen(true)}

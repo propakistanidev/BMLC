@@ -7,7 +7,7 @@ const CoachCard = ({ coach }) => {
     return (
 
 
-        <div className="bg-white rounded-xl shadow-2xl  p-6 w-[375px] h-[350px]">
+        <div className="bg-white rounded-xl shadow-2xl  p-6 w-[375px] h-[350px] hover:scale-105 transition duration-200 ease-in-out">
             {/* Image + Name + Expertise + Rating */}
             <div className="flex flex-col items-start relative">
                 <div className="relative">

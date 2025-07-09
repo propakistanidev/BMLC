@@ -22,12 +22,9 @@ export default function AppointmentsUser() {
 
             <div className="flex-1 p-6">
                 <div className="flex justify-between items-center w-full">
-                    <h1 className="text-2xl font-bold">Home</h1>
-                    <div className="flex items-center gap-3">
-                        <button className="text-[#3C3C3C] font-light px-4 py-2 rounded flex items-center gap-2 border border-gray-200">
-                            <Icon icon="prime:wallet" className="text-2xl" />
-                            Wallet Balance: <span className="text-[#9363C4] font-medium">$20</span>
-                        </button>
+                    <h1 className="text-2xl font-bold">My Sessions</h1>
+                    <div className="flex items-center gap-3 hover:scale-105 transition duration-200 ease-in-out">
+
                         <img src="https://randomuser.me/api/portraits/men/20.jpg" alt="User profile" className="h-9 w-9 rounded-full" />
                         <div className="text-left text-sm text-gray-700">
                             <div className="font-medium">User</div>

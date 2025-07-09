@@ -69,11 +69,8 @@ export default function UserCallHistory() {
             <div className="flex-1 p-6">
                 <div className="flex justify-between items-center w-full mb-4">
                     <h1 className="text-2xl font-bold">Call History</h1>
-                    <div className="flex items-center gap-3">
-                        <button className="text-[#3C3C3C] font-light px-4 py-2 rounded flex items-center gap-2 border border-gray-200">
-                            <Icon icon="prime:wallet" className="text-2xl" />
-                            Wallet Balance: <span className="text-[#9363C4] font-medium">$20</span>
-                        </button>
+                    <div className="flex items-center gap-3 hover:scale-105 transition duration-200 ease-in-out">
+
                         <img src="https://randomuser.me/api/portraits/men/20.jpg" alt="User profile" className="h-9 w-9 rounded-full" />
                         <div className="text-left text-sm text-gray-700">
                             <div className="font-medium">User</div>
@@ -82,7 +79,7 @@ export default function UserCallHistory() {
                     </div>
                 </div>
 
-                <div className="flex justify-between items-center  bg-white rounded-tl-xl rounded-tr-xl  p-6">
+                <div className="flex justify-between items-center relative bg-white rounded-xl shadow  p-4">
                     <h2 className="text-2xl font-bold text-[#27272A] mt-4 mb-4 capitalize">Call History with life coaches</h2>
 
                     <div className="relative w-64 ">
@@ -95,71 +92,71 @@ export default function UserCallHistory() {
                             className="absolute right-1 top-1/2 transform -translate-y-1/2 -mr-[3px] rounded-tr-lg rounded-br-lg bg-[#C8B8E8] text-white p-[8.5px]"
                             title="Search"
                         >
-                            <Icon icon="mdi:magnify" className="text-lg text-[#27272A]" />
+                            <Icon icon="mdi:magnify" className="text-lg text-[#27272A] border-1 border-[#C8B8E8]" />
                         </button>
                     </div>
                 </div>
-
-                <table className="w-full text-sm text-left text-gray-700 bg-white rounded-bl-xl rounded-br-xl  p-6">
-                    <thead className="border-b-1 border-gray-200">
-                        <tr>
-                            <th className="py-2 px-4 font-bold">Sr#</th>
-                            <th className="py-2 px-4 font-bold">Title</th>
-                            <th className="py-2 px-4 font-bold">User</th>
-                            <th className="py-2 px-4 font-bold">Status</th>
-                            <th className="py-2 px-4 font-bold">Cost</th>
-                            <th className="py-2 px-4 font-bold">Duration</th>
-                            <th className="py-2 px-4 font-bold">Rate & Reviews</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {callHistoryData.map((call, index) => (
-                            <tr key={index} className="border-b border-gray-200 hover:bg-gray-50 transition">
-                                <td className="py-2 px-4">{call.id}</td>
-                                <td className="py-2 px-4">{call.title}</td>
-                                <td className="py-2 px-4 flex items-center gap-2">
-                                    <img
-                                        src={call.image}
-                                        alt={call.name}
-                                        className="h-8 w-8 rounded-full object-cover"
-                                    />
-                                    <span>{call.name}</span>
-                                </td>
-                                <td className="py-2 px-4">
-                                    <span
-                                        className={`px-2 rounded-lg py-2 text-xs font-semibold ${call.status === "Completed"
-                                            ? "bg-green-100 text-green-600 px-8"
-                                            : call.status === "User Declined"
-                                                ? "bg-red-100 text-red-500 px-6"
-                                                : "bg-yellow-100 text-yellow-600 px-5"
-                                            }`}
-                                    >
-                                        {call.status}
-                                    </span>
-                                </td>
-                                <td className="py-2 px-4">{call.cost}</td>
-                                <td className="py-2 px-4">{call.duration}</td>
-                                <td className="py-2 px-4">
-                                    {call.rating > 0 ? (
-                                        <div className="flex items-center gap-1">
-                                            <Icon icon="material-symbols:star" className="text-yellow-400 text-lg" />
-                                            <span className="font-medium">{call.rating}</span>
-                                            <span className="text-gray-500 text-sm">({call.review})</span>
-                                        </div>
-                                    ) : (
-                                        <div className='flex flex-row gap-2'> <p className='text-gray-400 font-extralight'>No review added yet.</p> <button
-                                            onClick={() => handleAddReview(call)}
-                                            className="text-[#9363C4] hover:text-[#7a50b2] flex items-center gap-2"
-                                        >
-                                            Add Review <Icon icon="bx:message-edit" className="text-lg" />
-                                        </button></div>
-                                    )}
-                                </td>
+                <div className='bg-white shadow rounded-xl overflow-x-auto mt-2'>
+                    <table className="w-full text-sm text-left text-gray-700 bg-white rounded-bl-xl rounded-br-xl  p-6">
+                        <thead className="border-b-1 border-gray-200">
+                            <tr className='bg-[#F1EEf9]'>
+                                <th className="py-2 px-4 font-bold">Sr#</th>
+                                <th className="py-2 px-4 font-bold">Title</th>
+                                <th className="py-2 px-4 font-bold">User</th>
+                                <th className="py-2 px-4 font-bold">Status</th>
+                                <th className="py-2 px-4 font-bold">Cost</th>
+                                <th className="py-2 px-4 font-bold">Duration</th>
+                                <th className="py-2 px-4 font-bold">Rate & Reviews</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
-
+                        </thead>
+                        <tbody>
+                            {callHistoryData.map((call, index) => (
+                                <tr key={index} className="border-b border-gray-200 hover:bg-gray-50  hover:scale-101 transition duration-200 ease-in-out">
+                                    <td className="py-2 px-4">{call.id}</td>
+                                    <td className="py-2 px-4">{call.title}</td>
+                                    <td className="py-2 px-4 flex items-center gap-2">
+                                        <img
+                                            src={call.image}
+                                            alt={call.name}
+                                            className="h-8 w-8 rounded-full object-cover"
+                                        />
+                                        <span>{call.name}</span>
+                                    </td>
+                                    <td className="py-2 px-4">
+                                        <span
+                                            className={`px-2 rounded-lg py-2 text-xs font-semibold ${call.status === "Completed"
+                                                ? "bg-green-100 text-green-600 px-8"
+                                                : call.status === "User Declined"
+                                                    ? "bg-red-100 text-red-500 px-6"
+                                                    : "bg-yellow-100 text-yellow-600 px-5"
+                                                }`}
+                                        >
+                                            {call.status}
+                                        </span>
+                                    </td>
+                                    <td className="py-2 px-4">{call.cost}</td>
+                                    <td className="py-2 px-4">{call.duration}</td>
+                                    <td className="py-2 px-4">
+                                        {call.rating > 0 ? (
+                                            <div className="flex items-center gap-1">
+                                                <Icon icon="material-symbols:star" className="text-yellow-400 text-lg" />
+                                                <span className="font-medium">{call.rating}</span>
+                                                <span className="text-gray-500 text-sm">({call.review})</span>
+                                            </div>
+                                        ) : (
+                                            <div className='flex flex-row gap-2'> <p className='text-gray-400 font-extralight'>No review added yet.</p> <button
+                                                onClick={() => handleAddReview(call)}
+                                                className="text-[#9363C4] hover:text-[#7a50b2] flex items-center gap-2"
+                                            >
+                                                Add Review <Icon icon="bx:message-edit" className="text-lg" />
+                                            </button></div>
+                                        )}
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
                 <div className="flex flex-row justify-between items-center mt-4 px-4">
                     <div className="flex items-center gap-2 text-sm text-gray-600">
                         <span>Rows per page:</span>

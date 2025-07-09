@@ -17,7 +17,7 @@ export default function UserProfile() {
                 {/* Header */}
                 <div className="flex justify-between items-center w-full mb-10">
                     <h1 className="text-2xl font-bold">Profile</h1>
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 hover:scale-105 transition duration-200 ease-in-out">
 
                         <img src="https://randomuser.me/api/portraits/men/20.jpg" alt="User profile" className="h-9 w-9 rounded-full" />
                         <div className="text-left text-sm text-gray-700">
@@ -37,7 +37,7 @@ export default function UserProfile() {
                 </div>
 
                 {/* Profile Image */}
-                <div className="relative z-10 flex justify-center -mt-38" >
+                <div className="relative z-10 flex justify-center -mt-38 hover:scale-105 transition duration-200 ease-in-out" >
                     <div className="relative w-32 h-32">
                         <img
                             src="https://randomuser.me/api/portraits/men/20.jpg"
