@@ -183,7 +183,7 @@ const UserPanel = () => {
             {/* Add Balance Modal */}
             {isModalOpen && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black/30 bg-opacity-40 backdrop-blur-sm z-50">
-                    <div className="bg-white p-8 rounded-4xl shadow-xl w-[90%] max-w-md text-center relative">
+                    <div className="bg-gray-100 p-8 rounded-4xl shadow-xl w-[90%] max-w-md text-center relative">
                         <button
                             className="absolute top-3 right-4 text-gray-500 hover:text-black text-2xl"
                             onClick={() => setIsModalOpen(false)}
@@ -192,11 +192,13 @@ const UserPanel = () => {
                         </button>
 
                         <div className="flex justify-center mb-4">
-                            <Icon icon="qlementine-icons:warning-24" className="text-5xl text-[#9363C4]" />
+                            <div className="w-25 h-25 bg-red-100 border-4 border-white rounded-full flex items-center justify-center">
+                                <Icon icon="ion:warning-sharp" className="text-6xl text-red-500" />
+                            </div>
                         </div>
 
                         <h2 className="text-xl font-semibold mb-6 capitalize">low balance warning</h2>
-                        <p className="text-[#7F7F7F] mb-6">Your credit balance is below <span className="text-[#8646F4]">$20</span>. The call may end soon. Consider topping it up.</p>
+                        <p className="text-[#7F7F7F] mb-6 leading-6.5 text-sm font-light">Your credit balance is below <span className="text-[#8646F4] font-medium">$20</span>. The call may end soon. Consider topping it up.</p>
 
                         <div className="flex items-center justify-center gap-4 mb-6">
                             <button onClick={handleSubtract} className="text-2xl text-gray-400 px-4 py-2 bg-white border border-gray-300 rounded-lg">−</button>
@@ -208,7 +210,7 @@ const UserPanel = () => {
 
                         <p className="text-[#9363C4] text-xs -mt-4 mb-4">(Min: $10.00 to Max: $5000.00)</p>
 
-                        <button onClick={handleConfirm} className="bg-[#9363C4] text-white px-6 py-2 rounded-lg">Confirm Payment</button>
+                        <button onClick={handleConfirm} className="flex justify-center items-center gap-2 bg-[#C8B8E8] text-black px-25 ml-4.5 py-2 rounded-lg"> <Icon icon='solar:card-linear' />Confirm Payment</button>
                     </div>
                 </div>
             )}

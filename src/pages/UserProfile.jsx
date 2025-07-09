@@ -42,7 +42,7 @@ export default function UserProfile() {
                         <img
                             src="https://randomuser.me/api/portraits/men/20.jpg"
                             alt="User"
-                            className="w-full h-full object-cover rounded-full border-2 p-1 border-[#C8B8E8] border-dashed shadow-lg"
+                            className="w-full h-full object-cover rounded-full border-1 p-1 border-[#C8B8E8] border-dashed shadow-lg"
                         />
                         <button className="absolute bottom-0 right-0 bg-[#BBA5E0] p-1 rounded-full shadow">
                             <Icon icon="fluent:camera-28-regular" className="text-gray-700 text-lg" />
