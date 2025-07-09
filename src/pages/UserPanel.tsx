@@ -166,9 +166,10 @@ const UserPanel = () => {
                             <div
                                 key={index}
                                 onClick={(e) => {
-                                    // Prevent modal if a button or icon inside the card was clicked
-                                    const tag = e.target.tagName.toLowerCase();
-                                    if (tag === 'button' || tag === 'svg' || tag === 'path' || tag === 'span') return;
+                                    const target = e.target;
+                                    if (target instanceof HTMLElement && target.closest("button, svg, path, a, input")) {
+                                        return;
+                                    }
                                     setSelectedCoach(coach);
                                 }}
                             >
