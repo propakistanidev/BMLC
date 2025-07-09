@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SideBar from "../components/SideBar";
 import { Icon } from "@iconify/react";
-import profileImage from "../assets/profile.png";
+
 
 const dummyData = {
     chat: [
@@ -38,7 +38,7 @@ const Expenses = () => {
 
                     <div className="flex items-center gap-3">
 
-                        <img src={profileImage} alt="User profile" className="h-9 w-9 rounded-full" />
+                        <img src="https://randomuser.me/api/portraits/men/20.jpg" alt="User profile" className="h-9 w-9 rounded-full" />
                         <div className="text-left text-sm text-gray-700">
                             <div className="font-medium">Admin</div>
                             <div className="text-gray-500 text-xs">admin@domain.com</div>

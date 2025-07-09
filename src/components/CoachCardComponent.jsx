@@ -7,7 +7,7 @@ const CoachCard = ({ coach }) => {
     return (
 
 
-        <div className="bg-white rounded-xl shadow-2xl p-6 w-full h-[350px]">
+        <div className="bg-white rounded-xl shadow-2xl  p-6 w-[375px] h-[350px]">
             {/* Image + Name + Expertise + Rating */}
             <div className="flex flex-col items-start relative">
                 <div className="relative">
@@ -27,7 +27,7 @@ const CoachCard = ({ coach }) => {
                 <p className="text-sm text-gray-500">{coach.expertise}</p>
 
                 {/* Star Rating */}
-                <div className="flex gap-4 items-center">
+                <div className="flex gap-3 items-center">
                     <p className="text-sm">{coach.rating.toFixed(1)}</p>
                     {Array.from({ length: 5 }).map((_, i) => (
                         <Icon
@@ -41,7 +41,7 @@ const CoachCard = ({ coach }) => {
             </div>
 
             {/* Divider */}
-            <hr className="my-4 border-gray-200" />
+            <hr className="my-2 border-gray-200" />
 
             {/* Stats Section */}
             <div className="flex flex-col justify-around text-sm text-gray-600 mb-4">
@@ -60,7 +60,7 @@ const CoachCard = ({ coach }) => {
             </div>
 
             {/* Buttons */}
-            <div className="flex flex-row gap-2">
+            <div className="flex flex-row gap-2 my-6">
                 <button className="bg-[#C8B8E8] flex items-center gap-2 text-black text-xs py-2 px-4 font-medium rounded-md">
                     <Icon icon='solar:calendar-linear' className="w-4 h-4" />
                     Book a Call
@@ -69,7 +69,7 @@ const CoachCard = ({ coach }) => {
                     <Icon icon='proicons:call' className="w-4 h-4" />
                     Call Now
                 </button>
-                <button className="bg-gray-100 flex items-center gap-2 text-black py-1 px-2 rounded-md text-xs font-medium border border-gray-300">
+                <button className="bg-gray-100 flex items-center gap-2 text-black py-1 px-4 rounded-md text-xs font-medium border border-gray-300">
                     <Icon icon='humbleicons:chat' className="w-4 h-4" />
                     Chat
                 </button>

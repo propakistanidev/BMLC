@@ -8,11 +8,11 @@ import ChatBackground from "../assets/ChatBackground.png";
 const chatList = [
     {
         id: 1,
-        name: "Sarah Thompson",
+        name: "Jake Thompson",
         message: "Looking forward to our next session.",
         time: "2:45 PM",
         status: "Online",
-        image: profileImage,
+        image: "https://randomuser.me/api/portraits/men/21.jpg",
         messages: [
             { from: "them", text: "Hi there! I’m excited for our session.", time: "2:41 PM" },
             { from: "me", text: "Same here! Let’s get started soon.", time: "2:42 PM" },
@@ -25,7 +25,7 @@ const chatList = [
         message: "Can we reschedule?",
         time: "1:30 PM",
         status: "Offline",
-        image: profileImage,
+        image: "https://randomuser.me/api/portraits/men/33.jpg",
         messages: [
             { from: "them", text: "Hey, can we reschedule today’s call?", time: "1:25 PM" },
             { from: "me", text: "Sure, no problem.", time: "1:27 PM" }
@@ -47,7 +47,7 @@ export default function UserChats() {
                 <div className="flex justify-between items-center w-full">
                     <h1 className="text-2xl font-bold">Chats</h1>
                     <div className="flex items-center gap-3">
-                        <img src={profileImage} alt="User profile" className="h-9 w-9 rounded-full" />
+                        <img src="https://randomuser.me/api/portraits/men/20.jpg" alt="User profile" className="h-9 w-9 rounded-full" />
                         <div className="text-left text-sm text-gray-700">
                             <div className="font-medium">User</div>
                             <div className="text-gray-500 text-xs">johndoe516@</div>

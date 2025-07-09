@@ -1,6 +1,5 @@
 import { Icon } from "@iconify/react";
 import { useState } from "react";
-
 import backgroundImage from "../assets/withoutStroke.png";
 import SideBar from "../components/SideBar";
 
@@ -20,7 +19,7 @@ export default function UserProfile() {
                     <h1 className="text-2xl font-bold">Profile</h1>
                     <div className="flex items-center gap-3">
 
-                        <img src="https://randomuser.me/api/portraits/men/48.jpg" alt="User profile" className="h-9 w-9 rounded-full" />
+                        <img src="https://randomuser.me/api/portraits/men/20.jpg" alt="User profile" className="h-9 w-9 rounded-full" />
                         <div className="text-left text-sm text-gray-700">
                             <div className="font-medium">User</div>
                             <div className="text-gray-500 text-xs">johndoe516@</div>
@@ -41,7 +40,7 @@ export default function UserProfile() {
                 <div className="relative z-10 flex justify-center -mt-38" >
                     <div className="relative w-32 h-32">
                         <img
-                            src="https://randomuser.me/api/portraits/men/48.jpg"
+                            src="https://randomuser.me/api/portraits/men/20.jpg"
                             alt="User"
                             className="w-full h-full object-cover rounded-full border-2 p-1 border-[#C8B8E8] border-dashed shadow-lg"
                         />

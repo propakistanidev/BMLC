@@ -1,6 +1,6 @@
 import React from "react";
 import SideBar from "../components/SideBar";
-import profileImage from "../assets/profile.png";
+
 import { Icon } from "@iconify/react";
 
 export default function CreditHistory() {
@@ -13,7 +13,7 @@ export default function CreditHistory() {
                 <div className="flex justify-between items-center w-full mb-6">
                     <h1 className="text-2xl font-bold">Credit History</h1>
                     <div className="flex items-center gap-3">
-                        <img src={profileImage} alt="User profile" className="h-9 w-9 rounded-full" />
+                        <img src="https://randomuser.me/api/portraits/men/20.jpg" alt="User profile" className="h-9 w-9 rounded-full" />
                         <div className="text-left text-sm text-gray-700">
                             <div className="font-medium">User</div>
                             <div className="text-gray-500 text-xs">johndoe516@</div>

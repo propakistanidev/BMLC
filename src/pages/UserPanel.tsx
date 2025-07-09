@@ -1,7 +1,7 @@
 import { useState } from "react";
 import SideBar from "../components/SideBar";
 import { Icon } from "@iconify/react";
-import profileImage from "../assets/profile.png";
+
 import CoachCard from "../components/CoachCardComponent";
 
 const coaches = [
@@ -71,6 +71,30 @@ const coaches = [
         online: false,
         reviews: '5K'
     },
+
+    {
+        name: "Lisa Kudrow",
+        image: "https://randomuser.me/api/portraits/women/67.jpg",
+        expertise: "Confidence | Public Speaking",
+        rating: 4.8,
+        calls: "$6 / minute",
+        messages: "$6 / 100 word bundle",
+        minutes: "2 minutes",
+        online: false,
+        reviews: '5K'
+    },
+
+    {
+        name: "John Ham",
+        image: "https://randomuser.me/api/portraits/men/71.jpg",
+        expertise: "Confidence | Public Speaking",
+        rating: 4.8,
+        calls: "$6 / minute",
+        messages: "$6 / 100 word bundle",
+        minutes: "2 minutes",
+        online: false,
+        reviews: '5K'
+    },
 ];
 
 const UserPanel = () => {
@@ -93,7 +117,7 @@ const UserPanel = () => {
         <div className="flex bg-[#F8F6FC] min-h-screen">
             <SideBar />
 
-            <div className="flex-1 p-6">
+            <div className="flex-1 p-10">
                 {/* Header */}
                 <div className="flex justify-between items-center w-full">
                     <h1 className="text-2xl font-bold">Home</h1>
@@ -109,7 +133,7 @@ const UserPanel = () => {
                         </button>
 
                         <img
-                            src={profileImage}
+                            src="https://randomuser.me/api/portraits/men/20.jpg"
                             alt="User profile"
                             className="h-9 w-9 rounded-full"
                         />
@@ -123,7 +147,7 @@ const UserPanel = () => {
                 {/* Life Coach Section */}
                 <div className="mt-8">
                     <div className="flex justify-between items-center">
-                        <h1 className="text-xl font-semibold ml-8">Meet Your Life Coach</h1>
+                        <h1 className="text-xl font-semibold">Meet Your Life Coach</h1>
                         <div className="flex">
                             <input
                                 type="text"
@@ -137,11 +161,10 @@ const UserPanel = () => {
                         </div>
                     </div>
 
-                    <div className="flex flex-wrap gap-4 mt-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-100 mt-8 gap-y-6 max-w-[1200px] ">
                         {coaches.map((coach, index) => (
                             <div
                                 key={index}
-                                className="w-full sm:w-[48%] lg:w-[32%]"
                                 onClick={() => setSelectedCoach(coach)}
                             >
                                 <CoachCard coach={coach} />

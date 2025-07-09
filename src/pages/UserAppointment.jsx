@@ -28,7 +28,7 @@ export default function AppointmentsUser() {
                             <Icon icon="prime:wallet" className="text-2xl" />
                             Wallet Balance: <span className="text-[#9363C4] font-medium">$20</span>
                         </button>
-                        <img src={profileImage} alt="User profile" className="h-9 w-9 rounded-full" />
+                        <img src="https://randomuser.me/api/portraits/men/20.jpg" alt="User profile" className="h-9 w-9 rounded-full" />
                         <div className="text-left text-sm text-gray-700">
                             <div className="font-medium">User</div>
                             <div className="text-gray-500 text-xs">johndoe516@</div>
