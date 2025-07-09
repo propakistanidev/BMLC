@@ -10,9 +10,9 @@ const coaches = [
         image: "https://randomuser.me/api/portraits/women/44.jpg",
         expertise: "Mindfulness & Mental Health",
         rating: 4,
-        calls: 12,
-        messages: 34,
-        minutes: 48,
+        calls: "$6 / minute",
+        messages: "$6 / 100 word bundle",
+        minutes: "2 minutes",
         online: true,
         reviews: '23K'
     },
@@ -21,9 +21,9 @@ const coaches = [
         image: "https://randomuser.me/api/portraits/men/36.jpg",
         expertise: "Life Strategy & Productivity",
         rating: 5,
-        calls: 20,
-        messages: 50,
-        minutes: 80,
+        calls: "$6 / minute",
+        messages: "$6 / 100 word bundle",
+        minutes: "2 minutes",
         online: true,
         reviews: '2K'
     },
@@ -32,9 +32,9 @@ const coaches = [
         image: "https://randomuser.me/api/portraits/women/65.jpg",
         expertise: "Relationships & Self-esteem",
         rating: 3,
-        calls: 7,
-        messages: 22,
-        minutes: 35,
+        calls: "$6 / minute",
+        messages: "$6 / 100 word bundle",
+        minutes: "2 minutes",
         online: true,
         reviews: '3K'
     },
@@ -43,9 +43,9 @@ const coaches = [
         image: "https://randomuser.me/api/portraits/men/15.jpg",
         expertise: "Career Guidance",
         rating: 4.4,
-        calls: 18,
-        messages: 40,
-        minutes: 60,
+        calls: "$6 / minute",
+        messages: "$6 / 100 word bundle",
+        minutes: "2 minutes",
         online: true,
         reviews: '2.3K'
     },
@@ -54,9 +54,9 @@ const coaches = [
         image: "https://randomuser.me/api/portraits/men/22.jpg",
         expertise: "Spiritual Wellness",
         rating: 5,
-        calls: 25,
-        messages: 60,
-        minutes: 90,
+        calls: "$6 / minute",
+        messages: "$6 / 100 word bundle",
+        minutes: "2 minutes",
         online: true,
         reviews: '3.4K'
     },
@@ -65,9 +65,9 @@ const coaches = [
         image: "https://randomuser.me/api/portraits/men/52.jpg",
         expertise: "Confidence | Public Speaking",
         rating: 4.8,
-        calls: 15,
-        messages: 28,
-        minutes: 42,
+        calls: "$6 / minute",
+        messages: "$6 / 100 word bundle",
+        minutes: "2 minutes",
         online: false,
         reviews: '5K'
     },
@@ -187,57 +187,66 @@ const UserPanel = () => {
             {/* Coach Details Modal */}
             {selectedCoach && (
                 <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex justify-center items-start pt-10 overflow-auto">
-                    <div className="bg-white rounded-2xl shadow-2xl w-[90%] max-w-2xl p-6 relative">
+                    <div className="bg-white rounded-2xl shadow-2xl w-[90%] max-w-2xl p-8 relative">
                         <div className="flex justify-between items-center">
                             <Icon icon="ion:arrow-back-outline" className="text-2xl cursor-pointer" onClick={() => setSelectedCoach(null)} />
                             <Icon icon="mdi:close" className="text-2xl cursor-pointer" onClick={() => setSelectedCoach(null)} />
                         </div>
 
-                        <div className="flex flex-col items-center text-center mt-4">
-                            <img src={selectedCoach.image} alt={selectedCoach.name} className="w-28 h-28 rounded-full object-cover mb-3" />
+                        <div className="flex flex-col items-center text-center">
+                            <img src={selectedCoach.image} alt={selectedCoach.name} className="w-28 h-28 rounded-full object-cover mb-2" />
                             <h2 className="text-xl font-bold">{selectedCoach.name}</h2>
                             <p className="text-gray-600">{selectedCoach.expertise}</p>
-                            <p className="mt-2 text-yellow-500 text-sm">⭐ {selectedCoach.rating} ({selectedCoach.reviews} reviews)</p>
-                            <p className="mt-2 text-sm">📞 Calls: {selectedCoach.calls}</p>
-                            <p className="text-sm">💬 Messages: {selectedCoach.messages}</p>
-                            <p className="text-sm mb-4">⏱️ Minutes: {selectedCoach.minutes}</p>
+                            <p className="mt-1 text-[#7F7F7F] text-sm">⭐ {selectedCoach.rating} ({selectedCoach.reviews} reviews)</p>
+                            <p className="mt-1 text-sm">Calls: <span className="text-[#9363C4] font-medium"> {selectedCoach.calls}</span></p>
+                            <p className="mt-1 text-sm"> Messages: <span className="text-[#9363C4] font-medium">{selectedCoach.messages}</span></p>
+                            <p className="mt-1 text-sm mb-4">Minutes: <span className="text-[#9363C4] font-medium">{selectedCoach.minutes}</span></p>
 
-                            <div className="flex gap-6 mt-2">
-                                <Icon icon="mdi:calendar-month-outline" className="text-3xl text-[#9363C4] cursor-pointer" />
-                                <Icon icon="mdi:phone-outline" className="text-3xl text-[#9363C4] cursor-pointer" />
-                                <Icon icon="mdi:chat-outline" className="text-3xl text-[#9363C4] cursor-pointer" />
+                            <div className="flex gap-4 mb-2">
+                                <div className="border border-gray-300 rounded-lg p-2 cursor-pointer">
+                                    <Icon icon="mdi:calendar-month-outline" className="text-3xl text-[#9363C4]" />
+                                </div>
+                                <div className="border border-gray-300 rounded-lg p-2 cursor-pointer">
+                                    <Icon icon="mdi:phone-outline" className="text-3xl text-[#9363C4]" />
+                                </div>
+                                <div className="border border-gray-300 rounded-lg p-2 cursor-pointer">
+                                    <Icon icon="mdi:chat-outline" className="text-3xl text-[#9363C4]" />
+                                </div>
                             </div>
                         </div>
 
-                        <div className="mt-6">
-                            <h3 className="text-lg font-semibold mb-1">Coach's Bio</h3>
-                            <p className="text-sm text-gray-700">
-                                {selectedCoach.name} is a certified expert in {selectedCoach.expertise}. With over {selectedCoach.calls} successful sessions,
-                                they’ve helped people grow and transform across multiple areas.
-                            </p>
+
+                        <div className="mt-2 bg-[#F8F6FC] px-4 py-2 rounded-lg">
+                            <div className="space-y-2 rounded-lg text-sm">
+                                <p>🌟 Bio & Introduction: Write about yourself & your coaching approach</p>
+                                <p>🎓 Experience: 10+ Years in Life Coaching</p>
+                                <p>📜 Certifications: Certified Life Coach, NLP Practitioner</p>
+                            </div>
                         </div>
 
-                        <div className="mt-6">
-                            <h3 className="text-lg font-semibold mb-2">Upcoming Session</h3>
-                            <div className="bg-gray-100 p-4 rounded-lg text-sm">
+
+                        <h3 className="text-lg font-semibold mb-2 mt-4 px-2">Upcoming Session</h3>
+                        <div className="mt-2 bg-[#F8F6FC] px-4 py-3 rounded-lg">
+
+                            <div className="space-y-2 rounded-lg text-sm">
                                 <p>📅 Date: July 15, 2025</p>
                                 <p>⏰ Time: 3:00 PM</p>
-                                <p>📍 Platform: Google Meet</p>
+
                             </div>
                         </div>
 
-                        <div className="mt-6">
-                            <h3 className="text-lg font-semibold mb-2">Previous Call Details</h3>
-                            <div className="bg-gray-100 p-4 rounded-lg text-sm space-y-2">
+                        <div className="mt-4">
+                            <h3 className="text-lg font-semibold mb-2 px-2">Previous Call Details</h3>
+                            <div className="bg-[#F8F6FC] px-4 py-2 rounded-lg text-sm space-y-2">
                                 <p>🗓️ July 01 – Focused on mindfulness training</p>
                                 <p>🗓️ June 20 – Reviewed personal growth goals</p>
                                 <p>🗓️ June 12 – Initial discussion</p>
                             </div>
                         </div>
 
-                        <div className="mt-6 flex justify-center">
-                            <button onClick={() => setSelectedCoach(null)} className="bg-[#9363C4] text-white px-6 py-2 rounded-lg">
-                                Close
+                        <div className="mt-3 flex justify-center">
+                            <button onClick={() => setSelectedCoach(null)} className="bg-[#C8B8E8] flex text-black px-4 py-2 rounded-lg gap-2 font-semibold shadow-lg">
+                                <Icon icon='weui:done2-outlined' className="text-2xl" />Done
                             </button>
                         </div>
                     </div>

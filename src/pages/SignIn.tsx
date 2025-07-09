@@ -166,7 +166,7 @@ export default function SignIn() {
                 </div>
 
                 {/* Right - Image */}
-                <div className="w-1/2 h-full hidden md:block">
+                <div className="w-1/2  hidden md:block">
                     <img src={SignImage} alt="Sign In" className="w-full h-full object-cover" />
                 </div>
             </div>

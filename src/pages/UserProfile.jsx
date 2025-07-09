@@ -1,6 +1,6 @@
 import { Icon } from "@iconify/react";
 import { useState } from "react";
-import profileImage from "../assets/profile.png";
+
 import backgroundImage from "../assets/withoutStroke.png";
 import SideBar from "../components/SideBar";
 
@@ -20,7 +20,7 @@ export default function UserProfile() {
                     <h1 className="text-2xl font-bold">Profile</h1>
                     <div className="flex items-center gap-3">
 
-                        <img src={profileImage} alt="User profile" className="h-9 w-9 rounded-full" />
+                        <img src="https://randomuser.me/api/portraits/men/48.jpg" alt="User profile" className="h-9 w-9 rounded-full" />
                         <div className="text-left text-sm text-gray-700">
                             <div className="font-medium">User</div>
                             <div className="text-gray-500 text-xs">johndoe516@</div>
@@ -29,7 +29,7 @@ export default function UserProfile() {
                 </div>
 
                 {/* Centered Background Image */}
-                <div className="relative w-full max-w-5xl mx-auto h-50 rounded-xl overflow-hidden z-0">
+                <div className="relative w-full max-w-5xl mx-auto h-50 rounded-xl  overflow-hidden z-0"  >
                     <img
                         src={backgroundImage}
                         alt="Profile Background"
@@ -38,12 +38,12 @@ export default function UserProfile() {
                 </div>
 
                 {/* Profile Image */}
-                <div className="relative z-10 flex justify-center -mt-38">
+                <div className="relative z-10 flex justify-center -mt-38" >
                     <div className="relative w-32 h-32">
                         <img
-                            src={profileImage}
+                            src="https://randomuser.me/api/portraits/men/48.jpg"
                             alt="User"
-                            className="w-full h-full object-cover rounded-full shadow-lg"
+                            className="w-full h-full object-cover rounded-full border-2 p-1 border-[#C8B8E8] border-dashed shadow-lg"
                         />
                         <button className="absolute bottom-0 right-0 bg-[#BBA5E0] p-1 rounded-full shadow">
                             <Icon icon="fluent:camera-28-regular" className="text-gray-700 text-lg" />
@@ -167,8 +167,8 @@ export default function UserProfile() {
 
                 {/* Action Buttons */}
                 <div className="flex flex-row justify-between rounded-xl p-6 w-full max-w-5xl mx-auto mb-5">
-                    <button className="text-red-600 border border-red-600 px-4 py-2 rounded-lg font-medium">
-                        Delete Account
+                    <button className="text-red-600 border border-red-600 px-4 py-2 rounded-lg font-light">
+                        Deactivate Account
                     </button>
                     <button className="bg-[#C8B8E8] flex flex-row gap-2 px-4 py-2 rounded-lg font-medium text-[#27272A] transition">
                         <Icon icon="mynaui:save" className="w-5 h-5 mt-1" />

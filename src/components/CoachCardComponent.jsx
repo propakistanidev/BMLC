@@ -45,16 +45,16 @@ const CoachCard = ({ coach }) => {
 
             {/* Stats Section */}
             <div className="flex flex-col justify-around text-sm text-gray-600 mb-4">
-                <div className="flex flex-row items-center gap-1 text-center">
-                    <p className="text-md">Calls</p>
+                <div className="flex flex-row items-center gap-2 text-center">
+                    <p className="text-sm font-light">Calls:</p>
                     <p className="font-medium">{coach.calls}</p>
                 </div>
                 <div className="flex flex-row items-center gap-1 text-center">
-                    <p className="text-md">Messages</p>
+                    <p className="text-sm font-light">Messages:</p>
                     <p className="font-medium">{coach.messages}</p>
                 </div>
                 <div className="flex flex-row items-center gap-1 text-center">
-                    <p className="text-md">Minute Balance</p>
+                    <p className="text-sm font-light">Minute Balance:</p>
                     <p className="font-medium">{coach.minutes} min</p>
                 </div>
             </div>
