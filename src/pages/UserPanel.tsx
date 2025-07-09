@@ -92,7 +92,7 @@ const coaches = [
         calls: "$6 / minute",
         messages: "$6 / 100 word bundle",
         minutes: "2 minutes",
-        online: false,
+        online: true,
         reviews: '5K'
     },
 ];
