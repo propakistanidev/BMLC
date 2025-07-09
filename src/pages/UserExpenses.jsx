@@ -103,7 +103,7 @@ const Expenses = () => {
                         </thead>
                         <tbody className="bg-white divide-y divide-gray-100 text-[#27272A] ">
                             {dataToShow.map((item, idx) => (
-                                <tr key={item.id} className="hover:bg-gray-100">
+                                <tr key={item.id} className="hover:bg-gray-50 hover:shadow-[0_2px_8px_rgba(147,99,196,0.3)]">
                                     <td className="px-6 py-4 ">{idx + 1}</td>
                                     <td className="px-6 py-4 flex items-center gap-2"><img src={item.image} alt="User profile" className="h-9 w-9 rounded-full" />{item.coach}</td>
                                     <td className="px-6 py-4">{item.title}</td>

@@ -65,7 +65,7 @@ export default function UserProfile() {
                             <input
                                 type="text"
                                 placeholder="John Doe"
-                                className="w-full pl-10 py-2 text-sm border border-gray-300 rounded-xl"
+                                className="w-full pl-10 py-2 text-sm border border-gray-300 rounded-md focus:outline-none"
                             />
                         </div>
 
@@ -78,7 +78,7 @@ export default function UserProfile() {
                             <input
                                 type="email"
                                 placeholder="john@example.com"
-                                className="w-full pl-10 py-2 text-sm border border-gray-300 rounded-xl focus:outline-none"
+                                className="w-full pl-10 py-2 text-sm border border-gray-300 rounded-md focus:outline-none"
                             />
                         </div>
 
@@ -91,7 +91,7 @@ export default function UserProfile() {
                             <input
                                 type="tel"
                                 placeholder="+92 300 1234567"
-                                className="w-full pl-10 py-2 text-sm border border-gray-300 rounded-xl focus:outline-none"
+                                className="w-full pl-10 py-2 text-sm border border-gray-300 rounded-md focus:outline-none"
                             />
                         </div>
                     </div>
@@ -111,7 +111,7 @@ export default function UserProfile() {
                             <input
                                 type={showCurrent ? "text" : "password"}
                                 placeholder="********"
-                                className="w-full pl-10 pr-10 border border-gray-300 rounded-xl px-4 py-2 text-sm"
+                                className="w-full pl-10 pr-10 border border-gray-300 rounded-md focus:outline-none px-4 py-2 text-sm"
                             />
                             <button
                                 type="button"
@@ -131,7 +131,7 @@ export default function UserProfile() {
                             <input
                                 type={showNew ? "text" : "password"}
                                 placeholder="********"
-                                className="w-full pl-10 pr-10 border border-gray-300 rounded-xl px-4 py-2 text-sm"
+                                className="w-full pl-10 pr-10 border focus:outline-none border-gray-300 rounded-md px-4 py-2 text-sm"
                             />
                             <button
                                 type="button"
@@ -151,7 +151,7 @@ export default function UserProfile() {
                             <input
                                 type={showConfirm ? "text" : "password"}
                                 placeholder="********"
-                                className="w-full pl-10 pr-10 border border-gray-300 rounded-xl px-4 py-2 text-sm"
+                                className="w-full pl-10 pr-10 border focus:outline-none border-gray-300 rounded-md px-4 py-2 text-sm"
                             />
                             <button
                                 type="button"

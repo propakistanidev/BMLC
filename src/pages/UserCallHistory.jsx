@@ -111,7 +111,7 @@ export default function UserCallHistory() {
                         </thead>
                         <tbody>
                             {callHistoryData.map((call, index) => (
-                                <tr key={index} className="border-b border-gray-200 hover:bg-gray-50  hover:scale-101 transition duration-200 ease-in-out">
+                                <tr key={index} className="border-b border-gray-200 hover:bg-gray-50  hover:shadow-[0_2px_8px_rgba(147,99,196,0.3)]">
                                     <td className="py-2 px-4">{call.id}</td>
                                     <td className="py-2 px-4">{call.title}</td>
                                     <td className="py-2 px-4 flex items-center gap-2">

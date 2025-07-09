@@ -48,11 +48,11 @@ export default function CreditHistory() {
 
                     </div>
                     <div className="flex justify-center gap-4 mt-6">
-                        <button className="flex items-center gap-2 border border-[#9363C488] px-4 py-2 rounded-lg text-sm font-medium text-[#9363C4] hover:bg-gray-100 hover:scale-105 transition duration-200 ease-in-out">
+                        <button className="flex items-center gap-2 border border-[#9363C488] px-4 py-2 rounded-lg text-sm font-medium text-[#9363C4] hover:bg-gray-100 hover:scale-105 transition shadow-[0_8px_16px_rgba(147,99,196,0.5)] duration-200 ease-in-out">
                             <Icon icon="solar:card-outline" className="text-lg" />
                             Manage Card
                         </button>
-                        <button className="flex items-center gap-2 bg-[#C8B8E8] hover:scale-105 transition duration-200 ease-in-out text-sm px-4 py-2 rounded-lg font-medium text-[#27272A] hover:bg-[#b5a3db]">
+                        <button className="flex items-center gap-2 bg-[#C8B8E8] hover:scale-105 transition duration-200 ease-in-out text-sm px-4 py-2 rounded-lg font-medium text-[#27272A] hover:bg-[#b5a3db] shadow-[0_8px_16px_rgba(147,99,196,0.5)]">
                             <Icon icon="tabler:wallet" className="text-lg" />
                             Top Up Wallet
                         </button>
@@ -132,7 +132,7 @@ export default function CreditHistory() {
                                         review: "",
                                     },
                                 ].map((call, index) => (
-                                    <tr key={index} className="border-b border-gray-200 hover:bg-gray-50">
+                                    <tr key={index} className="border-b border-gray-200 hover:bg-gray-50  hover:shadow-[0_2px_8px_rgba(147,99,196,0.3)]">
                                         <td className="py-2 px-2 text-center">{call.id}</td>
                                         <td className="py-2 px-2 gap-2 flex justify-start items-center"> <img
                                             src={call.image}

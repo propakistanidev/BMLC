@@ -165,7 +165,12 @@ const UserPanel = () => {
                         {coaches.map((coach, index) => (
                             <div
                                 key={index}
-                                onClick={() => setSelectedCoach(coach)}
+                                onClick={(e) => {
+                                    // Prevent modal if a button or icon inside the card was clicked
+                                    const tag = e.target.tagName.toLowerCase();
+                                    if (tag === 'button' || tag === 'svg' || tag === 'path' || tag === 'span') return;
+                                    setSelectedCoach(coach);
+                                }}
                             >
                                 <CoachCard coach={coach} />
                             </div>
