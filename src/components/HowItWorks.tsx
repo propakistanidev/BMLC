@@ -10,69 +10,64 @@ import img8 from "../assets/step33.png";
 
 function HowItWorks() {
     return (
-        <section className="py-16 px-4 bg-white text-gray-800">
-            <h2 className="p-[30px] md:text-[40px] text-[#454545] font-light capitalize text-center pl-1">
+        <section className="py-12 md:py-16 px-4 bg-white text-gray-800">
+            <h2 className="text-2xl md:text-3xl lg:text-[40px] text-[#454545] font-light capitalize text-center mb-8 md:mb-12">
                 How it Works?
             </h2>
 
             {/* First Section */}
-            <div className="flex flex-col lg:flex-row justify-center items-center gap-6 max-w-7xl mx-auto">
-                <div className="flex flex-col items-center gap-[0.5]">
-                    <img src={img1} alt="Step 1" className="w-40 h-40 object-contain" />
-                    <img src={img3} alt="Step 3" className="w-40 h-40 object-contain" />
+            <div className="flex flex-col lg:flex-row justify-center items-center gap-6 lg:gap-12 max-w-7xl mx-auto mb-8 lg:mb-16">
+                <div className="flex flex-col sm:flex-row lg:flex-col items-center gap-2 lg:gap-4">
+                    <img src={img1} alt="Step 1" className="w-32 sm:w-36 lg:w-40 h-32 sm:h-36 lg:h-40 object-contain" />
+                    <img src={img3} alt="Step 3" className="w-32 sm:w-36 lg:w-40 h-32 sm:h-36 lg:h-40 object-contain" />
                 </div>
 
                 <div className="flex justify-center">
-                    <img src={img2} alt="Step 2" className="w-50 h-60 object-contain" />
+                    <img src={img2} alt="Step 2" className="w-40 sm:w-48 lg:w-50 h-48 sm:h-56 lg:h-60 object-contain" />
                 </div>
 
-
-                <div className="max-w-md text-center lg:text-left ml-30">
-                    <h3 className="text-2xl mb-4 capitalize font-light text-[#454545] leading-7.5">
-                        Explore our Certified Life <br />coaches
+                <div className="max-w-md text-center lg:text-left">
+                    <h3 className="text-xl sm:text-2xl mb-4 capitalize font-light text-[#454545] leading-tight">
+                        Explore our Certified Life <br className="hidden sm:block" />coaches
                     </h3>
-                    <p className="text-[#454545] leading-6.5 font-light">
-                        Browse our list of available life coaches and <br />choose a coach that fits your needs and <br />preferences.
+                    <p className="text-[#454545] leading-relaxed font-light">
+                        Browse our list of available life coaches and choose a coach that fits your needs and preferences.
                     </p>
                 </div>
             </div>
-            <div className="pl-20"> <Arrow /> </div>
+            <div className="flex justify-center lg:justify-start lg:pl-20"> <Arrow /> </div>
 
             {/* Second Section */}
-            <section className="py-20 px-4 bg-white text-gray-800">
-                <div className="flex flex-col lg:flex-row justify-center items-center gap-12 max-w-6xl mx-auto">
-                    <div className="relative flex gap-4">
-                        <img src={img4} alt="Step 4" className="w-60 h-60 object-contain mt-6" />
-                        <img src={img5} alt="Step 5" className="w-40 h-40 object-contain" />
+            <section className="py-12 md:py-20 px-4 bg-white text-gray-800">
+                <div className="flex flex-col lg:flex-row justify-center items-center gap-6 lg:gap-12 max-w-6xl mx-auto mb-8 lg:mb-16">
+                    <div className="relative flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
+                        <img src={img4} alt="Step 4" className="w-48 sm:w-52 lg:w-60 h-48 sm:h-52 lg:h-60 object-contain" />
+                        <img src={img5} alt="Step 5" className="w-32 sm:w-36 lg:w-40 h-32 sm:h-36 lg:h-40 object-contain" />
                     </div>
 
-
-                    <div className="max-w-md text-center lg:text-left ml-20">
-                        <h3 className="text-2xl mb-4 capitalize font-light leading-7.5">communicate your way</h3>
-                        <p className="text-gray-600 leading-6.5 font-light">
-                            Talk to your life coach however you feel <br />comfortable — via phone call or text <br />messaging on your time. No contracts, no <br />strings attached. Just real time support at <br />your fingertips.
+                    <div className="max-w-md text-center lg:text-left">
+                        <h3 className="text-xl sm:text-2xl mb-4 capitalize font-light leading-tight">communicate your way</h3>
+                        <p className="text-gray-600 leading-relaxed font-light">
+                            Talk to your life coach however you feel comfortable — via phone call or text messaging on your time. No contracts, no strings attached. Just real time support at your fingertips.
                         </p>
                     </div>
                 </div>
             </section>
-            <div className="pl-20"> <Arrow /> </div>
+            <div className="flex justify-center lg:justify-start lg:pl-20"> <Arrow /> </div>
 
             {/* Third Section */}
-            <section className="bg-white text-gray-800">
-                <div className="flex flex-col lg:flex-row justify-center items-center gap-2 max-w-6xl mx-auto">
-                    <div className="relative flex gap-4">
-                        {/* <img src={img6} alt="Step 6" className="w-50 h-120 object-contain" />
-                        <img src={img7} alt="Step 7" className="w-50 h-120 object-contain" /> */}
-                        <img src={img8} alt="Step 8" className="w-120 h-120 object-contain -ml-6" />
+            <section className="py-12 md:py-20 bg-white text-gray-800">
+                <div className="flex flex-col lg:flex-row justify-center items-center gap-6 lg:gap-12 max-w-6xl mx-auto px-4">
+                    <div className="relative flex justify-center">
+                        <img src={img8} alt="Step 8" className="w-64 sm:w-80 lg:w-96 h-64 sm:h-80 lg:h-96 object-contain" />
                     </div>
 
-
-                    <div className="max-w-md text-center lg:text-left ml-30">
-                        <h3 className="text-2xl mb-4 capitalize font-light leading-7.5">
-                            Coaching when you <br />need it
+                    <div className="max-w-md text-center lg:text-left">
+                        <h3 className="text-xl sm:text-2xl mb-4 capitalize font-light leading-tight">
+                            Coaching when you <br className="hidden sm:block" />need it
                         </h3>
-                        <p className="text-gray-600 leading-6.5 font-light">
-                            You can call or message your life coach at<br /> anytime, from anywhere. You also get to <br />schedule coaching sessions when it's <br />convenient for you, and can connect from any <br />mobile device or computer.
+                        <p className="text-gray-600 leading-relaxed font-light">
+                            You can call or message your life coach at anytime, from anywhere. You also get to schedule coaching sessions when it's convenient for you, and can connect from any mobile device or computer.
                         </p>
                     </div>
                 </div>

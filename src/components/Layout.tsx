@@ -10,13 +10,13 @@ export default function Layout() {
         <>
             <ScrollToTop />
             <Alert />
-            <div className="overflow-x-hidden">
+            <div className="overflow-x-hidden min-h-screen">
                 <TopBar />
+                <main className="overflow-x-hidden">
+                    <Outlet />
+                </main>
+                <Footer />
             </div>
-            <main>
-                <Outlet />
-            </main>
-            <Footer />
         </>
     )
 }

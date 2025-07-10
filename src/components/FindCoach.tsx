@@ -1,13 +1,14 @@
 import { FaStar, FaRegCalendarAlt, FaPhoneAlt } from "react-icons/fa";
 import ProfilePicture from "../assets/card-image.png";
 import { BsChatText } from "react-icons/bs";
+import type { ReactNode } from "react";
 
 type Coach = {
     minuteBalance: ReactNode;
     name: string;
     expertise: string[];
     rating: number;
-    reviews: number;
+    reviews: string;
     callRate: string;
     messageRate: string;
     image: string;
@@ -15,17 +16,17 @@ type Coach = {
 
 function Card({ coach }: { coach: Coach }) {
     return (
-        <div className="rounded-xl shadow p-6 bg-[#F8F6FC] w-[310px] flex flex-col">
+        <div className="rounded-xl shadow p-4 sm:p-6 bg-[#F8F6FC] w-full max-w-[310px] flex flex-col">
             <div className="relative">
-                <img src={coach.image} alt={coach.name} className="w-20 h-20 rounded-full object-cover" />
-                <div className="absolute top-0 left-14 bg-white px-1 py-0.5 flex items-center gap-1 rounded-full text-green-600 text-[10px] font-medium">
+                <img src={coach.image} alt={coach.name} className="w-16 sm:w-20 h-16 sm:h-20 rounded-full object-cover" />
+                <div className="absolute top-0 left-12 sm:left-14 bg-white px-1 py-0.5 flex items-center gap-1 rounded-full text-green-600 text-[10px] font-medium">
                     <span className="w-2 h-2 bg-green-500 rounded-full" />
                     Available
                 </div>
             </div>
 
-            <h2 className="mt-4 text-base font-semibold text-gray-800">{coach.name}</h2>
-            <p className="text-xs text-gray-500 mt-1">{coach.expertise.join(" | ")}</p>
+            <h2 className="mt-4 text-sm sm:text-base font-semibold text-gray-800">{coach.name}</h2>
+            <p className="text-xs text-gray-500 mt-1 leading-tight">{coach.expertise.join(" | ")}</p>
 
             <div className="flex items-center mt-2 text-yellow-500 text-xs">
                 <span className="font-medium text-gray-700 mr-1">{coach.rating}</span>
@@ -35,22 +36,22 @@ function Card({ coach }: { coach: Coach }) {
                 <span className="text-gray-500 ml-2">({coach.reviews})</span>
             </div>
 
-            <hr className="my-2 w-full text-gray-200" />
+            <hr className="my-3 w-full text-gray-200" />
 
-            <div className="text-xs text-gray-600 w-full">
+            <div className="text-xs text-gray-600 w-full space-y-1">
                 <p><span className="font-normal">Call Rate:</span> <span className="font-semibold">{coach.callRate}</span></p>
-                <p className="mt-1"><span className="font-normal">Message Rate:</span><span className="font-semibold"> {coach.messageRate}</span></p>
-                <p className="mt-1"><span className="font-normal">Minute Balance:</span> <span className="font-semibold">{coach.minuteBalance}</span></p>
+                <p><span className="font-normal">Message Rate:</span> <span className="font-semibold">{coach.messageRate}</span></p>
+                <p><span className="font-normal">Minute Balance:</span> <span className="font-semibold">{coach.minuteBalance}</span></p>
             </div>
 
-            <div className="mt-3 flex justify-between items-center w-full gap-2">
-                <button className="flex-1 flex items-center justify-center gap-1 px-2 py-2 shadow-[inset_0_2px_2px_#ffffff] border-2 border-[#C8B8E8] bg-[#C8B8E8] text-black font-medium text-xs rounded-md hover:bg-purple-200 transition whitespace-nowrap">
+            <div className="mt-4 space-y-2 sm:space-y-0 sm:flex sm:justify-between sm:items-center w-full sm:gap-2">
+                <button className="w-full sm:flex-1 flex items-center justify-center gap-1 px-2 py-2 shadow-[inset_0_2px_2px_#ffffff] border-2 border-[#C8B8E8] bg-[#C8B8E8] text-black font-medium text-xs rounded-md hover:bg-purple-200 transition">
                     <FaRegCalendarAlt /> Book a Call
                 </button>
-                <button className="flex-1 flex items-center justify-center gap-1 px-2 py-2 bg-white border border-[#BBA5E0] text-[#9363C4] text-xs font-medium rounded-md hover:bg-gray-200 transition whitespace-nowrap">
+                <button className="w-full sm:flex-1 flex items-center justify-center gap-1 px-2 py-2 bg-white border border-[#BBA5E0] text-[#9363C4] text-xs font-medium rounded-md hover:bg-gray-200 transition">
                     <FaPhoneAlt /> Call Now
                 </button>
-                <button className="flex-1 flex items-center justify-center gap-1 px-2 py-2 bg-white border border-[#D4D4D8] text-[#454545] text-xs font-medium rounded-md hover:bg-gray-200 transition whitespace-nowrap">
+                <button className="w-full sm:flex-1 flex items-center justify-center gap-1 px-2 py-2 bg-white border border-[#D4D4D8] text-[#454545] text-xs font-medium rounded-md hover:bg-gray-200 transition">
                     <BsChatText className="text-[14px]" /> Chat
                 </button>
             </div>
@@ -71,19 +72,19 @@ function FindCoach() {
     }));
 
     return (
-        <div className="p-8 bg-[#F1EEF9] min-h-screen">
-            <h1 className="p-[30px] md:text-[40px] text-[#454545] font-light capitalize text-center pl-1">
+        <div className="p-6 md:p-8 bg-[#F1EEF9] min-h-screen">
+            <h1 className="text-2xl md:text-3xl lg:text-[40px] text-[#454545] font-light capitalize text-center mb-6 md:mb-12">
                 Find Your Coach
             </h1>
 
-            <div className="flex flex-wrap justify-center gap-x-10 gap-y-8 max-w-[1060px] mx-auto pr-8">
+            <div className="flex flex-wrap justify-center gap-x-4 lg:gap-x-10 gap-y-6 lg:gap-y-8 max-w-full lg:max-w-[1060px] mx-auto">
                 {coaches.map((coach, idx) => (
                     <Card key={idx} coach={coach} />
                 ))}
             </div>
 
-            <div className="flex justify-center pr-8">
-                <button className="flex items-center gap-1 my-[40px] px-6 py-3 bg-[#C8B8E8] text-[#454545] text-xs font-semibold rounded-lg shadow-[inset_0_2px_2px_#ffffff] border-2 border-[#C8B8E8] hover:bg-purple-200 transition ">
+            <div className="flex justify-center mt-6 md:mt-12">
+                <button className="flex items-center gap-1 px-5 py-2 md:px-6 md:py-3 bg-[#C8B8E8] text-[#454545] text-xs md:text-sm font-semibold rounded-lg shadow-[inset_0_2px_2px_#ffffff] border-2 border-[#C8B8E8] hover:bg-purple-200 transition">
                     View All Coaches
                 </button>
             </div>
