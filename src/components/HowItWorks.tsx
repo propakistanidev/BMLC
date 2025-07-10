@@ -8,6 +8,7 @@ import img6 from "../assets/step31.png";
 import img7 from "../assets/step32.png";
 import img8 from "../assets/step33.png";
 
+
 function HowItWorks() {
     return (
         <section className="py-12 md:py-16 px-4 bg-white text-gray-800">
@@ -35,7 +36,7 @@ function HowItWorks() {
                     </p>
                 </div>
             </div>
-            <div className="flex justify-center lg:justify-start lg:pl-20"> <Arrow /> </div>
+            <div className="flex justify-center items-center"> <Arrow /> </div>
 
             {/* Second Section */}
             <section className="py-12 md:py-20 px-4 bg-white text-gray-800">
@@ -53,7 +54,7 @@ function HowItWorks() {
                     </div>
                 </div>
             </section>
-            <div className="flex justify-center lg:justify-start lg:pl-20"> <Arrow /> </div>
+            <div className="flex justify-center items-center"> <Arrow /> </div>
 
             {/* Third Section */}
             <section className="py-12 md:py-20 bg-white text-gray-800">
