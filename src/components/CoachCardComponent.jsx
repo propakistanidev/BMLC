@@ -59,15 +59,15 @@ const CoachCard = ({ coach }) => {
 
             {/* Buttons */}
             <div className="flex flex-col lg:flex-row gap-2 mt-auto mb-2">
-                <button className="bg-[#C8B8E8] flex items-center justify-center gap-1 text-black text-sm py-2 px-3 font-medium rounded-md shadow-[0_8px_16px_rgba(147,99,196,0.5)] flex-1">
+                <button className="bg-[#C8B8E8] flex items-center justify-center gap-1 text-black text-sm py-2 px-3 font-medium rounded-md shadow-[0_8px_16px_rgba(147,99,196,0.5)] flex-1 whitespace-nowrap">
                     <Icon icon='solar:calendar-linear' className="w-4 h-4 flex-shrink-0" />
                     <span>Book a Call</span>
                 </button>
-                <button className="bg-white flex items-center justify-center gap-1 text-[#9363C4] border border-[#9363C4] py-2 px-3 text-sm font-medium rounded-md shadow-[0_8px_16px_rgba(147,99,196,0.5)] flex-1">
+                <button className="bg-white flex items-center justify-center gap-1 text-[#9363C4] border border-[#9363C4] py-2 px-3 text-sm font-medium rounded-md shadow-[0_8px_16px_rgba(147,99,196,0.5)] flex-1 whitespace-nowrap">
                     <Icon icon='proicons:call' className="w-4 h-4 flex-shrink-0" />
                     <span>Call Now</span>
                 </button>
-                <button className="bg-gray-100 flex items-center justify-center gap-1 text-black py-2 px-3 rounded-md text-sm font-medium border border-gray-300 shadow-[0_8px_16px_rgba(147,99,196,0.5)] flex-1">
+                <button className="bg-gray-100 flex items-center justify-center gap-1 text-black py-2 px-3 rounded-md text-sm font-medium border border-gray-300 shadow-[0_8px_16px_rgba(147,99,196,0.5)] flex-1 whitespace-nowrap">
                     <Icon icon='humbleicons:chat' className="w-4 h-4 flex-shrink-0" />
                     <span>Chat</span>
                 </button>
