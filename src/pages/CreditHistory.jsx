@@ -1,6 +1,6 @@
 import React from "react";
 import SideBar from "../components/SideBar";
-
+import '../App.css'
 import { Icon } from "@iconify/react";
 
 export default function CreditHistory() {
