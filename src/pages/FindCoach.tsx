@@ -16,7 +16,7 @@ type Coach = {
 
 function Card({ coach }: { coach: Coach }) {
     return (
-        <div className="rounded-xl shadow p-3 sm:p-4 bg-white max-w-xs mx-auto w-full flex flex-col items-start h-full -mx-1">
+        <div className="rounded-xl shadow p-3 sm:p-4 bg-white max-w-xs mx-auto w-full flex flex-col items-start h-full ">
             <div className="relative">
                 <img
                     src={coach.image}

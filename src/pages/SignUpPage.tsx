@@ -13,7 +13,13 @@ export default function SignUp() {
     const [showPassword, setShowPassword] = useState(false)
     const [showConfirmPassword, setShowConfirmPassword] = useState(false)
     const [errors, setErrors] = useState({})
+    const [isSubmitting, setIsSubmitting] = useState(false)
     const navigate = useNavigate()
+
+    const validateEmail = (email) => {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+    }
+
 
     const validatePassword = (value) => ({
         length: value.length >= 8,
@@ -23,45 +29,109 @@ export default function SignUp() {
         special: /[^A-Za-z0-9]/.test(value)
     })
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
+        setIsSubmitting(true)
+
         const newErrors = {}
-        if (!name) newErrors.name = 'Name is required'
-        if (!email) newErrors.email = 'Email is required'
-        if (!password) newErrors.password = 'Password is required'
-        if (!confirmPassword) newErrors.confirmPassword = 'Please confirm your password'
-        if (password && confirmPassword && password !== confirmPassword) newErrors.confirmPassword = 'Passwords do not match'
+
+        // Validate name
+        if (!name.trim()) {
+            newErrors.name = 'Name is required'
+        } else if (name.trim().length < 6) {
+            newErrors.name = 'Name must be at least 6 characters'
+        }
+
+        // Validate email
+        if (!email.trim()) {
+            newErrors.email = 'Email is required'
+        } else if (!validateEmail(email)) {
+            newErrors.email = 'Please enter a valid email address'
+        }
+
+        // Validate password
+        if (!password) {
+            newErrors.password = 'Password is required'
+        } else {
+            const passwordRequirements = validatePassword(password)
+            if (!Object.values(passwordRequirements).every(Boolean)) {
+                newErrors.password = 'Password does not meet all requirements'
+            }
+        }
+
+        // Validate confirm password
+        if (!confirmPassword) {
+            newErrors.confirmPassword = 'Please confirm your password'
+        } else if (password && confirmPassword && password !== confirmPassword) {
+            newErrors.confirmPassword = 'Passwords do not match'
+        }
+
         setErrors(newErrors)
-        if (Object.keys(newErrors).length === 0) console.log('Form is valid')
+
+        if (Object.keys(newErrors).length === 0) {
+            try {
+                // TODO: Replace with actual API call
+                console.log('Signing up user:', { name: name.trim(), email: email.trim() })
+                // Simulate API call
+                await new Promise(resolve => setTimeout(resolve, 1000))
+                // Navigate to success page or dashboard
+                navigate('/dashboard')
+            } catch (error) {
+                console.error('Sign up failed:', error)
+                setErrors({ general: 'Sign up failed. Please try again.' })
+            }
+        }
+
+        setIsSubmitting(false)
     }
 
     const requirements = validatePassword(password)
     const allMet = Object.values(requirements).every(Boolean)
 
     return (
-        <div className="h-screen w-full flex">
+        <div className="h-screen w-full flex flex-col lg:flex-row overflow-hidden">
             {/* Left Side */}
-            <div className="w-1/2 flex flex-col justify-between px-10 py-2 bg-white">
+            <div className="w-full lg:w-1/2 flex flex-col justify-between px-4 sm:px-6 md:px-8 lg:px-10 py-4 lg:py-2 bg-white overflow-y-auto">
                 {/* Logo & Back */}
-                <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate('/')}>
+                <div className="flex items-center gap-2 cursor-pointer mb-4 lg:mb-0" onClick={() => navigate('/')}>
                     <Icon icon="ic:round-arrow-back" className="w-6 h-6 text-gray-700" />
                     <img src={Logo} alt="Logo" className="h-6 w-auto" />
                 </div>
 
                 {/* Form */}
-                <div className="flex flex-col justify-center flex-1 max-w-md w-full mx-auto">
-                    <h2 className="text-3xl font-semibold text-[#27272A] text-center mb-2">Meet our coaches</h2>
-                    <p className='text-center text-[#27272A] text-sm mb-6'>Learn more about their background and their coaching experience</p>
+                <form onSubmit={handleSubmit} className="flex flex-col justify-center flex-1 max-w-md w-full mx-auto">
+                    <h2 className="text-2xl sm:text-3xl font-semibold text-[#27272A] text-center mb-2">Create Your Account</h2>
+                    <p className='text-center text-[#27272A] text-sm mb-6'>Join us and start your journey today</p>
+
+                    {/* General Error Message */}
+                    {errors.general && (
+                        <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg">
+                            <div className="flex items-center gap-2">
+                                <Icon icon="oui:cross-in-circle-empty" className="w-5 h-5 text-red-500" />
+                                <span className="text-red-700 text-sm">{errors.general}</span>
+                            </div>
+                        </div>
+                    )}
 
                     {/* Social Sign Up */}
-                    <div className="flex flex-col gap-4 mb-4">
-                        <button className="flex items-center justify-center gap-3 border border-gray-300 py-2 rounded-lg hover:bg-gray-100">
+                    <div className="flex flex-col gap-3 mb-4">
+                        <button
+                            type="button"
+                            className="flex items-center justify-center gap-3 border border-gray-300 py-2.5 px-4 rounded-lg hover:bg-gray-100 transition-colors text-sm sm:text-base"
+                            disabled={isSubmitting}
+                        >
                             <Icon icon="flat-color-icons:google" className="w-5 h-5" />
-                            Sign up with Google
+                            <span className="hidden sm:inline">Sign up with Google</span>
+                            <span className="sm:hidden">Google</span>
                         </button>
-                        <button className="flex items-center justify-center gap-3 border border-gray-300 py-2 rounded-lg hover:bg-gray-100">
+                        <button
+                            type="button"
+                            className="flex items-center justify-center gap-3 border border-gray-300 py-2.5 px-4 rounded-lg hover:bg-gray-100 transition-colors text-sm sm:text-base"
+                            disabled={isSubmitting}
+                        >
                             <Icon icon="ic:baseline-apple" className="w-5 h-5" />
-                            Sign up with Apple
+                            <span className="hidden sm:inline">Sign up with Apple</span>
+                            <span className="sm:hidden">Apple</span>
                         </button>
                     </div>
 
@@ -214,24 +284,35 @@ export default function SignUp() {
                     {/* Submit */}
                     <button
                         type="submit"
-                        className="w-full bg-[#C8B8E8] shadow-[inset_0_2px_2px_#ffffff] border-2 border-[#C8B8E8] text-black py-2 rounded-lg font-semibold"
+                        disabled={isSubmitting}
+                        className="w-full bg-[#C8B8E8] shadow-[inset_0_2px_2px_#ffffff] border-2 border-[#C8B8E8] text-black py-2.5 rounded-lg font-semibold hover:bg-[#B8A8D8] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 mt-4"
                     >
-                        Sign Up <span className="ml-4">→</span>
+                        {isSubmitting ? (
+                            <>
+                                <Icon icon="eos-icons:loading" className="w-5 h-5 animate-spin" />
+                                <span>Signing Up...</span>
+                            </>
+                        ) : (
+                            <>
+                                <span>Sign Up</span>
+                                <span className="ml-2">→</span>
+                            </>
+                        )}
                     </button>
-                </div>
+                </form>
 
                 {/* Bottom Text */}
-                <p className="text-sm text-gray-500 text-center mt-4">
+                <p className="text-sm text-gray-500 text-center lg:mt-6">
                     Already have an account?{' '}
-                    <span className="text-purple-400 font-semibold cursor-pointer" onClick={() => navigate('/signin')}>
+                    <span className="text-purple-400 font-semibold cursor-pointer hover:text-purple-600 transition-colors" onClick={() => navigate('/signin')}>
                         Sign In
                     </span>
                 </p>
             </div>
 
             {/* Right Side - Image */}
-            <div className="w-1/2 hidden md:block">
-                <img src={SignImage} alt="Sign Up" className="w-full h-full object-cover" />
+            <div className="w-full lg:w-1/2 hidden lg:block">
+                <img src={SignImage} alt="Sign Up" className="w-full h-full object-cover object-center" />
             </div>
         </div >
     )
