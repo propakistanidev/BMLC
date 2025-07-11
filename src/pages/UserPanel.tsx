@@ -117,7 +117,7 @@ const UserPanel = () => {
         <div className="flex bg-[#F8F6FC] min-h-screen">
             <SideBar />
 
-            <div className="flex-1 p-10">
+            <div className="flex-1 p-10 overflow-x-hidden">
                 {/* Header */}
                 <div className="flex justify-between items-center w-full">
                     <h1 className="text-2xl font-bold">Home</h1>
@@ -161,7 +161,7 @@ const UserPanel = () => {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-100 mt-8 gap-y-6 max-w-[1200px] ">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8 w-full">
                         {coaches.map((coach, index) => (
                             <div
                                 key={index}
