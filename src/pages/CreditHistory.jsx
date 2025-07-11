@@ -35,7 +35,7 @@ export default function CreditHistory() {
                 {/* Wallet Summary Card */}
                 <h2 className="text-lg sm:text-xl font-semibold text-[#27272A] mb-4">Wallet Summary</h2>
                 <div className="bg-white rounded-xl shadow-md p-4 sm:p-6 w-full max-w-md" >
-                    <div className="bg-gradient-to-bl from-[#9363C340] via-white to-[#9363C430] w-full h-[200px] rounded-xl shadow-md p-4 sm:p-6 mb-2 hover:scale-105 transition duration-200 ease-in-out">
+                    <div className="bg-gradient-to-bl from-[#9363C340] via-white to-[#9363C430] w-full h-[200px] rounded-xl shadow-md p-4 sm:p-6 mb-2">
 
 
                         <div className="space-y-1">
@@ -59,11 +59,11 @@ export default function CreditHistory() {
 
                     </div>
                     <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mt-6">
-                        <button className="flex items-center justify-center gap-2 border border-[#9363C488] px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium text-[#9363C4] hover:bg-gray-100 hover:scale-105 transition shadow-[0_8px_16px_rgba(147,99,196,0.5)] duration-200 ease-in-out">
+                        <button className="flex items-center shadow-xl justify-center gap-2 border border-[#9363C488] px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium text-[#9363C4] hover:shadow-[0_8px_16px_rgba(147,99,196,0.5)] duration-200 ease-in-out">
                             <Icon icon="solar:card-outline" className="text-sm sm:text-lg" />
                             Manage Card
                         </button>
-                        <button className="flex items-center justify-center gap-2 bg-[#C8B8E8] hover:scale-105 transition duration-200 ease-in-out text-xs sm:text-sm px-3 sm:px-4 py-2 rounded-lg font-medium text-[#27272A] hover:bg-[#b5a3db] shadow-[0_8px_16px_rgba(147,99,196,0.5)]">
+                        <button className="flex items-center justify-center gap-2 bg-[#C8B8E8] text-xs sm:text-sm px-3 sm:px-4 py-2 rounded-lg font-medium text-[#27272A] hover:shadow-[0_8px_16px_rgba(147,99,196,0.5)]">
                             <Icon icon="tabler:wallet" className="text-sm sm:text-lg" />
                             Top Up Wallet
                         </button>

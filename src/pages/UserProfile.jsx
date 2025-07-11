@@ -166,10 +166,10 @@ export default function UserProfile() {
 
                 {/* Action Buttons */}
                 <div className="flex flex-row justify-between rounded-xl p-6 w-full max-w-5xl mx-auto mb-5">
-                    <button className="text-red-600 border border-red-600 px-4 py-2 rounded-lg font-light">
+                    <button className="text-red-600 border border-red-600 px-4 py-2 rounded-lg font-light shadow hover:shadow-4xl hover:bg-red-600 hover:text-white transition ease-in-out">
                         Deactivate Account
                     </button>
-                    <button className="bg-[#C8B8E8] flex flex-row gap-2 px-4 py-2 rounded-lg font-medium text-[#27272A] transition">
+                    <button className="bg-[#C8B8E8] flex flex-row gap-2 px-4 py-2 rounded-lg font-medium text-[#27272A] transition shadow hover:shadow-4xl hover:bg-white hover:text-green-600 hover:shadow-2xl hover:border-2 hover:border-green-600">
                         <Icon icon="mynaui:save" className="w-5 h-5 mt-1" />
                         Save Changes
                     </button>
