@@ -5,6 +5,30 @@ import { useNavigate } from 'react-router-dom'
 import SignImage from '../assets/SignInPageImage.png'
 import Logo from '../assets/Logo.png'
 
+// Type definitions
+interface FormErrors {
+    name?: string
+    email?: string
+    password?: string
+    confirmPassword?: string
+    general?: string
+}
+
+interface PasswordRequirements {
+    length: boolean
+    upper: boolean
+    lower: boolean
+    number: boolean
+    special: boolean
+}
+
+interface SignUpFormData {
+    name: string
+    email: string
+    password: string
+    confirmPassword: string
+}
+
 export default function SignUp() {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -12,16 +36,16 @@ export default function SignUp() {
     const [confirmPassword, setConfirmPassword] = useState('')
     const [showPassword, setShowPassword] = useState(false)
     const [showConfirmPassword, setShowConfirmPassword] = useState(false)
-    const [errors, setErrors] = useState({})
+    const [errors, setErrors] = useState<FormErrors>({})
     const [isSubmitting, setIsSubmitting] = useState(false)
     const navigate = useNavigate()
 
-    const validateEmail = (email) => {
+    const validateEmail = (email: string): boolean => {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
     }
 
 
-    const validatePassword = (value) => ({
+    const validatePassword = (value: string): PasswordRequirements => ({
         length: value.length >= 8,
         upper: /[A-Z]/.test(value),
         lower: /[a-z]/.test(value),
@@ -29,11 +53,11 @@ export default function SignUp() {
         special: /[^A-Za-z0-9]/.test(value)
     })
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
         e.preventDefault()
         setIsSubmitting(true)
 
-        const newErrors = {}
+        const newErrors: FormErrors = {}
 
         // Validate name
         if (!name.trim()) {
@@ -71,14 +95,20 @@ export default function SignUp() {
         if (Object.keys(newErrors).length === 0) {
             try {
                 // TODO: Replace with actual API call
-                console.log('Signing up user:', { name: name.trim(), email: email.trim() })
+                const userData: Omit<SignUpFormData, 'confirmPassword'> = {
+                    name: name.trim(),
+                    email: email.trim(),
+                    password: password
+                }
+                console.log('Signing up user:', { name: userData.name, email: userData.email })
                 // Simulate API call
-                await new Promise(resolve => setTimeout(resolve, 1000))
+                await new Promise<void>(resolve => setTimeout(resolve, 1000))
                 // Navigate to success page or dashboard
                 navigate('/dashboard')
-            } catch (error) {
+            } catch (error: unknown) {
                 console.error('Sign up failed:', error)
-                setErrors({ general: 'Sign up failed. Please try again.' })
+                const errorMessage = error instanceof Error ? error.message : 'Sign up failed. Please try again.'
+                setErrors({ general: errorMessage })
             }
         }
 
@@ -154,8 +184,8 @@ export default function SignUp() {
 
                             <input
                                 type="text"
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
+                            value={name}
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
                                 className={`w-full pl-10 pr-4 py-2 border rounded-lg bg-[#F8F6FC] focus:outline-none focus:ring-2 ${errors.name ? 'border-red-500 ring-red-300' : 'focus:ring-purple-500'
                                     }`}
                                 placeholder="John Doe"
@@ -176,8 +206,8 @@ export default function SignUp() {
 
                         <input
                             type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                        value={email}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
                             className={`w-full pl-10 py-2 border rounded-lg bg-[#F8F6FC] focus:outline-none focus:ring-2 ${errors.email ? 'border-red-500 ring-red-300' : 'focus:ring-purple-500'
                                 }`}
                             placeholder="you@example.com"
@@ -197,8 +227,8 @@ export default function SignUp() {
 
                         <input
                             type={showPassword ? 'text' : 'password'}
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                        value={password}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
                             className={`w-full pl-10 px-4 py-2 border rounded-lg bg-[#F8F6FC] focus:outline-none focus:ring-2 ${errors.password ? 'border-red-500 ring-red-300' : 'focus:ring-purple-500'
                                 }`}
                             placeholder="***************"
@@ -247,8 +277,8 @@ export default function SignUp() {
 
                         <input
                             type={showConfirmPassword ? 'text' : 'password'}
-                            value={confirmPassword}
-                            onChange={(e) => setConfirmPassword(e.target.value)}
+                        value={confirmPassword}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setConfirmPassword(e.target.value)}
                             className={`w-full pl-10 py-2 border rounded-lg bg-[#F8F6FC] focus:outline-none focus:ring-2 ${errors.confirmPassword ? 'border-red-500 ring-red-300' : 'focus:ring-purple-500'
                                 }`}
                             placeholder="***************"
