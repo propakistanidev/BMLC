@@ -21,7 +21,7 @@ const Chats = () => {
   return (
     <div className="flex h-screen bg-[#F8F6FC]">
       {/* Sidebar */}
-     <div className={`bg-white text-gray-600 p-4 md:p-6 transition-all flex flex-col justify-between ${collapsed ? 'w-20' : 'w-full md:w-60'} fixed md:static z-20 h-[60px] md:h-auto top-0 left-0 right-0 md:flex md:flex-col`}>
+     <div className={`bg-white text-gray-600 p-4 md:p-6 transition-all flex flex-col justify-between ${collapsed ? 'w-16 md:w-20 h-[60px] md:h-auto' : 'w-full md:w-60 h-screen md:h-auto'} fixed md:static z-20 top-0 left-0 right-0 md:flex md:flex-col shadow-lg md:shadow-none`}>
                      <div>
                          <div className={`flex ${collapsed ? 'flex-row md:flex-col items-center gap-2 md:gap-4' : 'items-center justify-between'}`}>
                              <img src={logo} alt="Logo" className="h-8" />
@@ -29,42 +29,42 @@ const Chats = () => {
                                  <Icon icon="mdi:menu" className="text-purple-700 text-2xl" />
                              </button>
                          </div>
-                         <nav className="mt-6 md:mt-10 space-y-4 hidden md:block">
+                         <nav className={`mt-6 md:mt-10 space-y-4 ${collapsed ? 'hidden' : 'block'} md:block`}>
                              {navTabs.map((tab, idx) => (
                                  <Link
                                      key={idx}
                                      to={tab.to}
-                                     className="flex items-center gap-4 cursor-pointer hover:text-gray-700 hover:bg-[#C8B8E8] hover:font-semibold hover:rounded-lg py-2 px-2"
+                                     className="flex items-center gap-4 cursor-pointer text-gray-700 hover:text-gray-900 hover:bg-[#C8B8E8] hover:font-semibold rounded-lg py-3 px-3 transition-colors duration-200"
                                  >
-                                     <Icon icon={tab.icon} className="text-xl" />
-                                     {!collapsed && <span>{tab.label}</span>}
+                                     <Icon icon={tab.icon} className="text-xl flex-shrink-0" />
+                                     {!collapsed && <span className="text-sm md:text-base">{tab.label}</span>}
                                  </Link>
                              ))}
                          </nav>
                      </div>
-                     <div className="hidden md:block mt-10">
+                     <div className={`${collapsed ? 'hidden' : 'block'} md:block mt-6 md:mt-10`}>
                          <button
-                             className={`flex items-center border-1 text-red-500 border-red-500 cursor-pointer rounded-lg py-2 gap-2 text-lg  ${collapsed ? 'justify-center px-2' : 'px-12'}`}
+                             className={`flex items-center border-1 text-red-500 border-red-500 cursor-pointer rounded-lg py-2 gap-2 text-sm md:text-lg transition-colors duration-200 hover:bg-red-50 ${collapsed ? 'justify-center px-2' : 'px-6 md:px-12'}`}
                              onClick={() => window.location.href = '/'}
                          >
-                             <Icon icon="mdi:logout" className="text-xl font-bold" />
-                             {!collapsed && 'Logout'}
+                             <Icon icon="mdi:logout" className="text-xl font-bold flex-shrink-0" />
+                             {!collapsed && <span>Logout</span>}
                          </button>
                      </div>
                  </div>
 
       {/* Main Content */}
-      <div className="flex-1 p-6 overflow-y-auto">
+      <div className="flex-1 p-3 sm:p-4 md:p-6 overflow-y-auto mt-[60px] md:mt-0">
         {/* Top section with title and admin info */}
-        <div className="flex justify-between items-center mb-6">
-          <h1 className="text-3xl mt-4 text-[#27272A] font-bold">Chats</h1>
-          <div className="flex items-center gap-3">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-6 gap-3 sm:gap-0">
+          <h1 className="text-2xl sm:text-3xl mt-2 sm:mt-4 text-[#27272A] font-bold">Chats</h1>
+          <div className="flex items-center gap-2 sm:gap-3">
             <img
               src={profileImage}
               alt="User"
-              className="h-9 w-9 rounded-full"
+              className="h-8 w-8 sm:h-9 sm:w-9 rounded-full"
             />
-            <div className="text-left text-sm text-gray-700">
+            <div className="text-left text-xs sm:text-sm text-gray-700">
               <div className="font-medium">Admin</div>
               <div className="text-gray-500 text-xs">admin@bmlc.com</div>
             </div>
@@ -72,22 +72,22 @@ const Chats = () => {
         </div>
 
         {/* Placeholder for chat content */}
-        <div className="flex bg-white rounded-xl shadow h-[80vh] overflow-hidden">
+        <div className="flex flex-col lg:flex-row bg-white rounded-xl shadow h-[70vh] lg:h-[80vh] overflow-hidden">
   {/* Contacts Sidebar */}
-  <div className="w-1/3 overflow-y-auto">
+  <div className="w-full lg:w-1/3 overflow-y-auto">
   {/* Inbox + Search */}
-  <div className="p-4 ">
-    <h2 className="font-semibold text-gray-800 text-lg mb-2">Inbox</h2>
+  <div className="p-3 sm:p-4">
+    <h2 className="font-semibold text-gray-800 text-base sm:text-lg mb-2">Inbox</h2>
 
     {/* Search with Icon */}
     <div className="relative">
-      <div className="absolute inset-y-0 left-3 flex items-center text-gray-400">
-        <Icon icon="ic:round-search" className="w-5 h-5" />
+      <div className="absolute inset-y-0 left-2 sm:left-3 flex items-center text-gray-400">
+        <Icon icon="ic:round-search" className="w-4 h-4 sm:w-5 sm:h-5" />
       </div>
       <input
         type="text"
         placeholder="Search or Start New Chat"
-        className="w-full pl-10 pr-3 py-2 text-sm rounded-md bg-[#d4d4d867] focus:outline-none focus:ring-2 focus:ring-purple-300"
+        className="w-full pl-8 sm:pl-10 pr-3 py-2 text-xs sm:text-sm rounded-md bg-[#d4d4d867] focus:outline-none focus:ring-2 focus:ring-purple-300"
       />
     </div>
   </div>
@@ -96,22 +96,22 @@ const Chats = () => {
   {[1, 2, 3, 4, 5, 6].map((chat, idx) => (
     <div
       key={chat}
-      className={`flex items-center gap-3 px-4 py-3 rounded-lg cursor-pointer border-b-3 border-[#DFE4EA] ${
+      className={`flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2 sm:py-3 rounded-lg cursor-pointer border-b-3 border-[#DFE4EA] ${
         idx === 0 ? "bg-[#F1EEF9]" : "hover:bg-purple-50"
       }`}
     >
       <img
         src={profileImage}
         alt="Contact"
-        className="h-10 w-10 rounded-full object-cover"
+        className="h-8 w-8 sm:h-10 sm:w-10 rounded-full object-cover"
       />
       <div className="flex-1">
-        <h4 className="text-gray-800 font-medium text-sm">Sarah Thompson</h4>
-        <p className="text-gray-500 text-xs truncate">
+        <h4 className="text-gray-800 font-medium text-xs sm:text-sm">Sarah Thompson</h4>
+        <p className="text-gray-500 text-[10px] sm:text-xs truncate">
           Looking forward to our next session.
         </p>
       </div>
-      <div className="text-xs text-gray-400">2:45 PM</div>
+      <div className="text-[10px] sm:text-xs text-gray-400">2:45 PM</div>
     </div>
   ))}
 </div>

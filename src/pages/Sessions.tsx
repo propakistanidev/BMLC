@@ -31,7 +31,7 @@ const Session = () => {
 
   return (
     <div className="flex h-screen bg-Purple/100">
-      <div className={`bg-white text-gray-600 p-4 md:p-6 transition-all flex flex-col justify-between ${collapsed ? 'w-20' : 'w-full md:w-60'} fixed md:static z-20 h-[60px] md:h-auto top-0 left-0 right-0 md:flex md:flex-col`}>
+      <div className={`bg-white text-gray-600 p-4 md:p-6 transition-all flex flex-col justify-between ${collapsed ? 'w-16 md:w-20 h-[60px] md:h-auto' : 'w-full md:w-60 h-screen md:h-auto'} fixed md:static z-20 top-0 left-0 right-0 md:flex md:flex-col shadow-lg md:shadow-none`}>
         <div>
           <div className={`flex ${collapsed ? 'flex-row md:flex-col items-center gap-2 md:gap-4' : 'items-center justify-between'}`}>
             <img src={logo} alt="Logo" className="h-8" />
@@ -39,31 +39,31 @@ const Session = () => {
               <Icon icon="mdi:menu" className="text-purple-700 text-2xl" />
             </button>
           </div>
-          <nav className="mt-6 md:mt-10 space-y-4 hidden md:block">
+          <nav className={`mt-6 md:mt-10 space-y-4 ${collapsed ? 'hidden' : 'block'} md:block`}>
             {navTabs.map((tab, idx) => (
               <Link
                 key={idx}
                 to={tab.to}
-                className="flex items-center gap-4 cursor-pointer hover:text-gray-700 hover:bg-[#C8B8E8] hover:font-semibold hover:rounded-lg py-2 px-2"
+                className="flex items-center gap-4 cursor-pointer text-gray-700 hover:text-gray-900 hover:bg-[#C8B8E8] hover:font-semibold rounded-lg py-3 px-3 transition-colors duration-200"
               >
-                <Icon icon={tab.icon} className="text-xl" />
-                {!collapsed && <span>{tab.label}</span>}
+                <Icon icon={tab.icon} className="text-xl flex-shrink-0" />
+                {!collapsed && <span className="text-sm md:text-base">{tab.label}</span>}
               </Link>
             ))}
           </nav>
         </div>
-        <div className="hidden md:block mt-10">
+        <div className={`${collapsed ? 'hidden' : 'block'} md:block mt-6 md:mt-10`}>
           <button
-            className={`flex items-center border-1 text-red-500 border-red-500 cursor-pointer rounded-lg py-2 gap-2 text-lg  ${collapsed ? 'justify-center px-2' : 'px-12'}`}
+            className={`flex items-center border-1 text-red-500 border-red-500 cursor-pointer rounded-lg py-2 gap-2 text-sm md:text-lg transition-colors duration-200 hover:bg-red-50 ${collapsed ? 'justify-center px-2' : 'px-6 md:px-12'}`}
             onClick={() => window.location.href = '/'}
           >
-            <Icon icon="mdi:logout" className="text-xl font-bold" />
-            {!collapsed && 'Logout'}
+            <Icon icon="mdi:logout" className="text-xl font-bold flex-shrink-0" />
+            {!collapsed && <span>Logout</span>}
           </button>
         </div>
       </div>
 
-      <div className="flex-1 p-6 overflow-y-auto bg-[#F8F6FC]">
+      <div className="flex-1 p-6 overflow-y-auto bg-[#F8F6FC] mt-[60px] md:mt-0">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-xl text-[#27272A] font-bold">My Sessions</h1>
           <div className="flex items-center gap-3">

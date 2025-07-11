@@ -71,18 +71,19 @@ const chatList = [
 
 export default function UserChats() {
     const [selectedChat, setSelectedChat] = useState(chatList[0]);
+    const [showChatList, setShowChatList] = useState(true);
 
     return (
         <div className="flex h-screen bg-[#F8F6FC]">
             <SideBar />
 
             {/* Main Area */}
-            <div className="flex-1 p-6 flex flex-col">
+            <div className="flex-1 p-4 md:p-6 flex flex-col overflow-x-hidden w-full">
 
                 {/* Header */}
-                <div className="flex justify-between items-center w-full">
-                    <h1 className="text-2xl font-bold">Chats</h1>
-                    <div className="flex items-center gap-3 hover:scale-105 transition duration-200 ease-in-out">
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center w-full gap-4 sm:gap-0">
+                    <h1 className="text-xl sm:text-2xl font-bold">Chats</h1>
+                    <div className="flex items-center gap-2 sm:gap-3 hover:scale-105 transition duration-200 ease-in-out">
                         <img src="https://randomuser.me/api/portraits/men/20.jpg" alt="User profile" className="h-9 w-9 rounded-full" />
                         <div className="text-left text-sm text-gray-700">
                             <div className="font-medium">User</div>
@@ -95,18 +96,18 @@ export default function UserChats() {
                 <div className="flex flex-1 mt-4 overflow-hidden rounded-xl shadow border border-gray-200 bg-white">
 
                     {/* Chat List Sidebar */}
-                    <div className="w-1/3 border-r border-[#DFE4EA] overflow-y-auto px-3 py-2">
+                    <div className={`${showChatList ? 'w-full md:w-1/3' : 'hidden md:w-1/3 md:block'} border-r border-[#DFE4EA] overflow-y-auto px-3 py-2`}>
                         {/* Inbox + Search */}
                         <div className="mb-3">
-                            <h2 className="font-semibold text-gray-800 text-lg mb-2 ml-1">Inbox</h2>
-                            <div className="relative w-[85%]">
+                            <h2 className="font-semibold text-gray-800 text-base sm:text-lg mb-2 ml-1">Inbox</h2>
+                            <div className="relative w-full sm:w-[85%]">
                                 <div className="absolute inset-y-0 left-3 flex items-center text-gray-400">
-                                    <Icon icon="ic:round-search" className="w-5 h-5" />
+                                    <Icon icon="ic:round-search" className="w-4 h-4 sm:w-5 sm:h-5" />
                                 </div>
                                 <input
                                     type="text"
                                     placeholder="Search or Start New Chat"
-                                    className="w-full pl-10 pr-3 py-2 text-sm rounded-md bg-[#d4d4d867] focus:outline-none focus:ring-2 focus:ring-purple-300"
+                                    className="w-full pl-8 sm:pl-10 pr-3 py-2 text-xs sm:text-sm rounded-md bg-[#d4d4d867] focus:outline-none focus:ring-2 focus:ring-purple-300"
                                 />
                             </div>
                         </div>
@@ -116,17 +117,20 @@ export default function UserChats() {
                             {chatList.map((chat) => (
                                 <div
                                     key={chat.id}
-                                    onClick={() => setSelectedChat(chat)}
-                                    className={`flex items-center gap-3 px-2 py-2 rounded-lg cursor-pointer ${selectedChat.id === chat.id ? "bg-[#F1EEF9]" : "hover:bg-purple-50 hover:scale-105 transition duration-200 ease-in-out"
+                                    onClick={() => {
+                                        setSelectedChat(chat);
+                                        setShowChatList(false); // Hide chat list on mobile when a chat is selected
+                                    }}
+                                    className={`flex items-center gap-2 sm:gap-3 px-2 py-2 rounded-lg cursor-pointer ${selectedChat.id === chat.id ? "bg-[#F1EEF9]" : "hover:bg-purple-50 hover:scale-105 transition duration-200 ease-in-out"
                                         }`}
                                 >
                                     <img
                                         src={chat.image}
                                         alt={chat.name}
-                                        className="h-10 w-10 rounded-full object-cover"
+                                        className="h-8 w-8 sm:h-10 sm:w-10 rounded-full object-cover"
                                     />
                                     <div className="flex-1">
-                                        <h4 className="text-gray-800 font-medium text-sm">{chat.name}</h4>
+                                        <h4 className="text-gray-800 font-medium text-xs sm:text-sm">{chat.name}</h4>
                                         <p className="text-gray-500 text-xs truncate">{chat.message}</p>
                                     </div>
                                     <div className="text-xs text-gray-400">{chat.time}</div>
@@ -136,25 +140,32 @@ export default function UserChats() {
                     </div>
 
                     {/* Chat Conversation */}
-                    <div className="w-2/3 flex flex-col">
+                    <div className={`${showChatList ? 'hidden md:flex md:w-2/3' : 'w-full md:w-2/3'} flex flex-col`}>
                         {/* Chat Header */}
-                        <div className="flex items-center gap-3 px-4 py-3 border-b-2 border-[#dfe4ea79]">
+                        <div className="flex items-center gap-3 px-3 sm:px-4 py-3 border-b-2 border-[#dfe4ea79]">
+                            {/* Back button for mobile */}
+                            <button
+                                onClick={() => setShowChatList(true)}
+                                className="md:hidden p-1 rounded-full hover:bg-gray-100"
+                            >
+                                <Icon icon="mdi:arrow-left" className="w-5 h-5 text-gray-600" />
+                            </button>
                             <div className="relative">
-                                <img src={selectedChat.image} alt="ChatUser" className="h-10 w-10 rounded-full object-cover" />
+                                <img src={selectedChat.image} alt="ChatUser" className="h-8 w-8 sm:h-10 sm:w-10 rounded-full object-cover" />
                                 <span
-                                    className={`absolute bottom-0 right-0 h-3 w-3 border-2 border-white rounded-full ${selectedChat.status === "Online" ? "bg-green-500" : "bg-gray-400"
+                                    className={`absolute bottom-0 right-0 h-2 w-2 sm:h-3 sm:w-3 border-2 border-white rounded-full ${selectedChat.status === "Online" ? "bg-green-500" : "bg-gray-400"
                                         }`}
                                 />
                             </div>
                             <div>
-                                <h4 className="text-gray-800 font-semibold text-sm">{selectedChat.name}</h4>
+                                <h4 className="text-gray-800 font-semibold text-xs sm:text-sm">{selectedChat.name}</h4>
                                 <p className="text-xs text-gray-500">{selectedChat.status}</p>
                             </div>
                         </div>
 
                         {/* Messages */}
                         <div
-                            className="flex-1 p-4 space-y-6 overflow-y-auto "
+                            className="flex-1 p-3 sm:p-4 space-y-4 sm:space-y-6 overflow-y-auto "
                             style={{
                                 backgroundImage: `url(${ChatBackground})`,
                                 backgroundColor: "#F7F6FC",
@@ -165,9 +176,9 @@ export default function UserChats() {
                                     key={idx}
                                     className={`flex flex-col ${msg.from === "me" ? "items-end" : "items-start"}`}
                                 >
-                                    <div className="relative max-w-xs hover:scale-105 transition duration-200 ease-in-out">
+                                    <div className="relative max-w-[80%] sm:max-w-xs hover:scale-105 transition duration-200 ease-in-out">
                                         <div
-                                            className={`px-4 py-2 text-sm rounded-lg ${msg.from === "me"
+                                            className={`px-3 sm:px-4 py-2 text-xs sm:text-sm rounded-lg ${msg.from === "me"
                                                 ? "bg-white text-[#374151] border border-gray-300 rounded-br-none"
                                                 : "bg-[#C8B8E8] text-gray-800 rounded-bl-none"
                                                 }`}
@@ -181,15 +192,15 @@ export default function UserChats() {
                         </div>
 
                         {/* Message Input */}
-                        <div className="p-4 border-t-2 border-[#dfe4ea79] bg-white">
+                        <div className="p-3 sm:p-4 border-t-2 border-[#dfe4ea79] bg-white">
                             <div className="flex items-center gap-2">
                                 <input
                                     type="text"
                                     placeholder="Type a message"
-                                    className="flex-1 px-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-300"
+                                    className="flex-1 px-3 sm:px-4 py-2 border border-gray-300 rounded-lg text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-purple-300"
                                 />
-                                <button className="bg-transparent px-4 py-2 rounded-full text-sm">
-                                    <Icon icon="ic:sharp-send" className="text-lg w-10 h-10 text-[#9363C4]" />
+                                <button className="bg-transparent px-2 sm:px-4 py-2 rounded-full text-sm">
+                                    <Icon icon="ic:sharp-send" className="text-base sm:text-lg w-8 h-8 sm:w-10 sm:h-10 text-[#9363C4]" />
                                 </button>
                             </div>
                         </div>

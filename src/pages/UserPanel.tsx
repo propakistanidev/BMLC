@@ -117,18 +117,18 @@ const UserPanel = () => {
         <div className="flex bg-[#F8F6FC] min-h-screen">
             <SideBar />
 
-            <div className="flex-1 p-10 overflow-x-hidden">
+            <div className="flex-1 p-4 md:p-10 overflow-x-hidden w-full">
                 {/* Header */}
-                <div className="flex justify-between items-center w-full">
-                    <h1 className="text-2xl font-bold">Home</h1>
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center w-full gap-4 sm:gap-0">
+                    <h1 className="text-xl sm:text-2xl font-bold">Home</h1>
 
-                    <div className="flex items-center gap-3 hover:scale-105 transition duration-200 ease-in-out">
+                    <div className="flex items-center gap-2 sm:gap-3 hover:scale-105 transition duration-200 ease-in-out">
                         <button
-                            className="text-[#3C3C3C] font-light px-4 py-2 rounded flex items-center gap-2 border border-gray-200"
+                            className="text-[#3C3C3C] font-light px-2 sm:px-4 py-2 rounded flex items-center gap-1 sm:gap-2 border border-gray-200 text-sm sm:text-base"
                             onClick={() => setIsModalOpen(true)}
                         >
-                            <Icon icon="prime:wallet" className="text-2xl" />
-                            Wallet Balance:{" "}
+                            <Icon icon="prime:wallet" className="text-xl sm:text-2xl" />
+                            <span className="hidden sm:inline">Wallet Balance:{" "}</span>
                             <span className="text-[#9363C4] font-medium">$20</span>
                         </button>
 
@@ -146,17 +146,17 @@ const UserPanel = () => {
 
                 {/* Life Coach Section */}
                 <div className="mt-8">
-                    <div className="flex justify-between items-center">
-                        <h1 className="text-xl font-semibold">Meet Your Life Coach</h1>
-                        <div className="flex">
+                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0">
+                        <h1 className="text-lg sm:text-xl font-semibold">Meet Your Life Coach</h1>
+                        <div className="flex w-full sm:w-auto">
                             <input
                                 type="text"
                                 placeholder="Search"
-                                className="bg-white px-6 py-1 rounded-l-lg border border-gray-200"
+                                className="bg-white px-4 sm:px-6 py-1 rounded-l-lg border border-gray-200 flex-1 sm:flex-none"
                             />
                             <Icon
                                 icon="mdi:magnify"
-                                className="text-4xl text-black px-2 bg-[#C8B8E8] rounded-r-lg"
+                                className="text-3xl sm:text-4xl text-black px-2 bg-[#C8B8E8] rounded-r-lg"
                             />
                         </div>
                     </div>

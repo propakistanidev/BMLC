@@ -17,28 +17,28 @@ export default function AdminPanel() {
     const reviews = [
         {
             name: 'Haroon Rashid',
-            image: client1,
+            image: "https://randomuser.me/api/portraits/men/20.jpg",
             rating: 5,
             time: '2 min ago',
             text: 'This platform is amazing! I was able to connect with a coach who helped me make real progress.',
         },
         {
             name: 'Mehwish Rani',
-            image: client1,
+            image: "https://randomuser.me/api/portraits/women/20.jpg",
             rating: 4,
             time: '1 hour ago',
             text: 'Good experience overall. Would definitely use again.',
         },
         {
             name: 'Abdul Rehman',
-            image: client1,
+            image: "https://randomuser.me/api/portraits/men/21.jpg",
             rating: 5,
             time: 'Yesterday',
             text: 'Loved the insights from my session. Very helpful!',
         },
         {
             name: 'Shaheer Khalid',
-            image: client1,
+            image: "https://randomuser.me/api/portraits/men/22.jpg",
             rating: 3,
             time: '3 days ago',
             text: 'Session was okay, but could’ve been more structured.',
@@ -93,7 +93,7 @@ export default function AdminPanel() {
     return (
         <div className="flex flex-col md:flex-row h-screen">
             {/* Sidebar */}
-            <div className={`bg-white text-gray-600 p-4 md:p-6 transition-all flex flex-col justify-between ${collapsed ? 'w-20' : 'w-full md:w-60'} fixed md:static z-20 h-[60px] md:h-auto top-0 left-0 right-0 md:flex md:flex-col`}>
+            <div className={`bg-white text-gray-600 p-4 md:p-6 transition-all flex flex-col justify-between ${collapsed ? 'w-16 md:w-20 h-[60px] md:h-auto' : 'w-full md:w-60 h-screen md:h-auto'} fixed md:static z-20 top-0 left-0 right-0 md:flex md:flex-col shadow-lg md:shadow-none`}>
                 <div>
                     <div className={`flex ${collapsed ? 'flex-row md:flex-col items-center gap-2 md:gap-4' : 'items-center justify-between'}`}>
                         <img src={logo} alt="Logo" className="h-8" />
@@ -101,36 +101,36 @@ export default function AdminPanel() {
                             <Icon icon="mdi:menu" className="text-purple-700 text-2xl" />
                         </button>
                     </div>
-                    <nav className="mt-6 md:mt-10 space-y-4 hidden md:block">
+                    <nav className={`mt-6 md:mt-10 space-y-4 ${collapsed ? 'hidden' : 'block'} md:block`}>
                         {navTabs.map((tab, idx) => (
                             <Link
                                 key={idx}
                                 to={tab.to}
-                                className="flex items-center gap-4 cursor-pointer hover:text-gray-700 hover:bg-[#C8B8E8] hover:font-semibold hover:rounded-lg py-2 px-2"
+                                className="flex items-center gap-4 cursor-pointer text-gray-700 hover:text-gray-900 hover:bg-[#C8B8E8] hover:font-semibold rounded-lg py-3 px-3 transition-colors duration-200"
                             >
-                                <Icon icon={tab.icon} className="text-xl" />
-                                {!collapsed && <span>{tab.label}</span>}
+                                <Icon icon={tab.icon} className="text-xl flex-shrink-0" />
+                                {!collapsed && <span className="text-sm md:text-base">{tab.label}</span>}
                             </Link>
                         ))}
                     </nav>
                 </div>
-                <div className="hidden md:block mt-10">
+                <div className={`${collapsed ? 'hidden' : 'block'} md:block mt-6 md:mt-10`}>
                     <button
-                        className={`flex items-center border-1 text-red-500 border-red-500 cursor-pointer rounded-lg py-2 gap-2 text-lg  ${collapsed ? 'justify-center px-2' : 'px-12'}`}
+                        className={`flex items-center border-1 text-red-500 border-red-500 cursor-pointer rounded-lg py-2 gap-2 text-sm md:text-lg transition-colors duration-200 hover:bg-red-50 ${collapsed ? 'justify-center px-2' : 'px-6 md:px-12'}`}
                         onClick={() => window.location.href = '/'}
                     >
-                        <Icon icon="mdi:logout" className="text-xl font-bold" />
-                        {!collapsed && 'Logout'}
+                        <Icon icon="mdi:logout" className="text-xl font-bold flex-shrink-0" />
+                        {!collapsed && <span>Logout</span>}
                     </button>
                 </div>
             </div>
 
             {/* Main Content */}
             <div className="flex-1 mt-[60px] md:mt-0 p-4 md:p-6 overflow-y-auto bg-[#F8F6FC]">
-                <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
-                    <h1 className="text-3xl mt-4 text-[#27272A] font-bold">Home</h1>
-                    <div className="flex items-center gap-3">
-                        <img src={profileImage} alt="User" className="h-9 w-9 rounded-full" />
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                    <h1 className="text-2xl sm:text-3xl mt-2 sm:mt-4 text-[#27272A] font-bold">Home</h1>
+                    <div className="flex items-center gap-2 sm:gap-3">
+                        <img src={profileImage} alt="User" className="h-8 w-8 sm:h-9 sm:w-9 rounded-full" />
                         <div className="text-left text-sm text-gray-700">
                             <div className="font-medium">Admin</div>
                             <div className="text-gray-500 text-xs">admin@bmlc.com</div>
@@ -140,16 +140,16 @@ export default function AdminPanel() {
 
 
                 {/* Upcoming Sessions */}
-                <div className="mb-10">
-                    <div className="flex justify-between items-center mb-3">
-                        <h2 className="text-lg font-semibold">Upcoming Sessions</h2>
-                        <button className="text-purple-600 text-sm">See All</button>
+                <div className="mb-8 sm:mb-10">
+                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-3 gap-2 sm:gap-0">
+                        <h2 className="text-base sm:text-lg font-semibold">Upcoming Sessions</h2>
+                        <button className="text-purple-600 text-sm hover:underline">See All</button>
                     </div>
-                    <div className="flex gap-4 md:gap-8 overflow-x-auto pb-5">
+                    <div className="flex gap-3 sm:gap-4 md:gap-8 overflow-x-auto pb-5">
                         {sessions.map((session) => (
                             <div
                                 key={session.id}
-                                className="min-w-[320px] bg-[#c8b8e88f] p-4 rounded-xl shadow-md cursor-pointer hover:shadow-md transition-all relative"
+                                className="min-w-[280px] sm:min-w-[320px] bg-[#c8b8e88f] p-3 sm:p-4 rounded-xl shadow-md cursor-pointer hover:shadow-lg transition-all relative"
                                 onClick={() => {
                                     setSelectedCoach({
                                         name: session.name,
@@ -162,16 +162,16 @@ export default function AdminPanel() {
                                 }}
                             >
                                 {/* Top Right Dots */}
-                                <div className="absolute top-3 right-3 text-xl text-gray-600">
+                                <div className="absolute top-2 sm:top-3 right-2 sm:right-3 text-lg sm:text-xl text-gray-600">
                                     <Icon icon="mi:options-vertical" />
                                 </div>
 
                                 {/* Coach Info Row */}
-                                <div className="flex items-center gap-3 mb-4">
-                                    <img src={session.image} className="h-12 w-12 rounded-full" alt="Coach" />
+                                <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                                    <img src={session.image} className="h-10 w-10 sm:h-12 sm:w-12 rounded-full" alt="Coach" />
                                     <div>
-                                        <h3 className="font-medium text-base">{session.name}</h3>
-                                        <p className="text-sm text-gray-700">{session.expertise}</p>
+                                        <h3 className="font-medium text-sm sm:text-base">{session.name}</h3>
+                                        <p className="text-xs sm:text-sm text-gray-700">{session.expertise}</p>
                                     </div>
                                 </div>
 
@@ -179,13 +179,13 @@ export default function AdminPanel() {
                                 <hr className="border-t border-gray-400 my-2" />
 
                                 {/* Time Info */}
-                                <div className="flex items-center gap-6 text-sm text-gray-700 mt-4 pl-4">
-                                    <div className="flex items-center gap-2">
-                                        <Icon icon="mdi:calendar-blank-outline" className="text-lg" />
+                                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-6 text-xs sm:text-sm text-gray-700 mt-3 sm:mt-4 pl-2 sm:pl-4">
+                                    <div className="flex items-center gap-1 sm:gap-2">
+                                        <Icon icon="mdi:calendar-blank-outline" className="text-base sm:text-lg" />
                                         <span>{session.time.split('|')[0].trim()}</span>
                                     </div>
-                                    <div className="flex items-center gap-2">
-                                        <Icon icon="mdi:clock-outline" className="text-lg" />
+                                    <div className="flex items-center gap-1 sm:gap-2">
+                                        <Icon icon="mdi:clock-outline" className="text-base sm:text-lg" />
                                         <span>{session.time.split('|')[1]?.trim()}</span>
                                     </div>
                                 </div>
@@ -195,19 +195,21 @@ export default function AdminPanel() {
                 </div>
 
                 {/* Earnings Overview */}
-                <div className="mb-10">
-                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-3 gap-4">
-                        <h2 className="text-lg font-semibold">Earnings Overview - Last Month</h2>
-                        <div className="flex items-center gap-6 text-sm">
-                            <label className="flex items-center gap-1 cursor-pointer">
-                                <p className='pr-4 font-medium text-sm text-gray-500'>Filter</p>
-                                <input type="radio" name="filter" checked={filter === 'busy'} onChange={() => setFilter('busy')} />
-                                Most Busy
-                            </label>
-                            <label className="flex items-center gap-1 cursor-pointer">
-                                <input type="radio" name="filter" checked={filter === 'rated'} onChange={() => setFilter('rated')} />
-                                Top Rated
-                            </label>
+                <div className="mb-8 sm:mb-10">
+                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-3 gap-3 sm:gap-4">
+                        <h2 className="text-base sm:text-lg font-semibold">Earnings Overview - Last Month</h2>
+                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6 text-xs sm:text-sm">
+                            <p className='font-medium text-sm text-gray-500'>Filter</p>
+                            <div className="flex gap-4 sm:gap-6">
+                                <label className="flex items-center gap-1 cursor-pointer">
+                                    <input type="radio" name="filter" checked={filter === 'busy'} onChange={() => setFilter('busy')} />
+                                    Most Busy
+                                </label>
+                                <label className="flex items-center gap-1 cursor-pointer">
+                                    <input type="radio" name="filter" checked={filter === 'rated'} onChange={() => setFilter('rated')} />
+                                    Top Rated
+                                </label>
+                            </div>
                         </div>
                     </div>
 

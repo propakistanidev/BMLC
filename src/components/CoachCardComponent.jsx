@@ -5,7 +5,7 @@ const CoachCard = ({ coach }) => {
     return (
 
 
-        <div className="bg-white rounded-xl shadow-2xl p-6 w-full h-[350px] hover:shadow-[0_8px_16px_rgba(147,99,196,0.5)] hover:scale-105 transition duration-400 ease-in-out">
+        <div className="bg-white rounded-xl shadow-2xl p-4 sm:p-6 w-full h-auto sm:h-[350px] hover:shadow-[0_8px_16px_rgba(147,99,196,0.5)] hover:scale-105 transition duration-400 ease-in-out">
             {/* Image + Name + Expertise + Rating */}
             <div className="flex flex-col items-start relative">
                 <div className="relative">
@@ -58,16 +58,16 @@ const CoachCard = ({ coach }) => {
             </div>
 
             {/* Buttons */}
-            <div className="flex flex-row gap-2 my-6">
-                <button className="bg-[#C8B8E8] flex items-center gap-2 text-black text-xs py-2 px-4 font-medium rounded-md shadow-[0_8px_16px_rgba(147,99,196,0.5)]">
+            <div className="flex flex-col sm:flex-row gap-2 my-4 sm:my-6">
+                <button className="bg-[#C8B8E8] flex items-center justify-center gap-2 text-black text-xs py-2 px-3 sm:px-4 font-medium rounded-md shadow-[0_8px_16px_rgba(147,99,196,0.5)] flex-1 sm:flex-none">
                     <Icon icon='solar:calendar-linear' className="w-4 h-4" />
                     Book a Call
                 </button>
-                <button className="bg-white flex items-center gap-2 text-[#9363C4] border border-[#9363C4] py-2 px-3 text-xs font-medium rounded-md shadow-[0_8px_16px_rgba(147,99,196,0.5)]">
+                <button className="bg-white flex items-center justify-center gap-2 text-[#9363C4] border border-[#9363C4] py-2 px-3 text-xs font-medium rounded-md shadow-[0_8px_16px_rgba(147,99,196,0.5)] flex-1 sm:flex-none">
                     <Icon icon='proicons:call' className="w-4 h-4" />
                     Call Now
                 </button>
-                <button className="bg-gray-100 flex items-center gap-2 text-black py-1 px-4 rounded-md text-xs font-medium border border-gray-300 shadow-[0_8px_16px_rgba(147,99,196,0.5)]">
+                <button className="bg-gray-100 flex items-center justify-center gap-2 text-black py-2 px-3 sm:px-4 rounded-md text-xs font-medium border border-gray-300 shadow-[0_8px_16px_rgba(147,99,196,0.5)] flex-1 sm:flex-none">
                     <Icon icon='humbleicons:chat' className="w-4 h-4" />
                     Chat
                 </button>

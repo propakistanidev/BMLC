@@ -54,8 +54,8 @@ function HowItWorks() {
                     </div>
                 </div>
             </section>
-            <div className="flex justify-center items-center"> <Arrow /> </div>
 
+            <div className="flex justify-center items-center"> <Arrow /> </div>
             {/* Third Section */}
             <section className="py-12 md:py-20 bg-white text-gray-800">
                 <div className="flex flex-col lg:flex-row justify-center items-center gap-6 lg:gap-12 max-w-6xl mx-auto px-4">

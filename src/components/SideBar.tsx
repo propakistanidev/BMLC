@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Icon } from '@iconify/react'
 import logo from '../assets/logo.png'
@@ -23,7 +22,7 @@ export default function UserPanelSideBar() {
     };
 
     return (
-        <div className='min-h-screen w-64 bg-white text-[#27272A] fixed md:relative flex flex-col justify-between'>
+        <div className='min-h-screen w-64 bg-white text-[#27272A] hidden md:flex md:relative flex-col justify-between'>
             {/* Logo */}
             <div>
                 <div className='p-6 flex items-center justify-start '>
@@ -46,12 +45,12 @@ export default function UserPanelSideBar() {
             </div>
 
             {/* Logout Button */}
-            <div className=' ml-18 mb-8'>
+            <div className='ml-10 mb-8 mr-10'>
                 <button
                     onClick={handleLogout}
-                    className='w-1/2 p-2 rounded-lg border border-red-600 text-red-600 flex justify-center  items-center gap-2 hover:bg-red-200 hover:scale-110 transition duration-200 ease-in-out'
+                    className='px-8 py-2 rounded-lg border border-red-600 text-red-600 flex flex-row items-center gap-2 hover:bg-red-200 hover:scale-110 transition duration-200 ease-in-out'
                 >
-                    <Icon icon='mdi:logout' className='w-5 h-5' />
+                    <Icon icon='teenyicons:logout-solid' className='w-5 h-5' />
                     Logout
                 </button>
             </div>

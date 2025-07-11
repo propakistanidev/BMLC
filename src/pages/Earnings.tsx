@@ -66,7 +66,7 @@ const Earnings = () => {
     return (
         <div className="flex h-screen bg-[#F8F6FC]">
             {/* Sidebar */}
-            <div className={`bg-white text-gray-600 p-4 md:p-6 transition-all flex flex-col justify-between ${collapsed ? 'w-20' : 'w-full md:w-60'} fixed md:static z-20 h-[60px] md:h-auto top-0 left-0 right-0 md:flex md:flex-col`}>
+            <div className={`bg-white text-gray-600 p-4 md:p-6 transition-all flex flex-col justify-between ${collapsed ? 'w-16 md:w-20 h-[60px] md:h-auto' : 'w-full md:w-60 h-screen md:h-auto'} fixed md:static z-20 top-0 left-0 right-0 md:flex md:flex-col shadow-lg md:shadow-none`}>
                 <div>
                     <div className={`flex ${collapsed ? 'flex-row md:flex-col items-center gap-2 md:gap-4' : 'items-center justify-between'}`}>
                         <img src={logo} alt="Logo" className="h-8" />
@@ -74,38 +74,37 @@ const Earnings = () => {
                             <Icon icon="mdi:menu" className="text-purple-700 text-2xl" />
                         </button>
                     </div>
-                    <nav className="mt-6 md:mt-10 space-y-4 hidden md:block">
+                    <nav className={`mt-6 md:mt-10 space-y-4 ${collapsed ? 'hidden' : 'block'} md:block`}>
                         {navTabs.map((tab, idx) => (
                             <Link
                                 key={idx}
                                 to={tab.to}
-                                className="flex items-center gap-4 cursor-pointer hover:text-gray-700 hover:bg-[#C8B8E8] hover:font-semibold hover:rounded-lg py-2 px-2"
+                                className="flex items-center gap-4 cursor-pointer text-gray-700 hover:text-gray-900 hover:bg-[#C8B8E8] hover:font-semibold rounded-lg py-3 px-3 transition-colors duration-200"
                             >
-                                <Icon icon={tab.icon} className="text-xl" />
-                                {!collapsed && <span>{tab.label}</span>}
+                                <Icon icon={tab.icon} className="text-xl flex-shrink-0" />
+                                {!collapsed && <span className="text-sm md:text-base">{tab.label}</span>}
                             </Link>
                         ))}
                     </nav>
                 </div>
-                <div className="hidden md:block mt-10">
+                <div className={`${collapsed ? 'hidden' : 'block'} md:block mt-6 md:mt-10`}>
                     <button
-                        className={`flex items-center border-1 text-red-500 border-red-500 cursor-pointer rounded-lg py-2 gap-2 text-lg  ${collapsed ? 'justify-center px-2' : 'px-12'}`}
+                        className={`flex items-center border-1 text-red-500 border-red-500 cursor-pointer rounded-lg py-2 gap-2 text-sm md:text-lg transition-colors duration-200 hover:bg-red-50 ${collapsed ? 'justify-center px-2' : 'px-6 md:px-12'}`}
                         onClick={() => window.location.href = '/'}
                     >
-                        <Icon icon="mdi:logout" className="text-xl font-bold" />
-                        {!collapsed && 'Logout'}
+                        <Icon icon="mdi:logout" className="text-xl font-bold flex-shrink-0" />
+                        {!collapsed && <span>Logout</span>}
                     </button>
                 </div>
             </div>
-
             {/* Main Content */}
-            <div className="flex-1 p-6 overflow-y-auto">
+            <div className="flex-1 p-3 sm:p-4 md:p-6 overflow-y-auto mt-[60px] md:mt-0">
                 {/* Header */}
-                <div className="flex justify-between items-center mb-6">
-                    <h1 className="text-3xl mt-4 text-[#27272A] font-bold">Earnings</h1>
-                    <div className="flex items-center gap-3">
-                        <img src={profileImage} alt="User" className="h-9 w-9 rounded-full" />
-                        <div className="text-left text-sm text-gray-700">
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-6 gap-3 sm:gap-0">
+                    <h1 className="text-2xl sm:text-3xl mt-2 sm:mt-4 text-[#27272A] font-bold">Earnings</h1>
+                    <div className="flex items-center gap-2 sm:gap-3">
+                        <img src={profileImage} alt="User" className="h-8 w-8 sm:h-9 sm:w-9 rounded-full" />
+                        <div className="text-left text-xs sm:text-sm text-gray-700">
                             <div className="font-medium">Admin</div>
                             <div className="text-gray-500 text-xs">admin@bmlc.com</div>
                         </div>
@@ -113,40 +112,40 @@ const Earnings = () => {
                 </div>
 
                 {/* Users and Summary Section */}
-                <div className="flex flex-col lg:flex-row gap-10 bg-white rounded-xl shadow p-8 m-4">
+                <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 bg-white rounded-xl shadow p-4 sm:p-6 md:p-8 m-2 sm:m-4">
                     {/* Users Section */}
                     <div className="w-full lg:w-3/4">
-                        <h2 className="text-2xl font-semibold ml-2 text-gray-800 mb-4">Users</h2>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
+                        <h2 className="text-xl sm:text-2xl font-semibold ml-0 sm:ml-2 text-gray-800 mb-3 sm:mb-4">Users</h2>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-4">
                             {users.map((user, idx) => (
                                 <div
                                     key={idx}
-                                    className="bg-white rounded-xl shadow-lg border-1 border-gray-200 p-4 flex flex-col gap-8"
+                                    className="bg-white rounded-xl shadow-lg border-1 border-gray-200 p-3 sm:p-4 flex flex-col gap-4 sm:gap-6 lg:gap-8"
                                 >
                                     {/* Top */}
-                                    <div className="flex items-center gap-4">
+                                    <div className="flex items-center gap-3 sm:gap-4">
                                         <img
                                             src={user.image}
                                             alt={user.name}
-                                            className="h-12 w-12 rounded-full object-cover"
+                                            className="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover flex-shrink-0"
                                         />
-                                        <div>
-                                            <h4 className="text-gray-800 font-semibold text-md">{user.name}</h4>
-                                            <p className="text-sm text-gray-500">{user.expertise}</p>
+                                        <div className="min-w-0 flex-1">
+                                            <h4 className="text-gray-800 font-semibold text-sm sm:text-md truncate">{user.name}</h4>
+                                            <p className="text-xs sm:text-sm text-gray-500 line-clamp-2">{user.expertise}</p>
                                         </div>
                                     </div>
 
                                     {/* Bottom */}
-                                    <div className="flex gap-4">
-                                        <div className="flex-1 bg-white border-1 border-gray-200 h-30 p-1.5 pt-4 rounded-xl flex flex-col items-center">
-                                            <div className="bg-[#E8EFF6] w-9 h-9 rounded-lg flex flex-col justify-center items-center"><Icon icon="solar:calendar-linear" className="text-2xl  text-[#2B4F67]" /> </div>
-                                            <p className="text-md pt-2 text-[#7F7F7F]">Date</p>
-                                            <p className="text-lg font-medium text-gray-600">{user.date}</p>
+                                    <div className="flex gap-2 sm:gap-3 lg:gap-4">
+                                        <div className="flex-1 bg-white border-1 border-gray-200 min-h-[100px] sm:min-h-[120px] p-1.5 pt-3 sm:pt-4 rounded-xl flex flex-col items-center">
+                                            <div className="bg-[#E8EFF6] w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex flex-col justify-center items-center"><Icon icon="solar:calendar-linear" className="text-xl sm:text-2xl text-[#2B4F67]" /> </div>
+                                            <p className="text-xs sm:text-sm pt-1 sm:pt-2 text-[#7F7F7F]">Date</p>
+                                            <p className="text-sm sm:text-base lg:text-lg font-medium text-gray-600 text-center px-1">{user.date}</p>
                                         </div>
-                                        <div className="flex-1 bg-white border-1 border-gray-200 h-30 pt-4 rounded-xl flex flex-col items-center">
-                                            <div className="bg-[#F0FDF4] w-9 h-9 rounded-lg flex flex-col justify-center items-center"><Icon icon="stash:hand-holding-dollar-light" className="text-3xl text-green-600  rounded-md" /></div>
-                                            <p className="text-md pt-2 text-[#7F7F7F]">Payment</p>
-                                            <p className="text-lg font-medium text-gray-600">{user.amount}</p>
+                                        <div className="flex-1 bg-white border-1 border-gray-200 min-h-[100px] sm:min-h-[120px] pt-3 sm:pt-4 rounded-xl flex flex-col items-center">
+                                            <div className="bg-[#F0FDF4] w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex flex-col justify-center items-center"><Icon icon="stash:hand-holding-dollar-light" className="text-2xl sm:text-3xl text-green-600 rounded-md" /></div>
+                                            <p className="text-xs sm:text-sm pt-1 sm:pt-2 text-[#7F7F7F]">Payment</p>
+                                            <p className="text-sm sm:text-base lg:text-lg font-medium text-gray-600">{user.amount}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -155,27 +154,25 @@ const Earnings = () => {
                     </div>
 
                     {/* Summary Section */}
-                    <div className="w-full lg:w-1/4 space-y-6 bg-white  rounded-2xl">
+                    <div className="w-full lg:w-1/4 space-y-4 sm:space-y-6 bg-white rounded-2xl">
                         {/* Total Revenue Card */}
-                        <h1 className="text-2xl font-semibold text-[#27272A]">Total Earnings</h1>
-                        <div className=" rounded-2xl space-y-10 -my-2">
-                            <div className="bg-white bg-blur-md  rounded-2xl bg-[linear-gradient(to_bottom_left,_#C8B8E866_45%,_white_60%,_white_50%,_#C8B8E866_100%)] ">
-                                <div className="p-6">
-                                    <p className="text-md text-gray-500 mb-1">Total Earnings</p>
-                                    <h2 className="text-4xl font-bold text-[#9363C4]">$4,800.00</h2>
+                        <h1 className="text-xl sm:text-2xl font-semibold text-[#27272A]">Total Earnings</h1>
+                        <div className="rounded-2xl space-y-6 sm:space-y-8 lg:space-y-10 -my-2">
+                            <div className="bg-white bg-blur-md rounded-2xl bg-[linear-gradient(to_bottom_left,_#C8B8E866_45%,_white_60%,_white_50%,_#C8B8E866_100%)]">
+                                <div className="p-4 sm:p-6">
+                                    <p className="text-sm sm:text-md text-gray-500 mb-1">Total Earnings</p>
+                                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#9363C4]">$4,800.00</h2>
                                 </div>
 
-
-                                <div className="border-t border-white px-6 text-sm shadow-xl text-gray-600 space-y-6">
-                                    <div className="flex justify-between pt-4">
-                                        <span className="text-lg">Revenue Split</span>
-                                        <span className="text-xl font-semibold">70%</span>
+                                <div className="border-t border-white px-4 sm:px-6 text-sm shadow-xl text-gray-600 space-y-4 sm:space-y-6">
+                                    <div className="flex justify-between pt-3 sm:pt-4">
+                                        <span className="text-base sm:text-lg">Revenue Split</span>
+                                        <span className="text-lg sm:text-xl font-semibold">70%</span>
                                     </div>
 
-
-                                    <div className="border-t border-white flex justify-between pt-4 pb-4">
-                                        <span className="text-lg">Your Earnings</span>
-                                        <span className="text-xl font-semibold">$3,360.00</span>
+                                    <div className="border-t border-white flex justify-between pt-3 sm:pt-4 pb-3 sm:pb-4">
+                                        <span className="text-base sm:text-lg">Your Earnings</span>
+                                        <span className="text-lg sm:text-xl font-semibold">$3,360.00</span>
                                     </div>
                                 </div>
                             </div>

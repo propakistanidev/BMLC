@@ -20,10 +20,10 @@ export default function AppointmentsUser() {
         <div className="flex bg-[#F8F6FC] min-h-screen">
             <SideBar />
 
-            <div className="flex-1 p-6">
-                <div className="flex justify-between items-center w-full">
-                    <h1 className="text-2xl font-bold">My Sessions</h1>
-                    <div className="flex items-center gap-3 hover:scale-105 transition duration-200 ease-in-out">
+            <div className="flex-1 p-4 md:p-6 overflow-x-hidden w-full">
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center w-full gap-4 sm:gap-0">
+                    <h1 className="text-xl sm:text-2xl font-bold">My Sessions</h1>
+                    <div className="flex items-center gap-2 sm:gap-3 hover:scale-105 transition duration-200 ease-in-out">
 
                         <img src="https://randomuser.me/api/portraits/men/20.jpg" alt="User profile" className="h-9 w-9 rounded-full" />
                         <div className="text-left text-sm text-gray-700">
@@ -34,9 +34,9 @@ export default function AppointmentsUser() {
                 </div>
 
                 <div className="flex flex-col lg:flex-row gap-6 mt-6">
-                    <div className="bg-white px-6 pt-12 rounded-xl shadow-md w-full lg:w-2/3">
-                        <div className="flex justify-between items-center mb-4">
-                            <div className="flex items-center gap-4">
+                    <div className="bg-white px-4 sm:px-6 pt-8 sm:pt-12 rounded-xl shadow-md w-full lg:w-2/3">
+                        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4 sm:gap-0">
+                            <div className="flex items-center gap-2 sm:gap-4">
                                 <button onClick={() => {
                                     if (currentMonth === 0) {
                                         setCurrentMonth(11);
@@ -46,9 +46,9 @@ export default function AppointmentsUser() {
                                     }
                                     setShowAll(false);
                                 }}>
-                                    <Icon icon="mdi:chevron-left" className="text-2xl text-gray-600" />
+                                    <Icon icon="mdi:chevron-left" className="text-xl sm:text-2xl text-gray-600" />
                                 </button>
-                                <p className="text-lg font-semibold text-gray-700">
+                                <p className="text-base sm:text-lg font-semibold text-gray-700">
                                     {new Date(currentYear, currentMonth).toLocaleString("default", { month: "long" })} {currentYear}
                                 </p>
                                 <button onClick={() => {
@@ -60,37 +60,38 @@ export default function AppointmentsUser() {
                                     }
                                     setShowAll(false);
                                 }}>
-                                    <Icon icon="mdi:chevron-right" className="text-2xl text-gray-600" />
+                                    <Icon icon="mdi:chevron-right" className="text-xl sm:text-2xl text-gray-600" />
                                 </button>
                             </div>
-                            <div className="flex gap-3 bg-purple-100 p-2 rounded-md">
+                            <div className="flex gap-2 sm:gap-3 bg-purple-100 p-2 rounded-md">
                                 <button onClick={() => {
                                     setCurrentMonth(today.getMonth());
                                     setCurrentYear(today.getFullYear());
                                     setShowAll(false);
-                                }} className="bg-purple-100 text-purple-700 px-4 py-1 rounded-md font-medium text-sm">
+                                }} className="bg-purple-100 text-purple-700 px-3 sm:px-4 py-1 rounded-md font-medium text-xs sm:text-sm">
                                     Today
                                 </button>
-                                <button onClick={() => setShowAll(true)} className="bg-gray-100 text-gray-600 px-4 py-1 rounded-md font-medium text-sm">
+                                <button onClick={() => setShowAll(true)} className="bg-gray-100 text-gray-600 px-3 sm:px-4 py-1 rounded-md font-medium text-xs sm:text-sm">
                                     All
                                 </button>
                             </div>
                         </div>
 
                         <div className="overflow-hidden border border-gray-300 rounded-lg">
-                            <div className="grid grid-cols-7 divide-x divide-y divide-gray-300 text-sm">
+                            <div className="grid grid-cols-7 divide-x divide-y divide-gray-300 text-xs sm:text-sm">
                                 {"Sun,Mon,Tue,Wed,Thu,Fri,Sat".split(",").map((day) => (
-                                    <div key={day} className="py-2 bg-[#F1EEF9] font-semibold text-center col-span-1">
-                                        {day}
+                                    <div key={day} className="py-1 sm:py-2 bg-[#F1EEF9] font-semibold text-center col-span-1">
+                                        <span className="hidden sm:inline">{day}</span>
+                                        <span className="sm:hidden">{day.slice(0, 1)}</span>
                                     </div>
                                 ))}
                                 {(() => {
                                     const firstDay = new Date(currentYear, currentMonth, 1).getDay();
                                     const totalDays = new Date(currentYear, currentMonth + 1, 0).getDate();
-                                    const blanks = Array.from({ length: firstDay }, (_, i) => <div key={`blank-${i}`} className="h-20" />);
+                                    const blanks = Array.from({ length: firstDay }, (_, i) => <div key={`blank-${i}`} className="h-12 sm:h-20" />);
                                     const days = Array.from({ length: totalDays }, (_, i) => (
-                                        <div key={i + 1} onClick={() => handleDayClick(i + 1)} className="h-20 px-2 pt-1 text-xs text-center text-gray-700 cursor-pointer hover:bg-purple-100 relative">
-                                            <div className="absolute top-1 left-1 right-1 text-center font-semibold text-black">{i + 1}</div>
+                                        <div key={i + 1} onClick={() => handleDayClick(i + 1)} className="h-12 sm:h-20 px-1 sm:px-2 pt-1 text-xs text-center text-gray-700 cursor-pointer hover:bg-purple-100 relative">
+                                            <div className="absolute top-1 left-1 right-1 text-center font-semibold text-black text-xs sm:text-sm">{i + 1}</div>
                                         </div>
                                     ));
                                     return [...blanks, ...days];
@@ -100,19 +101,20 @@ export default function AppointmentsUser() {
                     </div>
 
                     {showAll && (
-                        <div className="w-full lg:w-1/3 mt-2">
-                            <h3 className="text-md font-semibold mb-3 text-gray-700">Upcoming Sessions</h3>
-                            <div className="space-y-4">
+                        <div className="w-full lg:w-1/3 mt-4 lg:mt-2">
+                            <h3 className="text-sm sm:text-md font-semibold mb-3 text-gray-700">Upcoming Sessions</h3>
+                            <div className="space-y-3 sm:space-y-4">
                                 {[1, 2, 3, 4].map((idx) => (
                                     <div key={idx} className="flex flex-col justify-between rounded-xl shadow-sm border border-gray-200 h-full">
-                                        <div className="pt-4 px-4">
-                                            <div className="flex gap-5 items-start">
-                                                <img src={coach1} className="h-10 w-10 rounded-full" alt="Coach" />
+                                        <div className="pt-3 sm:pt-4 px-3 sm:px-4">
+                                            <div className="flex gap-3 sm:gap-5 items-start">
+                                                <img src={coach1} className="h-8 w-8 sm:h-10 sm:w-10 rounded-full" alt="Coach" />
                                                 <div className="flex flex-col flex-1 text-left">
-                                                    <h4 className="font-medium text-[#33384B]">John Doe</h4>
-                                                    <p className="text-[#AAB6C3] font-medium">Career Guidance & Personal Growth</p>
-                                                    <p className="text-sm flex flex-row gap-2 mt-2 mb-2 text-[#454545]">
-                                                        <Icon icon='solar:calendar-linear' className="text-lg text-[#454545]" />Sunday, June 26  |  <Icon icon='iconoir:clock' className="text-lg text-[#454545]" /> 2:00 PM - 3:00 PM
+                                                    <h4 className="font-medium text-[#33384B] text-sm sm:text-base">John Doe</h4>
+                                                    <p className="text-[#AAB6C3] font-medium text-xs sm:text-sm">Career Guidance & Personal Growth</p>
+                                                    <p className="text-xs sm:text-sm flex flex-col sm:flex-row gap-1 sm:gap-2 mt-2 mb-2 text-[#454545]">
+                                                        <span className="flex items-center gap-1"><Icon icon='solar:calendar-linear' className="text-sm sm:text-lg text-[#454545]" />Sunday, June 26</span>
+                                                        <span className="flex items-center gap-1"><Icon icon='iconoir:clock' className="text-sm sm:text-lg text-[#454545]" />2:00 PM - 3:00 PM</span>
                                                     </p>
                                                 </div>
                                             </div>
@@ -128,9 +130,9 @@ export default function AppointmentsUser() {
                                                 nextSession: "Session with Sarah Thompson",
                                                 Date: "Sunday, June 26"
                                             })}
-                                            className="w-full flex items-center justify-start gap-2 text-sm bg-[#F1EEF9] text-[#9363C4] px-4 py-2 rounded-b-md hover:bg-purple-200"
+                                            className="w-full flex items-center justify-start gap-2 text-xs sm:text-sm bg-[#F1EEF9] text-[#9363C4] px-3 sm:px-4 py-2 rounded-b-md hover:bg-purple-200"
                                         >
-                                            <Icon icon="mdi:note-plus-outline" className="text-lg" />
+                                            <Icon icon="mdi:note-plus-outline" className="text-sm sm:text-lg" />
                                             Add Notes
                                         </button>
                                     </div>

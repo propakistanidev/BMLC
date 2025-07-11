@@ -31,12 +31,12 @@ const Expenses = () => {
         <div className="flex bg-[#F8F6FC] min-h-screen">
             <SideBar />
 
-            <div className="flex-1 p-6">
+            <div className="flex-1 p-4 md:p-6 overflow-x-hidden w-full">
                 {/* Header */}
-                <div className="flex justify-between items-center w-full mb-6">
-                    <h1 className="text-2xl font-bold">Expenses</h1>
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center w-full mb-6 gap-4 sm:gap-0">
+                    <h1 className="text-xl sm:text-2xl font-bold">Expenses</h1>
 
-                    <div className="flex items-center gap-3 hover:scale-105 transition duration-200 ease-in-out">
+                    <div className="flex items-center gap-2 sm:gap-3 hover:scale-105 transition duration-200 ease-in-out">
 
                         <img src="https://randomuser.me/api/portraits/men/20.jpg" alt="User profile" className="h-9 w-9 rounded-full" />
                         <div className="text-left text-sm text-gray-700">
@@ -47,70 +47,85 @@ const Expenses = () => {
                 </div>
 
                 {/* Filters and Summary */}
-                <div className="flex justify-between items-center mb-6 bg-white p-3 rounded-xl shadow border border-gray-200">
-                    <div className="flex items-center gap-4"><p>Filter</p>
-                        <label className="inline-flex items-center">
-                            <input
-                                type="radio"
-                                name="filter"
-                                value="chat"
-                                checked={selectedFilter === "chat"}
-                                onChange={() => setSelectedFilter("chat")}
-                                className="form-radio text-purple-600"
-                            />
-                            <span className="ml-2 text-sm text-gray-700">Chat Expenses</span>
-                        </label>
-                        <label className="inline-flex items-center">
-                            <input
-                                type="radio"
-                                name="filter"
-                                value="call"
-                                checked={selectedFilter === "call"}
-                                onChange={() => setSelectedFilter("call")}
-                                className="form-radio text-purple-600"
-                            />
-                            <span className="ml-2 text-sm text-gray-700">Call Expenses</span>
-                        </label>
+                <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-6 bg-white p-3 sm:p-4 rounded-xl shadow border border-gray-200 gap-4 lg:gap-0">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 w-full lg:w-auto">
+                        <p className="text-sm sm:text-base font-medium">Filter</p>
+                        <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
+                            <label className="inline-flex items-center">
+                                <input
+                                    type="radio"
+                                    name="filter"
+                                    value="chat"
+                                    checked={selectedFilter === "chat"}
+                                    onChange={() => setSelectedFilter("chat")}
+                                    className="form-radio text-purple-600"
+                                />
+                                <span className="ml-2 text-xs sm:text-sm text-gray-700">Chat Expenses</span>
+                            </label>
+                            <label className="inline-flex items-center">
+                                <input
+                                    type="radio"
+                                    name="filter"
+                                    value="call"
+                                    checked={selectedFilter === "call"}
+                                    onChange={() => setSelectedFilter("call")}
+                                    className="form-radio text-purple-600"
+                                />
+                                <span className="ml-2 text-xs sm:text-sm text-gray-700">Call Expenses</span>
+                            </label>
+                        </div>
                     </div>
 
-                    <div className="flex flex-row w-[500px] p-3 justify-between items-center gap-2 bg-white  rounded-lg shadow border border-gray-200 hover:scale-105 transition duration-200 ease-in-out">
+                    <div className="flex flex-col sm:flex-row w-full lg:w-auto max-w-md p-3 justify-between items-start sm:items-center gap-2 bg-white rounded-lg shadow border border-gray-200 hover:scale-105 transition duration-200 ease-in-out">
                         <div className="flex items-center gap-2">
-                            <div className="bg-[#E0F6ED] p-2 rounded-lg"><Icon icon="mdi:currency-usd" className="text-green-500 text-3xl" /></div><div className="text-sm">
+                            <div className="bg-[#E0F6ED] p-2 rounded-lg"><Icon icon="mdi:currency-usd" className="text-green-500 text-2xl sm:text-3xl" /></div>
+                            <div className="text-xs sm:text-sm">
                                 <div className="text-gray-600">{selectedFilter === "chat" ? "Chat Expense" : "Call Expense"}</div>
-                                <div className="font-semibold text-black">$99.00</div>
+                                <div className="font-semibold text-black text-sm sm:text-base">$99.00</div>
                             </div>
                         </div>
 
-                        <span className="text-sm flex gap-1 text-[#7F7F7F]">+5.00 (+12.5%) <span><Icon icon='mdi:arrow-top-thick' className="text-green-500 text-xl" /></span> Last Month</span>
+                        <span className="text-xs sm:text-sm flex flex-col sm:flex-row items-start sm:items-center gap-1 text-[#7F7F7F]">
+                            <span>+5.00 (+12.5%)</span>
+                            <span className="flex items-center gap-1"><Icon icon='mdi:arrow-top-thick' className="text-green-500 text-lg sm:text-xl" /> Last Month</span>
+                        </span>
                     </div>
                 </div>
 
                 {/* Table */}
                 <div className="bg-white shadow rounded-xl overflow-x-auto">
-                    <table className="min-w-full divide-y divide-gray-200 text-sm">
+                    <table className="min-w-full divide-y divide-gray-200 text-xs sm:text-sm">
                         <thead className="bg-[#F1EEF9] text-gray-700">
                             <tr>
-                                <th className="px-6 py-3 text-left">Sr#</th>
-                                <th className="px-6 py-3 text-left">Life Coach</th>
-                                <th className="px-6 py-3 text-left">Title/Session</th>
+                                <th className="px-3 sm:px-6 py-2 sm:py-3 text-left">Sr#</th>
+                                <th className="px-3 sm:px-6 py-2 sm:py-3 text-left">Life Coach</th>
+                                <th className="px-3 sm:px-6 py-2 sm:py-3 text-left hidden sm:table-cell">Title/Session</th>
                                 {selectedFilter === "chat" ? (
-                                    <th className="px-6 py-3 text-left">Message Count with Chat Expenses</th>
+                                    <th className="px-3 sm:px-6 py-2 sm:py-3 text-left hidden md:table-cell">Message Count with Chat Expenses</th>
                                 ) : (
-                                    <th className="px-6 py-3 text-left">Duration with Expense</th>
+                                    <th className="px-3 sm:px-6 py-2 sm:py-3 text-left hidden md:table-cell">Duration with Expense</th>
                                 )}
-                                <th className="px-6 py-3 text-left">Cost</th>
+                                <th className="px-3 sm:px-6 py-2 sm:py-3 text-left">Cost</th>
                             </tr>
                         </thead>
                         <tbody className="bg-white divide-y divide-gray-100 text-[#27272A] ">
                             {dataToShow.map((item, idx) => (
                                 <tr key={item.id} className="hover:bg-gray-50 hover:shadow-[0_2px_8px_rgba(147,99,196,0.3)]">
-                                    <td className="px-6 py-4 ">{idx + 1}</td>
-                                    <td className="px-6 py-4 flex items-center gap-2"><img src={item.image} alt="User profile" className="h-9 w-9 rounded-full" />{item.coach}</td>
-                                    <td className="px-6 py-4">{item.title}</td>
-                                    <td className="px-6 py-4">
+                                    <td className="px-3 sm:px-6 py-2 sm:py-4 ">{idx + 1}</td>
+                                    <td className="px-3 sm:px-6 py-2 sm:py-4">
+                                        <div className="flex items-center gap-2">
+                                            <img src={item.image} alt="User profile" className="h-6 w-6 sm:h-9 sm:w-9 rounded-full" />
+                                            <div className="flex flex-col">
+                                                <span className="font-medium">{item.coach}</span>
+                                                <span className="text-xs text-gray-500 sm:hidden">{item.title}</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td className="px-3 sm:px-6 py-2 sm:py-4 hidden sm:table-cell">{item.title}</td>
+                                    <td className="px-3 sm:px-6 py-2 sm:py-4 hidden md:table-cell">
                                         {selectedFilter === "chat" ? `${item.count} messages` : `${item.duration} messages`}
                                     </td>
-                                    <td className="px-6 py-4 font-medium">{item.cost}</td>
+                                    <td className="px-3 sm:px-6 py-2 sm:py-4 font-medium">{item.cost}</td>
                                 </tr>
                             ))}
                         </tbody>
@@ -118,11 +133,11 @@ const Expenses = () => {
                 </div>
 
                 {/* Pagination */}
-                <div className="flex justify-between items-center mt-6">
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mt-6 gap-4 sm:gap-0">
                     <div className="flex items-center gap-2">
-                        <span className="text-sm text-gray-600">Rows per page:</span>
+                        <span className="text-xs sm:text-sm text-gray-600">Rows per page:</span>
                         <select
-                            className="text-sm border border-gray-300 rounded px-2 py-1"
+                            className="text-xs sm:text-sm border border-gray-300 rounded px-2 py-1"
                             value={rowsPerPage}
                             onChange={(e) => setRowsPerPage(parseInt(e.target.value))}
                         >
@@ -137,14 +152,14 @@ const Expenses = () => {
                             disabled={page === 1}
                             className="px-2 py-1 border border-gray-300 rounded disabled:opacity-50"
                         >
-                            <Icon icon="mdi:chevron-left" />
+                            <Icon icon="mdi:chevron-left" className="text-sm sm:text-base" />
                         </button>
-                        <span className="text-sm text-gray-600">Page {page}</span>
+                        <span className="text-xs sm:text-sm text-gray-600">Page {page}</span>
                         <button
                             onClick={() => setPage((prev) => prev + 1)}
                             className="px-2 py-1 border border-gray-300 rounded"
                         >
-                            <Icon icon="mdi:chevron-right" />
+                            <Icon icon="mdi:chevron-right" className="text-sm sm:text-base" />
                         </button>
                     </div>
                 </div>
