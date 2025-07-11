@@ -16,7 +16,7 @@ type Coach = {
 
 function Card({ coach }: { coach: Coach }) {
     return (
-        <div className="rounded-xl shadow p-4 sm:p-6 bg-[#F8F6FC] w-full max-w-[310px] flex flex-col">
+        <div className="rounded-xl  shadow p-4 sm:p-6 bg-[#F8F6FC] w-full max-w-[325px] flex flex-col">
             <div className="relative">
                 <img src={coach.image} alt={coach.name} className="w-16 sm:w-20 h-16 sm:h-20 rounded-full object-cover" />
                 <div className="absolute top-0 left-12 sm:left-14 bg-white px-1 py-0.5 flex items-center gap-1 rounded-full text-green-600 text-[10px] font-medium">
@@ -44,15 +44,18 @@ function Card({ coach }: { coach: Coach }) {
                 <p><span className="font-normal">Minute Balance:</span> <span className="font-semibold">{coach.minuteBalance}</span></p>
             </div>
 
-            <div className="mt-4 space-y-2 sm:space-y-0 sm:flex sm:justify-between sm:items-center w-full sm:gap-2">
-                <button className="w-full sm:flex-1 flex items-center justify-center gap-1 px-2 py-2 shadow-[inset_0_2px_2px_#ffffff] border-2 border-[#C8B8E8] bg-[#C8B8E8] text-black font-medium text-xs rounded-md hover:bg-purple-200 transition">
-                    <FaRegCalendarAlt /> Book a Call
+            <div className="mt-4 flex justify-between items-center w-full gap-2 ">
+                <button className="w-full flex-1 flex items-center justify-center gap-1.5 px-2 py-2 shadow-[inset_0_2px_2px_#ffffff] border-2 border-[#C8B8E8] bg-[#C8B8E8] text-black font-medium text-xs rounded-md hover:bg-purple-200 transition whitespace-nowrap">
+                    <FaRegCalendarAlt className="w-4 h-4 flex-shrink-0" />
+                    <span className="whitespace-nowrap">Book a Call</span>
                 </button>
-                <button className="w-full sm:flex-1 flex items-center justify-center gap-1 px-2 py-2 bg-white border border-[#BBA5E0] text-[#9363C4] text-xs font-medium rounded-md hover:bg-gray-200 transition">
-                    <FaPhoneAlt /> Call Now
+                <button className="w-full flex-1 flex items-center justify-center gap-1.5 px-2 py-2 bg-white border border-[#BBA5E0] text-[#9363C4] text-xs font-medium rounded-md hover:bg-gray-200 transition whitespace-nowrap">
+                    <FaPhoneAlt className="w-4 h-4 flex-shrink-0" />
+                    <span className="whitespace-nowrap">Call Now</span>
                 </button>
-                <button className="w-full sm:flex-1 flex items-center justify-center gap-1 px-2 py-2 bg-white border border-[#D4D4D8] text-[#454545] text-xs font-medium rounded-md hover:bg-gray-200 transition">
-                    <BsChatText className="text-[14px]" /> Chat
+                <button className="w-full flex-1 flex items-center justify-center gap-1.5 px-2 py-2 bg-white border border-[#D4D4D8] text-[#454545] text-xs font-medium rounded-md hover:bg-gray-200 transition whitespace-nowrap">
+                    <BsChatText className="w-4 h-4 flex-shrink-0" />
+                    <span className="whitespace-nowrap">Chat</span>
                 </button>
             </div>
         </div>
